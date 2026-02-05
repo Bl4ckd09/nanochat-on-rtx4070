@@ -345,7 +345,7 @@ class GPT(nn.Module):
             'total': total,
         }
 
-    def setup_optimizer(self, unembedding_lr=0.004, embedding_lr=0.2, matrix_lr=0.02, weight_decay=0.0, adam_betas=(0.8, 0.95), scalar_lr=0.5):
+    def setup_optimizer(self, unembedding_lr=0.004, embedding_lr=0.2, matrix_lr=0.02, weight_decay=0.0, adam_betas=(0.8, 0.95), scalar_lr=0.5, adamw_only=False):
         model_dim = self.config.n_embd
         ddp, rank, local_rank, world_size = get_dist_info()
 
@@ -371,12 +371,22 @@ class GPT(nn.Module):
             dict(kind='adamw', params=resid_params, lr=scalar_lr * 0.01, betas=adam_betas, eps=1e-10, weight_decay=0.0),
             dict(kind='adamw', params=x0_params, lr=scalar_lr, betas=(0.96, 0.95), eps=1e-10, weight_decay=0.0),  # higher beta1 for x0
         ]
-        # Muon groups (matrix params, grouped by shape for stacking)
-        for shape in sorted({p.shape for p in matrix_params}):
-            group_params = [p for p in matrix_params if p.shape == shape]
+        # Matrix params: Muon (default) or AdamW (for fine-tuning)
+        if not adamw_only:
+            # Muon groups (matrix params, grouped by shape for stacking)
+            for shape in sorted({p.shape for p in matrix_params}):
+                group_params = [p for p in matrix_params if p.shape == shape]
+                param_groups.append(dict(
+                    kind='muon', params=group_params, lr=matrix_lr,
+                    momentum=0.95, ns_steps=5, beta2=0.95, weight_decay=weight_decay,
+                ))
+        else:
+            # AdamW for all matrix params (better for fine-tuning)
+            print0(f"Using AdamW-only mode for fine-tuning (no Muon)")
             param_groups.append(dict(
-                kind='muon', params=group_params, lr=matrix_lr,
-                momentum=0.95, ns_steps=5, beta2=0.95, weight_decay=weight_decay,
+                kind='adamw', params=matrix_params,
+                lr=matrix_lr * dmodel_lr_scale,
+                betas=adam_betas, eps=1e-10, weight_decay=weight_decay
             ))
 
         Factory = DistMuonAdamW if ddp else MuonAdamW

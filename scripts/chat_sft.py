@@ -21,6 +21,7 @@ from nanochat.tokenizer import get_token_bytes
 from nanochat.checkpoint_manager import save_checkpoint
 from nanochat.loss_eval import evaluate_bpb
 from nanochat.checkpoint_manager import load_model
+from nanochat.lora import apply_lora_to_model, count_lora_params, count_total_params, get_lora_state_dict, merge_lora_weights
 import torch.distributed as dist
 
 from tasks.common import TaskMixture
@@ -53,6 +54,17 @@ parser.add_argument("--unembedding-lr", type=float, default=0.004, help="learnin
 parser.add_argument("--matrix-lr", type=float, default=0.02, help="learning rate for matrix parameters (Muon)")
 parser.add_argument("--weight-decay", type=float, default=0.0, help="weight decay for embedding/unembedding parameters (Adam)")
 parser.add_argument("--init-lr-frac", type=float, default=1.0, help="initial LR as fraction of base LR")
+parser.add_argument("--warmup-ratio", type=float, default=0.1, help="fraction of training for LR warmup (default 0.1)")
+parser.add_argument("--warmdown-ratio", type=float, default=0.2, help="fraction of training for LR decay (default 0.2)")
+parser.add_argument("--adamw-only", action="store_true", help="Use AdamW for all params instead of Muon+AdamW (recommended for SFT)")
+parser.add_argument("--freeze-layers", type=int, default=0,
+                    help="Freeze first N transformer layers (0 = no freezing)")
+# LoRA (Low-Rank Adaptation)
+parser.add_argument("--lora", action="store_true", help="Enable LoRA fine-tuning (freezes base model)")
+parser.add_argument("--lora-rank", type=int, default=8, help="LoRA rank (default 8)")
+parser.add_argument("--lora-alpha", type=float, default=16.0, help="LoRA alpha scaling (default 16)")
+parser.add_argument("--lora-dropout", type=float, default=0.0, help="LoRA dropout (default 0)")
+parser.add_argument("--lora-lr", type=float, default=1e-4, help="Learning rate for LoRA params (default 1e-4)")
 # Evaluation
 parser.add_argument("--eval-every", type=int, default=150, help="evaluate val bpb every N steps (-1 = disable)")
 parser.add_argument("--eval-tokens", type=int, default=20*524288, help="number of tokens to evaluate val loss on")
@@ -83,6 +95,33 @@ if pretrain_batch_size is not None and args.device_batch_size > pretrain_batch_s
 orig_model = model
 model = torch.compile(model, dynamic=False)
 depth = model.config.n_layer
+
+# Freeze early transformer layers if requested (not compatible with LoRA)
+if args.freeze_layers > 0 and not args.lora:
+    freeze_count = min(args.freeze_layers, depth - 1)  # Keep at least 1 layer trainable
+    for i in range(freeze_count):
+        for param in orig_model.transformer.h[i].parameters():
+            param.requires_grad = False
+    print0(f"Froze first {freeze_count} of {depth} transformer layers")
+
+# Apply LoRA if requested (freezes all base params, only trains LoRA adapters)
+lora_params = None
+if args.lora:
+    orig_model, lora_params, lora_count = apply_lora_to_model(
+        orig_model,
+        rank=args.lora_rank,
+        alpha=args.lora_alpha,
+        dropout=args.lora_dropout,
+        target_modules=['c_q', 'c_k', 'c_v', 'c_proj']  # attention layers only
+    )
+    total_params = count_total_params(orig_model)
+    trainable_params = count_lora_params(lora_params)
+    print0(f"LoRA enabled: rank={args.lora_rank}, alpha={args.lora_alpha}")
+    print0(f"Applied LoRA to {lora_count} layers")
+    print0(f"Trainable params: {trainable_params:,} / {total_params:,} ({100*trainable_params/total_params:.2f}%)")
+    # Re-compile the model after LoRA modification
+    model = torch.compile(orig_model, dynamic=False)
+
 num_flops_per_token = model.estimate_flops()
 tokens_per_fwdbwd = args.device_batch_size * args.max_seq_len # tokens per iteration for a single rank
 world_tokens_per_fwdbwd = tokens_per_fwdbwd * ddp_world_size # total tokens per iteration for all ranks
@@ -93,12 +132,21 @@ print0(f"Tokens / micro-batch: {world_tokens_per_fwdbwd:,}")
 print0(f"Total batch size {args.total_batch_size:,} => gradient accumulation steps: {grad_accum_steps}")
 token_bytes = get_token_bytes(device=device)
 
-# Initialize the Optimizer (combined MuonAdamW: Muon for matrix params, AdamW for rest)
-optimizer = model.setup_optimizer(unembedding_lr=args.unembedding_lr, embedding_lr=args.embedding_lr, matrix_lr=args.matrix_lr, weight_decay=args.weight_decay)
-# Override the initial learning rate as a fraction of the base learning rate
-for group in optimizer.param_groups:
-    group["lr"] = group["lr"] * args.init_lr_frac
-    group["initial_lr"] = group["lr"]
+# Initialize the Optimizer
+if args.lora:
+    # LoRA mode: simple AdamW for LoRA params only (all base params are frozen)
+    print0(f"Using AdamW optimizer for LoRA params with lr={args.lora_lr}")
+    optimizer = torch.optim.AdamW(lora_params, lr=args.lora_lr * args.init_lr_frac, weight_decay=args.weight_decay)
+    for group in optimizer.param_groups:
+        group["kind"] = "adamw"  # for compatibility with LR scheduler
+        group["initial_lr"] = group["lr"]
+else:
+    # Standard mode: Muon+AdamW or AdamW-only
+    optimizer = model.setup_optimizer(unembedding_lr=args.unembedding_lr, embedding_lr=args.embedding_lr, matrix_lr=args.matrix_lr, weight_decay=args.weight_decay, adamw_only=args.adamw_only)
+    # Override the initial learning rate as a fraction of the base learning rate
+    for group in optimizer.param_groups:
+        group["lr"] = group["lr"] * args.init_lr_frac
+        group["initial_lr"] = group["lr"]
 
 # SFT data mixture and DataLoader
 base_dir = get_base_dir()
@@ -236,10 +284,23 @@ train_loader = sft_data_generator_bos_bestfit("train")
 build_val_loader = lambda: sft_data_generator_bos_bestfit("val")
 progress = 0 # will go from 0 to 1 over the course of the epoch
 
-# Learning rate scheduler
-def get_lr_multiplier(progress):
-    # first 80% of training: no decay, then linearly ramp down to 0.
-    return 1 if progress < 0.8 else 1 - (progress - 0.8) / 0.2
+# Learning rate scheduler with warmup
+def get_lr_multiplier(progress, warmup_ratio, warmdown_ratio):
+    """
+    Three-phase LR schedule:
+    1. Warmup: linear ramp from 0 to 1 over [0, warmup_ratio]
+    2. Stable: hold at 1.0 over [warmup_ratio, 1 - warmdown_ratio]
+    3. Decay: linear ramp from 1 to 0 over [1 - warmdown_ratio, 1.0]
+    """
+    if progress < warmup_ratio:
+        # Linear warmup from 0 to 1
+        return progress / warmup_ratio if warmup_ratio > 0 else 1.0
+    elif progress < 1 - warmdown_ratio:
+        # Stable phase
+        return 1.0
+    else:
+        # Linear decay to 0 (clamped to prevent negative LR when progress > 1.0)
+        return max(0.0, (1 - progress) / warmdown_ratio) if warmdown_ratio > 0 else 1.0
 
 # Momentum scheduler for Muon optimizer
 def get_muon_momentum(it):
@@ -286,6 +347,10 @@ while True:
     if master_process and last_step and not args.dry_run:
         output_dirname = args.model_tag if args.model_tag else f"d{depth}" # e.g. d12
         checkpoint_dir = os.path.join(base_dir, "chatsft_checkpoints", output_dirname)
+        # Merge LoRA weights into base model before saving (for inference compatibility)
+        if args.lora:
+            print0("Merging LoRA weights into base model for checkpoint...")
+            orig_model = merge_lora_weights(orig_model)
         save_checkpoint(
             checkpoint_dir,
             step,
@@ -324,7 +389,7 @@ while True:
         x, y = next(train_loader) # prefetch the next batch while the GPU is busy with forward/backward
         progress = max(progress, approx_progress) # only increase progress monotonically
     # step the optimizer
-    lrm = get_lr_multiplier(progress)
+    lrm = get_lr_multiplier(progress, args.warmup_ratio, args.warmdown_ratio)
     muon_momentum = get_muon_momentum(step)
     for group in optimizer.param_groups:
         group["lr"] = group["initial_lr"] * lrm
