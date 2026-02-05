@@ -10,6 +10,7 @@ torchrun --standalone --nproc_per_node=8 -m scripts.chat_sft -- --device-batch-s
 """
 
 import argparse
+import copy
 import os
 os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
 import time
@@ -189,19 +190,20 @@ def sft_data_generator_bos_bestfit(split, buffer_size=100):
     row_capacity = args.max_seq_len + 1  # +1 for target at last position
     bos_token = tokenizer.get_bos_token_id()
 
-    # Conversation buffer: list of token lists
+    # Conversation buffer: list of (ids, mask) tuples
     conv_buffer = []
     cursor = ddp_rank  # Each rank processes different conversations (for fetching)
     consumed = ddp_rank  # Track actual consumption separately from buffering
     epoch = 1
-    it = 0  # iteration counter
 
     def refill_buffer():
         nonlocal cursor, epoch
         while len(conv_buffer) < buffer_size:
             conversation = dataset[cursor]
-            ids, _ = tokenizer.render_conversation(conversation)
-            conv_buffer.append(ids)
+            # Pass max_tokens=row_capacity to match our actual sequence length
+            # Keep the mask for assistant-only loss masking
+            ids, mask = tokenizer.render_conversation(conversation, max_tokens=row_capacity)
+            conv_buffer.append((ids, mask))  # Store (ids, mask) tuple
             cursor += ddp_world_size
             if cursor >= dataset_size:
                 cursor = cursor % dataset_size
@@ -209,74 +211,65 @@ def sft_data_generator_bos_bestfit(split, buffer_size=100):
                 # Note: last_step is now triggered based on consumption, not fetching
 
     while True:
-        rows = []
-        row_lengths = []  # Track actual content length (excluding padding) for each row
+        rows = []  # List of (row_ids, row_mask) tuples
         for _ in range(args.device_batch_size):
-            row = []
-            padded = False
-            while len(row) < row_capacity:
+            row_ids = []
+            row_mask = []
+            while len(row_ids) < row_capacity:
                 # Ensure buffer has conversations
                 while len(conv_buffer) < buffer_size:
                     refill_buffer()
 
-                remaining = row_capacity - len(row)
+                remaining = row_capacity - len(row_ids)
 
                 # Find largest conversation that fits entirely
+                # conv_buffer contains (ids, mask) tuples, so check len(conv[0])
                 best_idx = -1
                 best_len = 0
                 for i, conv in enumerate(conv_buffer):
-                    conv_len = len(conv)
+                    conv_len = len(conv[0])  # conv is (ids, mask), check len of ids
                     if conv_len <= remaining and conv_len > best_len:
                         best_idx = i
                         best_len = conv_len
 
                 if best_idx >= 0:
                     # Found a conversation that fits - use it entirely
-                    conv = conv_buffer.pop(best_idx)
-                    row.extend(conv)
+                    conv_ids, conv_mask = conv_buffer.pop(best_idx)
+                    row_ids.extend(conv_ids)
+                    row_mask.extend(conv_mask)
                     consumed += ddp_world_size  # Track actual consumption
                 else:
                     # No conversation fits - pad the remainder instead of cropping
                     # This ensures we never discard any tokens
-                    content_len = len(row)
-                    row.extend([bos_token] * remaining)  # Pad with BOS tokens
-                    padded = True
+                    # Padding tokens have mask=0 (not supervised)
+                    row_ids.extend([bos_token] * remaining)
+                    row_mask.extend([0] * remaining)
                     break  # Row is now full (with padding)
 
-            # Track content length: full row if no padding, otherwise the length before padding
-            if padded:
-                row_lengths.append(content_len)
-            else:
-                row_lengths.append(row_capacity)
-            rows.append(row[:row_capacity])
-
-        # Stopping condition to respect num_iterations, if given
-        it += 1
-        if 0 < args.num_iterations <= it and split == "train":
-            last_step = True
+            rows.append((row_ids[:row_capacity], row_mask[:row_capacity]))
 
         # Update progress tracking (based on consumed, not cursor, to account for buffering)
+        # Note: step-based stopping (num_iterations > 0) is handled in the training loop, not here
         if split == "train":
             current_epoch = epoch
-            if args.num_iterations > 0:
-                approx_progress = it / args.num_iterations
-            else:
+            if args.num_iterations <= 0:  # epoch mode only
                 approx_progress = consumed / dataset_size
-            # Trigger last_step when we've consumed enough (instead of when cursor wraps)
-            if consumed >= dataset_size:
-                last_step = True
+                # Trigger last_step when we've consumed enough (instead of when cursor wraps)
+                if consumed >= dataset_size:
+                    last_step = True
 
-        # Build tensors
+        # Build tensors from (row_ids, row_mask) tuples
         use_cuda = device_type == "cuda"
-        batch_tensor = torch.tensor(rows, dtype=torch.long, pin_memory=use_cuda)
-        inputs = batch_tensor[:, :-1].to(device=device, dtype=torch.int32, non_blocking=use_cuda)
-        targets = batch_tensor[:, 1:].to(device=device, dtype=torch.int64, non_blocking=use_cuda)
+        batch_ids = torch.tensor([r[0] for r in rows], dtype=torch.long, pin_memory=use_cuda)
+        batch_mask = torch.tensor([r[1] for r in rows], dtype=torch.long, pin_memory=use_cuda)
+        inputs = batch_ids[:, :-1].to(device=device, dtype=torch.int32, non_blocking=use_cuda)
+        targets = batch_ids[:, 1:].to(device=device, dtype=torch.int64, non_blocking=use_cuda)
 
-        # Mask out padding positions in targets (set to -1 = ignore_index)
-        # For each row, positions >= (content_length - 1) in targets should be masked
-        for i, content_len in enumerate(row_lengths):
-            if content_len < row_capacity:
-                targets[i, content_len-1:] = -1
+        # Apply assistant-only loss masking using shifted mask for next-token prediction
+        # mask=1 means supervised (assistant tokens), mask=0 means not supervised (user/padding)
+        # The shift by 1 aligns the mask with the targets (we predict token[i+1] from token[i])
+        shifted_mask = batch_mask[:, 1:].to(device=device, non_blocking=use_cuda)
+        targets[shifted_mask == 0] = -1  # cross-entropy ignores targets with value -1
 
         yield inputs, targets
 
@@ -335,6 +328,42 @@ while True:
         print0(f"Step {step:05d} | Validation bpb: {val_bpb:.4f}")
         if val_bpb < min_val_bpb:
             min_val_bpb = val_bpb
+            # Save best checkpoint (lightweight - no optimizer state)
+            if master_process and not args.dry_run:
+                output_dirname = args.model_tag if args.model_tag else f"d{depth}"
+                best_checkpoint_dir = os.path.join(base_dir, "chatsft_checkpoints", output_dirname, "best")
+                os.makedirs(best_checkpoint_dir, exist_ok=True)
+
+                if args.lora:
+                    # LoRA: merge into a COPY (don't break ongoing training)
+                    model_copy = copy.deepcopy(orig_model)
+                    model_copy = merge_lora_weights(model_copy)
+                    best_state_dict = model_copy.state_dict()
+                    del model_copy  # free memory
+                else:
+                    best_state_dict = orig_model.state_dict()
+
+                save_checkpoint(
+                    best_checkpoint_dir,
+                    step,
+                    best_state_dict,
+                    None,  # No optimizer state (saves disk space)
+                    {
+                        "step": step,
+                        "val_bpb": val_bpb,
+                        "model_config": {
+                            "sequence_len": args.max_seq_len,
+                            "vocab_size": tokenizer.get_vocab_size(),
+                            "n_layer": depth,
+                            "n_head": model.config.n_head,
+                            "n_kv_head": model.config.n_kv_head,
+                            "n_embd": model.config.n_embd,
+                            "window_pattern": model.config.window_pattern,
+                        },
+                        "user_config": user_config,
+                    }
+                )
+                print0(f"Saved best checkpoint at step {step} (val_bpb={val_bpb:.4f})")
         wandb_run.log({
             "step": step,
             "total_training_flops": flops_so_far,
@@ -347,8 +376,16 @@ while True:
     if master_process and last_step and not args.dry_run:
         output_dirname = args.model_tag if args.model_tag else f"d{depth}" # e.g. d12
         checkpoint_dir = os.path.join(base_dir, "chatsft_checkpoints", output_dirname)
-        # Merge LoRA weights into base model before saving (for inference compatibility)
+        os.makedirs(checkpoint_dir, exist_ok=True)  # ensure dir exists FIRST
+
         if args.lora:
+            # Save adapter-only weights FIRST (before merge removes LoRALinear modules)
+            # These are much smaller (~4MB vs ~2GB) and useful for loading on different base models
+            adapter_path = os.path.join(checkpoint_dir, f"lora_adapter_{step:06d}.pt")
+            torch.save(get_lora_state_dict(orig_model), adapter_path)
+            print0(f"Saved LoRA adapter weights to {adapter_path}")
+
+            # Then merge for full model checkpoint (for inference compatibility)
             print0("Merging LoRA weights into base model for checkpoint...")
             orig_model = merge_lora_weights(orig_model)
         save_checkpoint(
@@ -387,7 +424,11 @@ while True:
         loss = loss / grad_accum_steps # each .backward() is a grad sum => normalize loss here
         loss.backward()
         x, y = next(train_loader) # prefetch the next batch while the GPU is busy with forward/backward
-        progress = max(progress, approx_progress) # only increase progress monotonically
+        if args.num_iterations <= 0:  # epoch mode only
+            progress = max(progress, approx_progress) # only increase progress monotonically
+    # For step-based mode, calculate progress based on actual optimizer steps
+    if args.num_iterations > 0:
+        progress = min(1.0, (step + 1) / args.num_iterations)  # +1 to avoid LR=0 on step 0
     # step the optimizer
     lrm = get_lr_multiplier(progress, args.warmup_ratio, args.warmdown_ratio)
     muon_momentum = get_muon_momentum(step)
@@ -404,6 +445,10 @@ while True:
 
     # State
     step += 1
+
+    # Step-based stopping condition (after step increment so we complete num_iterations steps)
+    if args.num_iterations > 0 and step >= args.num_iterations:
+        last_step = True
 
     # logging
     smooth_train_loss = ema_beta * smooth_train_loss + (1 - ema_beta) * train_loss.item() # EMA the training loss
