@@ -49,6 +49,15 @@ def use_calculator(expr):
     Evaluate a Python expression safely.
     Supports both math expressions and string operations like .count()
     """
+    # Normalize common "near-miss" generations from the model.
+    expr = expr.strip()
+    # Models sometimes generate multi-line tool calls; keep only the first line.
+    if "\n" in expr:
+        expr = expr.splitlines()[0].strip()
+    # Models sometimes include "=<result>" (e.g. "12/60=0.2"); keep only the expression part.
+    # Don't do this for string expressions with quotes.
+    if "=" in expr and ("'" not in expr) and ('"' not in expr):
+        expr = expr.split("=", 1)[0].strip()
     # Remove commas from numbers
     expr = expr.replace(",", "")
 

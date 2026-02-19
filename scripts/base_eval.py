@@ -106,7 +106,7 @@ def place_eval_bundle(file_path):
     print0(f"Placed eval_bundle directory at {eval_bundle_dir}")
 
 
-def evaluate_core(model, tokenizer, device, max_per_task=-1):
+def evaluate_core(model, tokenizer, device, max_per_task=-1, max_seq_len=None, overflow_policy='error'):
     """
     Evaluate a base model on the CORE benchmark.
     Returns dict with results, centered_results, and core_metric.
@@ -158,13 +158,19 @@ def evaluate_core(model, tokenizer, device, max_per_task=-1):
         if max_per_task > 0:
             data = data[:max_per_task]
 
-        accuracy = evaluate_task(model, tokenizer, data, device, task_meta)
+        accuracy, evaluated_count, skipped_count = evaluate_task(
+            model, tokenizer, data, device, task_meta,
+            max_seq_len=max_seq_len, overflow_policy=overflow_policy
+        )
         results[label] = accuracy
         random_baseline = random_baselines[label]
         centered_result = (accuracy - 0.01 * random_baseline) / (1.0 - 0.01 * random_baseline)
         centered_results[label] = centered_result
         elapsed = time.time() - start_time
-        print0(f"accuracy: {accuracy:.4f} | centered: {centered_result:.4f} | time: {elapsed:.2f}s")
+        print0(
+            f"accuracy: {accuracy:.4f} | centered: {centered_result:.4f} | "
+            f"evaluated: {evaluated_count} | skipped: {skipped_count} | time: {elapsed:.2f}s"
+        )
 
     core_metric = sum(centered_results.values()) / len(centered_results)
     out = {
@@ -184,6 +190,8 @@ def main():
     parser.add_argument('--model-tag', type=str, default=None, help='nanochat model tag to identify the checkpoint directory')
     parser.add_argument('--step', type=int, default=None, help='Model step to load (default = last)')
     parser.add_argument('--max-per-task', type=int, default=-1, help='Max examples per CORE task (-1 = all)')
+    parser.add_argument('--core-max-seq-len', type=int, default=-1, help='Max token length for CORE prompts (-1 = no explicit cap)')
+    parser.add_argument('--core-overflow-policy', type=str, default='error', choices=['error', 'truncate', 'skip'], help='Behavior when CORE prompt exceeds max length')
     parser.add_argument('--device-batch-size', type=int, default=32, help='Per-device batch size for BPB evaluation')
     parser.add_argument('--split-tokens', type=int, default=40*524288, help='Number of tokens to evaluate per split for BPB')
     parser.add_argument('--device-type', type=str, default='', help='cuda|cpu|mps (empty = autodetect)')
@@ -287,8 +295,14 @@ def main():
         print0("\n" + "="*80)
         print0("CORE Evaluation")
         print0("="*80)
+        core_max_seq_len = args.core_max_seq_len if args.core_max_seq_len > 0 else None
         with autocast_ctx:
-            core_results = evaluate_core(model, tokenizer, device, max_per_task=args.max_per_task)
+            core_results = evaluate_core(
+                model, tokenizer, device,
+                max_per_task=args.max_per_task,
+                max_seq_len=core_max_seq_len,
+                overflow_policy=args.core_overflow_policy,
+            )
 
         # Write CSV output
         if ddp_rank == 0:

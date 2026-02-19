@@ -18,6 +18,7 @@ from dataclasses import dataclass
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils.checkpoint import checkpoint as torch_checkpoint
 
 from nanochat.common import get_dist_info, print0
 from nanochat.optim import MuonAdamW, DistMuonAdamW
@@ -55,6 +56,47 @@ def apply_rotary_emb(x, cos, sin):
     y1 = x1 * cos + x2 * sin # rotate pairs of dims
     y2 = x1 * (-sin) + x2 * cos
     return torch.cat([y1, y2], 3)
+
+def chunked_cross_entropy(hidden, weight, targets, softcap, vocab_size, chunk_size=1024, ignore_index=-1, reduction='mean'):
+    """
+    Compute cross-entropy loss in chunks to avoid materializing the full logits tensor.
+    hidden: (N, D) flat hidden states
+    weight: (padded_vocab, D) lm_head weight matrix
+    targets: (N,) target token ids
+    reduction: 'mean' returns scalar, 'none' returns (N,) per-token losses
+    """
+    N = hidden.size(0)
+
+    if reduction == 'none':
+        # Per-token losses: compute each chunk and concatenate
+        losses = []
+        for start in range(0, N, chunk_size):
+            end = min(start + chunk_size, N)
+            chunk_logits = F.linear(hidden[start:end], weight)
+            chunk_logits = chunk_logits[:, :vocab_size]
+            chunk_logits = chunk_logits.float()
+            chunk_logits = softcap * torch.tanh(chunk_logits / softcap)
+            chunk_loss = F.cross_entropy(chunk_logits, targets[start:end], ignore_index=ignore_index, reduction='none')
+            losses.append(chunk_loss)
+        return torch.cat(losses)
+
+    # Mean reduction: accumulate sum, then divide by valid token count
+    total_loss = torch.zeros(1, device=hidden.device, dtype=torch.float32)
+    valid_tokens = (targets != ignore_index).sum()
+    if valid_tokens == 0:
+        return total_loss.squeeze()
+
+    for start in range(0, N, chunk_size):
+        end = min(start + chunk_size, N)
+        chunk_logits = F.linear(hidden[start:end], weight)
+        chunk_logits = chunk_logits[:, :vocab_size]
+        chunk_logits = chunk_logits.float()
+        chunk_logits = softcap * torch.tanh(chunk_logits / softcap)
+        chunk_loss = F.cross_entropy(chunk_logits, targets[start:end], ignore_index=ignore_index, reduction='sum')
+        total_loss = total_loss + chunk_loss
+
+    return total_loss.squeeze() / valid_tokens
+
 
 class CausalSelfAttention(nn.Module):
     def __init__(self, config, layer_idx):
@@ -152,6 +194,7 @@ class GPT(nn.Module):
         """
         super().__init__()
         self.config = config
+        self.gradient_checkpointing = False
         # Compute per-layer window sizes for sliding window attention
         # window_size is (left, right) tuple: (-1, 0) for full context, (N, 0) for sliding window
         self.window_sizes = self._compute_window_sizes(config)
@@ -271,8 +314,12 @@ class GPT(nn.Module):
         pattern = config.window_pattern.upper()
         assert all(c in "SL" for c in pattern), f"Invalid window_pattern: {pattern}. Use only S and L."
         # Map characters to window sizes
-        long_window = config.sequence_len
-        short_window = long_window // 2
+        # NOTE:
+        # - "L" must mean full context, regardless of the actual runtime sequence length.
+        #   Use -1 to represent unlimited context (matches FA3 + our SDPA fallback fast path).
+        # - "S" is a sliding window and is defined relative to the configured training length.
+        long_window = -1
+        short_window = config.sequence_len // 2
         char_to_window = {
             "L": (long_window, 0),
             "S": (short_window, 0),
@@ -413,23 +460,34 @@ class GPT(nn.Module):
         for i, block in enumerate(self.transformer.h):
             x = self.resid_lambdas[i] * x + self.x0_lambdas[i] * x0
             ve = self.value_embeds[str(i)](idx) if str(i) in self.value_embeds else None
-            x = block(x, ve, cos_sin, self.window_sizes[i], kv_cache)
+            if self.gradient_checkpointing and self.training:
+                x = torch_checkpoint(
+                    block, x, ve, cos_sin, self.window_sizes[i], None,
+                    use_reentrant=False,
+                )
+            else:
+                x = block(x, ve, cos_sin, self.window_sizes[i], kv_cache)
         x = norm(x)
 
-        # Forward the lm_head (compute logits)
-        softcap = 15 # smoothly cap the logits to the range [-softcap, softcap]
-        logits = self.lm_head(x) # (B, T, padded_vocab_size) <- very big tensor, large amount of memory
-        logits = logits[..., :self.config.vocab_size] # slice to remove padding
-        logits = logits.float() # switch to fp32 for logit softcap and loss computation
-        logits = softcap * torch.tanh(logits / softcap) # squash the logits
-
         if targets is not None:
-            # training: given the targets, compute and return the loss
-            # TODO experiment with chunked cross-entropy?
-            loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), ignore_index=-1, reduction=loss_reduction)
+            # Use chunked cross-entropy to avoid materializing full logits tensor
+            x_flat = x.view(-1, x.size(-1))
+            targets_flat = targets.view(-1)
+            loss = chunked_cross_entropy(
+                x_flat, self.lm_head.weight, targets_flat,
+                softcap=15, vocab_size=self.config.vocab_size,
+                chunk_size=1024, ignore_index=-1, reduction=loss_reduction,
+            )
+            if loss_reduction == 'none':
+                loss = loss.view(B, T)  # reshape back to (B, T) for callers expecting 2D
             return loss
         else:
-            # inference: just return the logits directly
+            # Inference: compute full logits
+            softcap = 15
+            logits = self.lm_head(x)
+            logits = logits[..., :self.config.vocab_size]
+            logits = logits.float()
+            logits = softcap * torch.tanh(logits / softcap)
             return logits
 
     @torch.inference_mode()

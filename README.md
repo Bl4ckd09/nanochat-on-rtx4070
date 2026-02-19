@@ -12,6 +12,26 @@ For questions about the repo, I recommend either using [DeepWiki](https://deepwi
 - (Jan 31 2026) Major revamp of all scripts/README ongoing, deleting midtraining stage, might be a bit messy briefly...
 - (Jan 30 2026) With all the latest improvements we're able to train GPT-2 grade LLM in about $73. The [runs/speedrun.sh](runs/speedrun.sh) script will become the refernece way to train GPT-2 grade model and talk to it.
 
+## Local RTX 4070 Snapshot (this workspace)
+
+For the full local experiment timeline and logs, see `~/nanochat-learn/report.md`.
+
+Recent completed runs in this workspace:
+
+| Stage | Checkpoint | Key Result |
+|---|---|---|
+| Base eval (clean-safe run) | `d18_clean200k_safe_2026-02-13_1226`, step `200000` | `train bpb=0.847593`, `val bpb=0.903612`, `CORE=0.1255` |
+| CORE fallback policy | same base checkpoint | Completed with `--core-overflow-policy skip --core-max-seq-len 5120` for long prompts |
+| Champion selection (objective=`mmlu`) | `d18_clean200k_lora_prod_2026-02-17_1209_s1024/best`, step `1000` | Selected via no-test-peek mapping |
+| 1k confirmation (champion) | same champion | GSM8K pass@8 `0.80%` (8/1000), MMLU `26.20%` (262/1000), SpellingBee `3.52%` (9/256) |
+| 1k confirmation (baseline) | `d18_20k/best`, step `500` | GSM8K pass@8 `1.40%`, MMLU `23.40%`, SpellingBee `27.73%` |
+| Additional final evals (champion) | same champion | ARC-Easy `23.40%`, ARC-Challenge `25.80%`, HumanEval `0.00%` |
+
+Latest key logs:
+- `~/nanochat-learn/notes/d18_clean200k_safe_2026-02-13_1226_s200000_base_eval_skip5120_2026-02-18_1701.log`
+- `~/nanochat-learn/notes/post_base_next_steps_2026-02-18_1741.log`
+- `~/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_confirm_summary_1000_2026-02-19_0258.txt`
+
 ## Leaderboard
 
 | # | time | val_bpb | CORE | Description | Date | Commit | Contributors |

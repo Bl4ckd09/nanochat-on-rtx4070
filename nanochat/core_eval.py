@@ -165,7 +165,7 @@ def forward_model(model, input_ids):
 
 
 @torch.no_grad()
-def evaluate_example(idx, model, tokenizer, data, device, task_meta):
+def evaluate_example(idx, model, tokenizer, data, device, task_meta, max_seq_len=None, overflow_policy='error'):
     """Evaluate a single example, return True if correct, False otherwise"""
     item = data[idx]
     task_type = task_meta['task_type']
@@ -193,24 +193,39 @@ def evaluate_example(idx, model, tokenizer, data, device, task_meta):
     else:
         raise ValueError(f"Unsupported task type: {task_type}")
 
-    # Some models can't forward sequences beyond a certain length (e.g. GPT-2)
-    # In these cases, we have to truncate sequences to max length and adjust the indices
+    inferred_max_seq_len = None
     if hasattr(model, 'max_seq_len') and model.max_seq_len is not None:
-        max_tokens = model.max_seq_len
-        new_tokens, new_start_idxs, new_end_idxs = [], [], []
-        for t, s, e in zip(tokens, start_idxs, end_idxs):
-            if len(t) > max_tokens:
-                num_to_crop = len(t) - max_tokens
-                new_tokens.append(t[-max_tokens:]) # take the last max_tokens tokens
-                new_start_idxs.append(s - num_to_crop) # shift the indices down
-                new_end_idxs.append(e - num_to_crop)
-                assert s - num_to_crop >= 0, "this should never happen right?"
-                assert e - num_to_crop >= 0, "this should never happen right?"
+        inferred_max_seq_len = model.max_seq_len
+    elif hasattr(model, 'cos'):
+        inferred_max_seq_len = model.cos.size(1)
+    effective_max_seq_len = max_seq_len if max_seq_len is not None else inferred_max_seq_len
+
+    if effective_max_seq_len is not None:
+        longest_sequence = max(len(t) for t in tokens)
+        if longest_sequence > effective_max_seq_len:
+            if overflow_policy == 'skip':
+                return None
+            if overflow_policy == 'truncate':
+                new_tokens, new_start_idxs, new_end_idxs = [], [], []
+                for t, s, e in zip(tokens, start_idxs, end_idxs):
+                    if len(t) > effective_max_seq_len:
+                        num_to_crop = len(t) - effective_max_seq_len
+                        shifted_s = s - num_to_crop
+                        shifted_e = e - num_to_crop
+                        if shifted_s < 0 or shifted_e <= 0:
+                            return None
+                        new_tokens.append(t[-effective_max_seq_len:])
+                        new_start_idxs.append(shifted_s)
+                        new_end_idxs.append(shifted_e)
+                    else:
+                        new_tokens.append(t)
+                        new_start_idxs.append(s)
+                        new_end_idxs.append(e)
+                tokens, start_idxs, end_idxs = new_tokens, new_start_idxs, new_end_idxs
             else:
-                new_tokens.append(t) # keep unchanged
-                new_start_idxs.append(s)
-                new_end_idxs.append(e)
-        tokens, start_idxs, end_idxs = new_tokens, new_start_idxs, new_end_idxs
+                raise ValueError(
+                    f"CORE example exceeds max sequence length ({longest_sequence} > {effective_max_seq_len})"
+                )
 
     # Stack up all the sequences into a batch
     pad_token_id = tokenizer.get_bos_token_id() # use BOS as pad token is ok
@@ -241,22 +256,35 @@ def evaluate_example(idx, model, tokenizer, data, device, task_meta):
     return is_correct
 
 
-def evaluate_task(model, tokenizer, data, device, task_meta):
+def evaluate_task(model, tokenizer, data, device, task_meta, max_seq_len=None, overflow_policy='error'):
     """
     This function is responsible for evaluating one task across many examples.
     It also handles dispatch to all processes if the script is run with torchrun.
     """
     rank = dist.get_rank() if dist.is_initialized() else 0
     world_size = dist.get_world_size() if dist.is_initialized() else 1
-    correct = torch.zeros(len(data), dtype=torch.float32, device=device)
-    # stride the examples to each rank
+    correct = torch.tensor(0.0, dtype=torch.float32, device=device)
+    evaluated = torch.tensor(0, dtype=torch.int64, device=device)
+    skipped = torch.tensor(0, dtype=torch.int64, device=device)
+
     for idx in range(rank, len(data), world_size):
-        is_correct = evaluate_example(idx, model, tokenizer, data, device, task_meta)
-        correct[idx] = float(is_correct)
-    # sync results across all the processes if running distributed
+        is_correct = evaluate_example(
+            idx, model, tokenizer, data, device, task_meta,
+            max_seq_len=max_seq_len, overflow_policy=overflow_policy
+        )
+        if is_correct is None:
+            skipped += 1
+            continue
+        correct += float(is_correct)
+        evaluated += 1
+
     if world_size > 1:
         dist.barrier()
         dist.all_reduce(correct, op=dist.ReduceOp.SUM)
-    # compute the mean
-    mean_correct = correct.mean().item()
-    return mean_correct
+        dist.all_reduce(evaluated, op=dist.ReduceOp.SUM)
+        dist.all_reduce(skipped, op=dist.ReduceOp.SUM)
+
+    evaluated_count = int(evaluated.item())
+    skipped_count = int(skipped.item())
+    accuracy = float('nan') if evaluated_count == 0 else (correct.item() / evaluated_count)
+    return accuracy, evaluated_count, skipped_count

@@ -11,6 +11,7 @@ torchrun --standalone --nproc_per_node=8 -m scripts.chat_sft -- --device-batch-s
 
 import argparse
 import copy
+import gc
 import os
 os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
 import time
@@ -43,6 +44,8 @@ parser.add_argument("--dtype", type=str, default="bfloat16", help="float32|bfloa
 # Model loading
 parser.add_argument("--model-tag", type=str, default=None, help="model tag to load from")
 parser.add_argument("--model-step", type=int, default=None, help="model step to load from")
+# Output model tag (checkpoint directory name)
+parser.add_argument("--output-tag", type=str, default=None, help="model tag to save checkpoints under (default: same as --model-tag or d{depth})")
 # Training horizon
 parser.add_argument("--num-iterations", type=int, default=-1, help="number of optimization steps (-1 = full epoch)")
 # Batch sizes
@@ -71,7 +74,14 @@ parser.add_argument("--eval-every", type=int, default=150, help="evaluate val bp
 parser.add_argument("--eval-tokens", type=int, default=20*524288, help="number of tokens to evaluate val loss on")
 # Output
 parser.add_argument("--dry-run", action="store_true", help="log to wandb but skip checkpoints/report")
+# Checkpoint management
+parser.add_argument("--keep-best-k", type=int, default=1, help="Keep only the K most recent best checkpoints (min 1)")
+parser.add_argument("--no-save-optimizer", action="store_true", help="Skip saving optimizer state in final checkpoint")
+# Gradient clipping
+parser.add_argument("--max-grad-norm", type=float, default=0.0, help="Max gradient norm for clipping (0 = disable)")
+parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
 args = parser.parse_args()
+assert args.keep_best_k >= 1, f"--keep-best-k must be >= 1, got {args.keep_best_k}"
 user_config = vars(args).copy()
 # -----------------------------------------------------------------------------
 
@@ -84,6 +94,15 @@ autocast_ctx = torch.amp.autocast(device_type=device_type, dtype=ptdtype) if dev
 synchronize = torch.cuda.synchronize if device_type == "cuda" else lambda: None
 get_max_memory = torch.cuda.max_memory_allocated if device_type == "cuda" else lambda: 0
 
+def maybe_compile(model_module):
+    if args.lora:
+        print0("Skipping torch.compile in LoRA mode for stability")
+        return model_module
+    if os.environ.get("TORCH_COMPILE_DISABLE", "0") == "1":
+        print0("TORCH_COMPILE_DISABLE=1, skipping torch.compile")
+        return model_module
+    return torch.compile(model_module, dynamic=False)
+
 # wandb logging init
 use_dummy_wandb = args.run == "dummy" or not master_process
 wandb_run = DummyWandb() if use_dummy_wandb else wandb.init(project="nanochat-sft", name=args.run, config=user_config)
@@ -94,8 +113,12 @@ pretrain_batch_size = meta.get("device_batch_size", None)
 if pretrain_batch_size is not None and args.device_batch_size > pretrain_batch_size:
     print0(f"FOOTGUN WARNING: base model training used device_batch_size {pretrain_batch_size}, did you pass in a good --device-batch-size to this script?")
 orig_model = model
-model = torch.compile(model, dynamic=False)
+if args.gradient_checkpoint:
+    orig_model.gradient_checkpointing = True
+    print0("Gradient checkpointing enabled (activation recomputation in backward)")
+model = maybe_compile(model)
 depth = model.config.n_layer
+output_dirname = args.output_tag if args.output_tag else (args.model_tag if args.model_tag else f"d{depth}") # e.g. d12
 
 # Freeze early transformer layers if requested (not compatible with LoRA)
 if args.freeze_layers > 0 and not args.lora:
@@ -120,8 +143,7 @@ if args.lora:
     print0(f"LoRA enabled: rank={args.lora_rank}, alpha={args.lora_alpha}")
     print0(f"Applied LoRA to {lora_count} layers")
     print0(f"Trainable params: {trainable_params:,} / {total_params:,} ({100*trainable_params/total_params:.2f}%)")
-    # Re-compile the model after LoRA modification
-    model = torch.compile(orig_model, dynamic=False)
+    model = maybe_compile(orig_model)
 
 num_flops_per_token = model.estimate_flops()
 tokens_per_fwdbwd = args.device_batch_size * args.max_seq_len # tokens per iteration for a single rank
@@ -156,12 +178,16 @@ train_dataset = TaskMixture([
     SmolTalk(split="train"), # 460K rows of general conversations
     MMLU(subset="auxiliary_train", split="train"), # 100K rows of multiple choice problems drawn from ARC, MC_TEST, OBQA, RACE
     GSM8K(subset="main", split="train"), # 8K rows teaching simple math and (calculator) tool use
-    GSM8K(subset="main", split="train"), # 2 epochs of GSM8K
+    GSM8K(subset="main", split="train"), # 2x GSM8K
+    GSM8K(subset="main", split="train"), # 3x GSM8K
+    GSM8K(subset="main", split="train"), # 4x GSM8K
+    GSM8K(subset="main", split="train"), # 5x GSM8K
+    GSM8K(subset="main", split="train"), # 6x GSM8K
     CustomJSON(filepath=identity_conversations_filepath), # 1000 rows of synthetic identity conversations
     CustomJSON(filepath=identity_conversations_filepath), # let's do 2 epochs of these
     SimpleSpelling(size=200000, split="train"), # 200K rows of Simple Spelling (e.g. spell the word 'apple')
     SpellingBee(size=80000, split="train"), # 80K rows of Spelling Bee (e.g. how many 'r' are in 'strawberry'?)
-]) # total: 460K + 100K + 16K + 200K + 80K = 856K rows
+]) # total: 460K + 100K + 48K + 2K + 200K + 80K = 890K rows
 val_dataset = TaskMixture([
     SmolTalk(split="test"), # 24K rows in test set
     MMLU(subset="all", split="test", stop=5200), # 14K rows in test set, use only 5.2K to match the train ratios
@@ -326,11 +352,12 @@ while True:
         with autocast_ctx:
             val_bpb = evaluate_bpb(model, val_loader, eval_steps, token_bytes)
         print0(f"Step {step:05d} | Validation bpb: {val_bpb:.4f}")
-        if val_bpb < min_val_bpb:
+        # Don't treat the initial (step=0) evaluation as a "best" SFT checkpoint.
+        # It's just the base model and can confuse downstream evals if it stays in best/.
+        if step > 0 and val_bpb < min_val_bpb:
             min_val_bpb = val_bpb
             # Save best checkpoint (lightweight - no optimizer state)
             if master_process and not args.dry_run:
-                output_dirname = args.model_tag if args.model_tag else f"d{depth}"
                 best_checkpoint_dir = os.path.join(base_dir, "chatsft_checkpoints", output_dirname, "best")
                 os.makedirs(best_checkpoint_dir, exist_ok=True)
 
@@ -340,6 +367,9 @@ while True:
                     model_copy = merge_lora_weights(model_copy)
                     best_state_dict = model_copy.state_dict()
                     del model_copy  # free memory
+                    gc.collect()
+                    if device_type == "cuda":
+                        torch.cuda.empty_cache()
                 else:
                     best_state_dict = orig_model.state_dict()
 
@@ -364,17 +394,30 @@ while True:
                     }
                 )
                 print0(f"Saved best checkpoint at step {step} (val_bpb={val_bpb:.4f})")
+                # Rotate old best checkpoints, keep only --keep-best-k
+                import glob
+                best_models = glob.glob(os.path.join(best_checkpoint_dir, "model_*.pt"))
+                best_models.sort(key=os.path.getmtime)
+                if len(best_models) > args.keep_best_k:
+                    for old_file in best_models[:-args.keep_best_k]:
+                        old_step_str = old_file.split("_")[-1].split(".")[0]
+                        os.remove(old_file)
+                        meta_file = old_file.replace("model_", "meta_").replace(".pt", ".json")
+                        if os.path.exists(meta_file):
+                            os.remove(meta_file)
+                        print0(f"Rotated old best checkpoint: step {old_step_str}")
         wandb_run.log({
             "step": step,
             "total_training_flops": flops_so_far,
             "total_training_time": total_training_time,
             "val/bpb": val_bpb,
         })
+        if args.lora and device_type == "cuda":
+            torch.cuda.empty_cache()
         model.train()
 
     # save checkpoint at the end of the run (only on master process)
     if master_process and last_step and not args.dry_run:
-        output_dirname = args.model_tag if args.model_tag else f"d{depth}" # e.g. d12
         checkpoint_dir = os.path.join(base_dir, "chatsft_checkpoints", output_dirname)
         os.makedirs(checkpoint_dir, exist_ok=True)  # ensure dir exists FIRST
 
@@ -392,7 +435,7 @@ while True:
             checkpoint_dir,
             step,
             orig_model.state_dict(),
-            optimizer.state_dict(),
+            None if args.no_save_optimizer else optimizer.state_dict(),
             {
                 "step": step,
                 "val_bpb": val_bpb, # loss at last step
@@ -417,12 +460,24 @@ while True:
     # evaluate the gradient
     synchronize()
     t0 = time.time()
+    did_backward = False
     for micro_step in range(grad_accum_steps):
+        if (y != -1).sum() == 0:
+            x, y = next(train_loader)
+            if args.num_iterations <= 0:  # epoch mode only
+                progress = max(progress, approx_progress) # only increase progress monotonically
+            continue
         with autocast_ctx:
             loss = model(x, y)
         train_loss = loss.detach() # for logging
+        if not loss.requires_grad:
+            x, y = next(train_loader)
+            if args.num_iterations <= 0:  # epoch mode only
+                progress = max(progress, approx_progress) # only increase progress monotonically
+            continue
         loss = loss / grad_accum_steps # each .backward() is a grad sum => normalize loss here
         loss.backward()
+        did_backward = True
         x, y = next(train_loader) # prefetch the next batch while the GPU is busy with forward/backward
         if args.num_iterations <= 0:  # epoch mode only
             progress = max(progress, approx_progress) # only increase progress monotonically
@@ -436,7 +491,13 @@ while True:
         group["lr"] = group["initial_lr"] * lrm
         if group['kind'] == 'muon':
             group["momentum"] = muon_momentum
-    optimizer.step()
+    if did_backward:
+        # gradient clipping (on orig_model, not the compiled wrapper)
+        if args.max_grad_norm > 0:
+            torch.nn.utils.clip_grad_norm_(orig_model.parameters(), args.max_grad_norm)
+        optimizer.step()
+    else:
+        print0(f"Warning: step {step + 1} had no valid targets; skipping optimizer.step()")
     model.zero_grad(set_to_none=True)
     synchronize()
     t1 = time.time()
