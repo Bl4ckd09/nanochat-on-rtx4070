@@ -39,6 +39,7 @@ Local code added/changed vs upstream:
   - `--core-max-seq-len`, `--core-overflow-policy={error,truncate,skip}`
   - evaluated/skipped counters for transparent reporting
 - Updated `nanochat/engine.py` calculator normalization for noisy tool-call generations
+- Added fork-only experiment automation scripts under `tools/automation/` (watchers, retries, eval packs, post-run pipelines); see `tools/automation/README.md`
 
 ## Local Experiment Results (RTX 4070, 12GB)
 
