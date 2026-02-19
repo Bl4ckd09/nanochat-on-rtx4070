@@ -12,25 +12,71 @@ For questions about the repo, I recommend either using [DeepWiki](https://deepwi
 - (Jan 31 2026) Major revamp of all scripts/README ongoing, deleting midtraining stage, might be a bit messy briefly...
 - (Jan 30 2026) With all the latest improvements we're able to train GPT-2 grade LLM in about $73. The [runs/speedrun.sh](runs/speedrun.sh) script will become the refernece way to train GPT-2 grade model and talk to it.
 
-## Local RTX 4070 Snapshot (this workspace)
+## Fork Status (Upstream vs Local Work)
 
-For the full local experiment timeline and logs, see `~/nanochat-learn/report.md`.
+This repository is a fork-based working copy:
+- Upstream source: `karpathy/nanochat` (`upstream` remote)
+- Fork remote: `Bl4ckd09/nanochat-experiments` (`origin` remote)
+- Fork point: `542beb0c8c175af2d52ec7065345dcd8f0162368` (upstream `master`)
+- Current fork head: `9f761dc4b05829c0ff6c0c85cd07a43357abb2a3`
 
-Recent completed runs in this workspace:
+Remote file scan (`origin/master`):
+- 57 tracked files total
+- Core project directories: `nanochat/` (17), `scripts/` (9), `tasks/` (8), `runs/` (4), `tests/` (2), `dev/` (9)
 
-| Stage | Checkpoint | Key Result |
-|---|---|---|
-| Base eval (clean-safe run) | `d18_clean200k_safe_2026-02-13_1226`, step `200000` | `train bpb=0.847593`, `val bpb=0.903612`, `CORE=0.1255` |
-| CORE fallback policy | same base checkpoint | Completed with `--core-overflow-policy skip --core-max-seq-len 5120` for long prompts |
-| Champion selection (objective=`mmlu`) | `d18_clean200k_lora_prod_2026-02-17_1209_s1024/best`, step `1000` | Selected via no-test-peek mapping |
-| 1k confirmation (champion) | same champion | GSM8K pass@8 `0.80%` (8/1000), MMLU `26.20%` (262/1000), SpellingBee `3.52%` (9/256) |
-| 1k confirmation (baseline) | `d18_20k/best`, step `500` | GSM8K pass@8 `1.40%`, MMLU `23.40%`, SpellingBee `27.73%` |
-| Additional final evals (champion) | same champion | ARC-Easy `23.40%`, ARC-Challenge `25.80%`, HumanEval `0.00%` |
+Local code added/changed vs upstream:
+- Added `nanochat/lora.py` (LoRA modules + merge/load helpers)
+- Extended `scripts/chat_sft.py` with:
+  - LoRA training flags and adapter save/merge flow
+  - `--output-tag`, `--keep-best-k`, `--no-save-optimizer`
+  - `--adamw-only`, warmup/warmdown LR schedule, gradient clipping, gradient checkpointing
+  - improved assistant-only masking and safer step-based stopping
+- Extended `nanochat/gpt.py` with:
+  - chunked cross-entropy (lower VRAM)
+  - optional gradient checkpointing in transformer blocks
+  - AdamW-only option for matrix params during fine-tuning
+- Extended CORE eval path (`scripts/base_eval.py`, `nanochat/core_eval.py`) with:
+  - `--core-max-seq-len`, `--core-overflow-policy={error,truncate,skip}`
+  - evaluated/skipped counters for transparent reporting
+- Updated `nanochat/engine.py` calculator normalization for noisy tool-call generations
 
-Latest key logs:
-- `~/nanochat-learn/notes/d18_clean200k_safe_2026-02-13_1226_s200000_base_eval_skip5120_2026-02-18_1701.log`
-- `~/nanochat-learn/notes/post_base_next_steps_2026-02-18_1741.log`
-- `~/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_confirm_summary_1000_2026-02-19_0258.txt`
+## Local Experiment Results (RTX 4070, 12GB)
+
+Detailed report: [`report.md`](report.md)
+
+### Base training + CORE
+- Base run: `d18_clean200k_safe_2026-02-13_1226`, step `200000`
+- From training log: `Validation bpb = 0.902180` at step 200000
+- From full base eval (with overflow skip policy):
+  - `train bpb = 0.847593`
+  - `val bpb = 0.903612`
+  - `CORE metric = 0.1255`
+
+### Chat/SFT champion and comparison
+- Selected champion (objective=`mmlu`, no-test-peek): `d18_clean200k_lora_prod_2026-02-17_1209_s1024/best`, step `1000`
+- 1k confirmation on champion:
+  - GSM8K pass@8: `0.80%` (8/1000)
+  - MMLU: `26.20%` (262/1000)
+  - SpellingBee: `3.52%` (9/256)
+- Baseline (`d18_20k/best`, step 500):
+  - GSM8K pass@8: `1.40%`
+  - MMLU: `23.40%`
+  - SpellingBee: `27.73%`
+- Net effect vs baseline:
+  - MMLU: **+2.80 pp**
+  - GSM8K pass@8: **-0.60 pp**
+  - SpellingBee: **-24.21 pp**
+
+### W&B runs (charts + history)
+- Project: https://wandb.ai/sunshines-gmail-com/nanochat-sft
+- Local LoRA champion run: https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/sm8rtit5
+- Prior safe SFT run: https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/nt9p2txo
+- Prior GSM8K-boost run: https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/map1htc1
+
+Recommended charts to inspect in each run:
+- `val/bpb` (convergence quality)
+- `train/loss` and `train/lrm` (optimization dynamics)
+- `train/tok_per_sec` and `train/dt` (throughput stability)
 
 ## Leaderboard
 
