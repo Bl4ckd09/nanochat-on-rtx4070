@@ -1,14 +1,14 @@
 """
 Train model. From root directory of the project, run as:
 
-python -m scripts.base_train
+python -m scripts.base_train_gc --gradient-checkpoint
 
 or distributed as:
 
-torchrun --nproc_per_node=8 -m scripts.base_train
+torchrun --nproc_per_node=8 -m scripts.base_train_gc --gradient-checkpoint
 
 If you are only on CPU/Macbook, you'll want to train a much much smaller LLM. Example:
-python -m scripts.base_train --depth=4 --max-seq-len=512 --device-batch-size=1 --eval-tokens=512 --core-metric-every=-1 --total-batch-size=512 --num-iterations=20
+python -m scripts.base_train_gc --gradient-checkpoint --depth=4 --max-seq-len=512 --device-batch-size=1 --eval-tokens=512 --core-metric-every=-1 --total-batch-size=512 --num-iterations=20
 """
 
 import gc
@@ -75,6 +75,7 @@ parser.add_argument("--sample-every", type=int, default=2000, help="sample from 
 parser.add_argument("--save-every", type=int, default=-1, help="save checkpoints every N steps (-1 = only at end)")
 # Output
 parser.add_argument("--model-tag", type=str, default=None, help="override model tag for checkpoint directory name")
+parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
 args = parser.parse_args()
 user_config = vars(args).copy()  # for logging
 # -----------------------------------------------------------------------------
@@ -168,6 +169,11 @@ with torch.device("meta"):
     model = GPT(model_config)
 model.to_empty(device=device) # All tensors get storage on target device but with uninitialized (garbage) data
 model.init_weights() # All tensors get initialized
+
+# Enable gradient checkpointing if requested (must be before torch.compile)
+if args.gradient_checkpoint:
+    model.gradient_checkpointing = True
+    print0("Gradient checkpointing enabled (activation recomputation in backward)")
 
 # If we are resuming, overwrite the model parameters with those of the checkpoint
 base_dir = get_base_dir()

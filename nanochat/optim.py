@@ -7,9 +7,19 @@ Addapted from: https://github.com/KellerJordan/modded-nanogpt
 Further contributions from @karpathy and @chrisjmccormick.
 """
 
+import os
 import torch
 import torch.distributed as dist
 from torch import Tensor
+
+_COMPILE_OPTIM = os.environ.get("NANOCHAT_COMPILE_OPTIM", "1").strip().lower() not in {"0", "false", "no"}
+_MUON_CAUTIOUS = os.environ.get("NANOCHAT_MUON_CAUTIOUS", "1").strip().lower() not in {"0", "false", "no"}
+_MUON_STACKED = os.environ.get("NANOCHAT_MUON_STACKED", "1").strip().lower() not in {"0", "false", "no"}
+
+def _maybe_compile(fn):
+    if _COMPILE_OPTIM:
+        return torch.compile(dynamic=False, fullgraph=True)(fn)
+    return fn
 
 # -----------------------------------------------------------------------------
 """
@@ -17,7 +27,7 @@ Good old AdamW optimizer, fused kernel.
 https://arxiv.org/abs/1711.05101
 """
 
-@torch.compile(dynamic=False, fullgraph=True)
+@_maybe_compile
 def adamw_step_fused(
     p: Tensor,              # (32768, 768) - parameter tensor
     grad: Tensor,           # (32768, 768) - gradient, same shape as p
@@ -83,7 +93,7 @@ polar_express_coeffs = [
     (2.3465413258596377, -1.7097828382687081, 0.42323551169305323),
 ]
 
-@torch.compile(dynamic=False, fullgraph=True)
+@_maybe_compile
 def muon_step_fused(
     stacked_grads: Tensor,          # (12, 768, 3072) - stacked gradients
     stacked_params: Tensor,         # (12, 768, 3072) - stacked parameters
@@ -138,8 +148,13 @@ def muon_step_fused(
     # Cautious weight decay + parameter update
     lr = lr_t.to(g.dtype)
     wd = wd_t.to(g.dtype)
-    mask = (g * stacked_params) >= 0
-    stacked_params.sub_(lr * g + lr * wd * stacked_params * mask)
+    if _MUON_CAUTIOUS:
+        mask = (g * stacked_params) >= 0
+        stacked_params.sub_(lr * g + lr * wd * stacked_params * mask)
+    else:
+        # Lower-memory fallback: decoupled weight decay without cautious mask
+        stacked_params.mul_(1 - lr * wd)
+        stacked_params.add_(g, alpha=-lr)
 
 # -----------------------------------------------------------------------------
 # Single GPU version of the MuonAdamW optimizer.
@@ -224,57 +239,99 @@ class MuonAdamW(torch.optim.Optimizer):
 
     def _step_muon(self, group: dict) -> None:
         """
-        Muon update for all params in the group (stacked for efficiency).
-        Lazy init the state, fill in all 0-D tensors, call the fused kernel.
+        Muon update for all params in the group.
+        Default is stacked mode for throughput.
+        Low-VRAM mode (`NANOCHAT_MUON_STACKED=0`) processes one param at a time to avoid
+        large temporary tensors in optimizer step.
         """
-        params: list[Tensor] = group['params']
+        params: list[Tensor] = [p for p in group['params'] if p.grad is not None]
         if not params:
             return
 
-        # Get or create group-level buffers (stored in first param's state for convenience)
-        p = params[0]
-        state = self.state[p]
-        num_params = len(params)
-        shape, device, dtype = p.shape, p.device, p.dtype
+        if _MUON_STACKED:
+            # Get or create group-level buffers (stored in first param's state for convenience)
+            p = params[0]
+            state = self.state[p]
+            num_params = len(params)
+            shape, device, dtype = p.shape, p.device, p.dtype
 
-        # Momentum for every individual parameter
-        if "momentum_buffer" not in state:
-            state["momentum_buffer"] = torch.zeros(num_params, *shape, dtype=dtype, device=device)
-        momentum_buffer = state["momentum_buffer"]
+            # Momentum for every individual parameter
+            if "momentum_buffer" not in state:
+                state["momentum_buffer"] = torch.zeros(num_params, *shape, dtype=dtype, device=device)
+            momentum_buffer = state["momentum_buffer"]
 
-        # Second momentum buffer is factored, either per-row or per-column
-        if "second_momentum_buffer" not in state:
-            state_shape = (num_params, shape[-2], 1) if shape[-2] >= shape[-1] else (num_params, 1, shape[-1])
-            state["second_momentum_buffer"] = torch.zeros(state_shape, dtype=dtype, device=device)
-        second_momentum_buffer = state["second_momentum_buffer"]
-        red_dim = -1 if shape[-2] >= shape[-1] else -2
+            # Second momentum buffer is factored, either per-row or per-column
+            if "second_momentum_buffer" not in state:
+                state_shape = (num_params, shape[-2], 1) if shape[-2] >= shape[-1] else (num_params, 1, shape[-1])
+                state["second_momentum_buffer"] = torch.zeros(state_shape, dtype=dtype, device=device)
+            second_momentum_buffer = state["second_momentum_buffer"]
+            red_dim = -1 if shape[-2] >= shape[-1] else -2
 
-        # Stack grads and params (NOTE: this assumes all params have the same shape)
-        stacked_grads = torch.stack([p.grad for p in params])
-        stacked_params = torch.stack(params)
+            # Stack grads and params (NOTE: this assumes all params have the same shape)
+            stacked_grads = torch.stack([p.grad for p in params])
+            stacked_params = torch.stack(params)
 
-        # Fill all the 0-D tensors with current values
-        self._muon_momentum_t.fill_(group["momentum"])
-        self._muon_beta2_t.fill_(group["beta2"] if group["beta2"] is not None else 0.0)
-        self._muon_lr_t.fill_(group["lr"] * max(1.0, shape[-2] / shape[-1])**0.5)
-        self._muon_wd_t.fill_(group["weight_decay"])
+            # Fill all the 0-D tensors with current values
+            self._muon_momentum_t.fill_(group["momentum"])
+            self._muon_beta2_t.fill_(group["beta2"] if group["beta2"] is not None else 0.0)
+            self._muon_lr_t.fill_(group["lr"] * max(1.0, shape[-2] / shape[-1])**0.5)
+            self._muon_wd_t.fill_(group["weight_decay"])
 
-        # Single fused kernel: momentum -> polar_express -> variance_reduction -> update
-        muon_step_fused(
-            stacked_grads,
-            stacked_params,
-            momentum_buffer,
-            second_momentum_buffer,
-            self._muon_momentum_t,
-            self._muon_lr_t,
-            self._muon_wd_t,
-            self._muon_beta2_t,
-            group["ns_steps"],
-            red_dim,
-        )
+            # Single fused kernel: momentum -> polar_express -> variance_reduction -> update
+            muon_step_fused(
+                stacked_grads,
+                stacked_params,
+                momentum_buffer,
+                second_momentum_buffer,
+                self._muon_momentum_t,
+                self._muon_lr_t,
+                self._muon_wd_t,
+                self._muon_beta2_t,
+                group["ns_steps"],
+                red_dim,
+            )
 
-        # Copy back to original params
-        torch._foreach_copy_(params, list(stacked_params.unbind(0)))
+            # Copy back to original params
+            torch._foreach_copy_(params, list(stacked_params.unbind(0)))
+            return
+
+        # Low-VRAM mode: process each parameter independently to avoid huge temporary stacks.
+        for p in params:
+            shape, device, dtype = p.shape, p.device, p.dtype
+            red_dim = -1 if shape[-2] >= shape[-1] else -2
+
+            state = self.state[p]
+            if "momentum_buffer" not in state:
+                state["momentum_buffer"] = torch.zeros_like(p)
+            if "second_momentum_buffer" not in state:
+                state_shape = (shape[-2], 1) if shape[-2] >= shape[-1] else (1, shape[-1])
+                state["second_momentum_buffer"] = torch.zeros(state_shape, dtype=dtype, device=device)
+
+            # Fill all the 0-D tensors with current values
+            self._muon_momentum_t.fill_(group["momentum"])
+            self._muon_beta2_t.fill_(group["beta2"] if group["beta2"] is not None else 0.0)
+            self._muon_lr_t.fill_(group["lr"] * max(1.0, shape[-2] / shape[-1])**0.5)
+            self._muon_wd_t.fill_(group["weight_decay"])
+
+            # Use views for parameter/state so in-place ops update originals.
+            # Clone grad to avoid in-place modifications of p.grad inside the fused kernel.
+            grad_1 = p.grad.unsqueeze(0).clone()
+            param_1 = p.unsqueeze(0)
+            mom_1 = state["momentum_buffer"].unsqueeze(0)
+            mom2_1 = state["second_momentum_buffer"].unsqueeze(0)
+
+            muon_step_fused(
+                grad_1,
+                param_1,
+                mom_1,
+                mom2_1,
+                self._muon_momentum_t,
+                self._muon_lr_t,
+                self._muon_wd_t,
+                self._muon_beta2_t,
+                group["ns_steps"],
+                red_dim,
+            )
 
     @torch.no_grad()
     def step(self):
