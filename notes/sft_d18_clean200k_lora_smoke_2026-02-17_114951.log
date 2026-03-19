@@ -1,0 +1,12 @@
+/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 304: OS call failed or operation not supported on this OS (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+Traceback (most recent call last):
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/chat_sft.py", line 90, in <module>
+    ddp, ddp_rank, ddp_local_rank, ddp_world_size, device = compute_init(device_type)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/common.py", line 158, in compute_init
+    assert torch.cuda.is_available(), "Your PyTorch installation is not configured for CUDA but device_type is 'cuda'"
+AssertionError: Your PyTorch installation is not configured for CUDA but device_type is 'cuda'

@@ -1,0 +1,170 @@
+==== Hourly monitor started 2026-02-12 14:51:23 ====
+base_log=/home/sun0115/nanochat-learn/notes/base-d18_clean200k_wb1_live.txt interval=3600s
+[2026-02-12 14:51:23]
+status: base_train running
+step: step 00108/200000 (0.05%) | loss: 10.394384 | lrm: 0.00 | dt: 1165.55ms | tok/sec: 14,056 | mfu: 0.00 | epoch: 1 | total time: 1.92m | eta: 3921.1m
+val:  Step 00000 | Validation bpb: 3.142984
+core: not yet
+eta:  step 00108/200000 (0.05%) | loss: 10.394384 | lrm: 0.00 | dt: 1165.55ms | tok/sec: 14,056 | mfu: 0.00 | epoch: 1 | total time: 1.92m | eta: 3921.1m
+gpu:  98 %, 11780 MiB, 12282 MiB
+
+[2026-02-12 15:52:15]
+status: base_train running
+step: step 03187/200000 (1.59%) | loss: 5.527108 | lrm: 0.03 | dt: 1141.66ms | tok/sec: 14,351 | mfu: 0.00 | epoch: 1 | total time: 62.61m | eta: 3878.9m
+val:  Step 02000 | Validation bpb: 1.915238
+core: not yet
+eta:  step 03187/200000 (1.59%) | loss: 5.527108 | lrm: 0.03 | dt: 1141.66ms | tok/sec: 14,351 | mfu: 0.00 | epoch: 1 | total time: 62.61m | eta: 3878.9m
+gpu:  99 %, 11780 MiB, 12282 MiB
+
+[2026-02-12 16:53:33]
+status: base_train running
+step: step 06277/200000 (3.14%) | loss: 4.622854 | lrm: 0.06 | dt: 1157.39ms | tok/sec: 14,156 | mfu: 0.00 | epoch: 1 | total time: 123.53m | eta: 3818.6m
+val:  Step 06000 | Validation bpb: 1.433598
+core: not yet
+eta:  step 06277/200000 (3.14%) | loss: 4.622854 | lrm: 0.06 | dt: 1157.39ms | tok/sec: 14,156 | mfu: 0.00 | epoch: 1 | total time: 123.53m | eta: 3818.6m
+gpu:  99 %, 11830 MiB, 12282 MiB
+
+[2026-02-12 17:55:03]
+status: base_train running
+step: step 09387/200000 (4.69%) | loss: 4.193486 | lrm: 0.09 | dt: 1153.98ms | tok/sec: 14,197 | mfu: 0.00 | epoch: 1 | total time: 184.85m | eta: 3757.7m
+val:  Step 08000 | Validation bpb: 1.336801
+core: not yet
+eta:  step 09387/200000 (4.69%) | loss: 4.193486 | lrm: 0.09 | dt: 1153.98ms | tok/sec: 14,197 | mfu: 0.00 | epoch: 1 | total time: 184.85m | eta: 3757.7m
+gpu:  99 %, 11830 MiB, 12282 MiB
+
+[2026-02-12 18:56:46]
+status: base_train running
+step: step 12501/200000 (6.25%) | loss: 4.029684 | lrm: 0.13 | dt: 1141.55ms | tok/sec: 14,352 | mfu: 0.00 | epoch: 1 | total time: 246.21m | eta: 3695.8m
+val:  Step 12000 | Validation bpb: 1.224820
+core: not yet
+eta:  step 12501/200000 (6.25%) | loss: 4.029684 | lrm: 0.13 | dt: 1141.55ms | tok/sec: 14,352 | mfu: 0.00 | epoch: 1 | total time: 246.21m | eta: 3695.8m
+gpu:  99 %, 11830 MiB, 12282 MiB
+
+[2026-02-12 19:58:22]
+status: base_train running
+step: step 15617/200000 (7.81%) | loss: 3.871390 | lrm: 0.16 | dt: 1152.22ms | tok/sec: 14,219 | mfu: 0.00 | epoch: 1 | total time: 307.62m | eta: 3634.2m
+val:  Step 14000 | Validation bpb: 1.188927
+core: not yet
+eta:  step 15617/200000 (7.81%) | loss: 3.871390 | lrm: 0.16 | dt: 1152.22ms | tok/sec: 14,219 | mfu: 0.00 | epoch: 1 | total time: 307.62m | eta: 3634.2m
+gpu:  99 %, 11830 MiB, 12282 MiB
+
+[2026-02-12 21:00:13]
+status: base_train running
+step: step 18742/200000 (9.37%) | loss: 3.846791 | lrm: 0.19 | dt: 1146.19ms | tok/sec: 14,294 | mfu: 0.00 | epoch: 1 | total time: 369.13m | eta: 3571.9m
+val:  Step 18000 | Validation bpb: 1.140046
+core: not yet
+eta:  step 18742/200000 (9.37%) | loss: 3.846791 | lrm: 0.19 | dt: 1146.19ms | tok/sec: 14,294 | mfu: 0.00 | epoch: 1 | total time: 369.13m | eta: 3571.9m
+gpu:  100 %, 11830 MiB, 12282 MiB
+
+[2026-02-12 22:02:16]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-12 23:04:32]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 00:06:57]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 01:09:35]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 02:12:07]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 03:14:51]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 04:17:41]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 05:20:39]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 06:23:46]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 07:26:56]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 08:30:08]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 09:33:29]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 10:37:02]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+
+[2026-02-13 11:40:40]
+status: base_train running
+step: step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+val:  Step 20000 | Validation bpb: 1.122942
+core: not yet
+eta:  step 19999/200000 (10.00%) | loss: 3.706422 | lrm: 0.20 | dt: 1126.87ms | tok/sec: 14,539 | mfu: 0.00 | epoch: 1 | total time: 393.89m | eta: 3547.0m
+gpu:  0 %, 0 MiB, 12282 MiB
+

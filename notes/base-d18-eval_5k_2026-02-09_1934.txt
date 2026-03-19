@@ -1,0 +1,61 @@
+2026-02-09 19:34:17,034 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-09 19:34:17,035 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18 with step 5000
+2026-02-09 19:34:20,465 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Evaluating model: base_model (step 5000)
+Eval modes: bpb, sample
+
+================================================================================
+Model Samples
+================================================================================
+
+Conditioned samples:
+--------------------------------------------------------------------------------
+<|bos|>The capital of France is Paris. The capital of Paris is Paris. The capital of Paris is Paris.
+--------------------------------------------------------------------------------
+<|bos|>The chemical symbol of gold is gold. It is a colorless, colorless, and colorless, color
+--------------------------------------------------------------------------------
+<|bos|>If yesterday was Friday, then tomorrow will be the 100th anniversary of the first nuclear power plant in the world.
+--------------------------------------------------------------------------------
+<|bos|>The opposite of hot is the heat of the sun. The sun is the source of heat and the sun
+--------------------------------------------------------------------------------
+<|bos|>The planets of the solar system are: Jupiter, Saturn, Saturn, Uranus and Neptune. The planets are: Jupiter
+--------------------------------------------------------------------------------
+<|bos|>My favorite color is the red, orange, and yellow. I love the color of my favorite colors
+--------------------------------------------------------------------------------
+<|bos|>If 5*x + 3 = 13, then x is 5. If 5 is 5, then 5 is 5
+
+Unconditioned samples:
+--------------------------------------------------------------------------------
+<|bos|>Monday, February 4
+The mythical word agua is for the deadliest Roman town in North America, by any and all signifying it's founder. Either we call it agua, or it was its choral town. A strange word which might have sat down for the time of Greek notebook created [anIR Pegsuch as 'nawazots', 'cionys', ' merchandisem basic', 'indexing'] may have been pure agua. The same ecclesiastical men who generally acted distracted upon this version of agua by the marvels which had paned at them were brutescent everydays by
+--------------------------------------------------------------------------------
+<|bos|>- What does it mean to voluntarily materialize, condense or variableize? What do you always mean? IsARS stormwater storage technology, market-changing?
+- "WHAT IS DRIVY bodies for direct and indirectounting purposes"? Do we always universalize? This is essential to solidifying people with Articles 13 and 14 of the lyrics;
+- Is it the "skin proof" or " transit proof" of " answers that only use dependability within the context of a valid territory?"
+- Is it absolutely Good to definitely deploy a variety of alternate capabilities withoutSkiping the restraints and codifiers of a proxy conflicts
+--------------------------------------------------------------------------------
+<|bos|>July Families and Vegetables in the USA
+Since the U.S.� GERD is a different one from its Peterson parent provider, getting stumped by a healthy diet’s stigma and preventing the disease can seem tricky. However, one of its key strategies to fight dessert may be the place of food in the food garden.
+Benefits of Eat Lesser Vegetables for People and Vegetables at New York in the United States
+Obesity will be a concern, especially in the area of American rightly so. In fact, it will affect all areas of the nation that having a good diet is nearly impossible without food for someone with its own shortage or preparation.
+
+--------------------------------------------------------------------------------
+<|bos|>Network for kids and teenagers is today – more than ever, many television and digital worlds will have us alive for all of them to be. Unfortunately, most of us live far and wide; we live out for large amounts of consumption and children are over 10 percent more likely to go to sea than children, and many parents worry too much about their kids — and their families. Our view of the society as an individual is not lying on the surface, but flagging a matter of how our society lives– interfere with each other and groups within us. (I know this stuff is so close to cause for fear.) Here are a
+--------------------------------------------------------------------------------
+<|bos|>The Na’a Elma, a Brygon became popular on the day of saints in Africa, is one of the most Trinidad Victory changes, founded in 1915. The female name, Oha Elma, means Rajmann. She had two or even more daughters and kindred Containererences. Arrive can range from just over fourteen to thirty. She married an African infertility which she had brought back from Igleagna on the 9th month of the Islamic month of Islam to Harir al memorosques on p day and enjoyed only 10 daysetting on the Tacama.orth She-hand
+--------------------------------------------------------------------------------
+<|bos|>Contains time tables for. Significant experimental experimental devaluation screened to discover impact sand position and anomaly composition, fun samples of sand mineral ratio,Thirdly comprehensive pores pH index, hydroherseven process alkyl precursor mineral shallower than potassium silicate, rocks and limestone of sand calcium silicate, rocks and constitution; On the formation ofrome card in sand Buddhist monocular arc reimagined mineral activites, quartzite; on the occurrences function of polls; Maintenance federtified wrinkles,elineedy; At announced age range from 32 capita to 120,000, to clasp color Sunday School. Scientific documentation and
+--------------------------------------------------------------------------------
+<|bos|>Robots can come kids as a single little man, however there are also people who are born into different ways around him, and they can stand for others. inhabitable of all kinds some are Bon-solders and others like to grow something in front of a orange rainbow, discovered in a museum museum.
+You can grow your littleamily to be large enough to see the orangeisations around them, and in this way they need advice, conundrums in all numbers, an brilliant idea etc. implementing the wisdom in the idea. unable to bother with looking for hundreds or thousands of pictures rather than about any other abolished ascertainment intent.
+
+--------------------------------------------------------------------------------
+<|bos|>And owners may be wary of the most for seized power of the energy rating. A recent New Deal study finds drinkers are likely to be more financially reliant on their initial bills, and they are more likely to support that kind of situation in full.
+When beetles are perhaps best players of energy policy, we realize these nations are in a big deal with energy efficiency. But the biggest challenge withorganisms, known as energy and energy ratings determining an energy score, seems to be the fact that these are not essential to staying green, but instead alarming a grove of suchristot aerospace renovators.
+A new study of 100 not-under
+
+================================================================================
+BPB Evaluation
+================================================================================
+train bpb: 0.926891
+val bpb: 1.075732

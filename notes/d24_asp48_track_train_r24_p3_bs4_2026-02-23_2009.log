@@ -1,0 +1,62 @@
+
+                                                       █████                █████
+                                                      ░░███                ░░███
+     ████████    ██████   ████████    ██████   ██████  ░███████    ██████  ███████
+    ░░███░░███  ░░░░░███ ░░███░░███  ███░░███ ███░░███ ░███░░███  ░░░░░███░░░███░
+     ░███ ░███   ███████  ░███ ░███ ░███ ░███░███ ░░░  ░███ ░███   ███████  ░███
+     ░███ ░███  ███░░███  ░███ ░███ ░███ ░███░███  ███ ░███ ░███  ███░░███  ░███ ███
+     ████ █████░░████████ ████ █████░░██████ ░░██████  ████ █████░░███████  ░░█████
+    ░░░░ ░░░░░  ░░░░░░░░ ░░░░ ░░░░░  ░░░░░░   ░░░░░░  ░░░░ ░░░░░  ░░░░░░░░   ░░░░░
+    
+Autodetected device type: cuda
+2026-02-23 20:09:36,106 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-23 20:09:36,106 - nanochat.common - [33m[1mWARNING[0m - Peak flops undefined for: NVIDIA GeForce RTX 4070, MFU will show as 0%
+GPU: NVIDIA GeForce RTX 4070 | Peak FLOPS (BF16): inf
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+WARNING: Flash Attention 3 not available, using PyTorch SDPA fallback
+WARNING: Training will be less efficient without FA3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Vocab size: 32,768
+num_layers: 24
+model_dim: 1152 (base: 1152, nudge: +0)
+num_heads: 9
+head_dim: 128
+num_kv_heads: 9
+Tokens / micro-batch / rank: 4 x 2048 = 8,192
+Tokens / micro-batch: 8,192
+Total batch size 16,384 => gradient accumulation steps: 2
+Scaling LRs by 0.1768 for batch size 16,384 (reference: 524,288)
+Scaling weight decay from 0.200000 to 0.050000 for depth 24
+Gradient checkpointing enabled (activation recomputation in backward)
+Parameter counts:
+wte                     : 37,748,736
+value_embeds            : 452,984,832
+lm_head                 : 37,748,736
+transformer_matrices    : 382,209,408
+scalars                 : 48
+total                   : 910,691,760
+Estimated FLOPs per token: 3.199226e+09
+Calculated number of iterations from target data:param ratio: 615,173
+Total number of training tokens: 10,078,994,432
+Tokens : Scaling params ratio: 24.00
+Total training FLOPs estimate: 3.224498e+19
+Model torch.compile disabled by NANOCHAT_COMPILE_MODEL=0
+Scaling the LR for the AdamW parameters ∝1/√(1152/768) = 0.816497
+Step 00000 | Validation bpb: 3.180742
+step 00000/615173 (0.00%) | loss: 10.397944 | lrm: 0.00 | dt: 2279.62ms | tok/sec: 7,187 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+Traceback (most recent call last):
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/base_train_gc.py", line 468, in <module>
+    loss = model(x, y)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/gpt.py", line 476, in forward
+    loss = chunked_cross_entropy(
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/gpt.py", line 94, in chunked_cross_entropy
+    chunk_logits = softcap * torch.tanh(chunk_logits / softcap)
+RuntimeError: CUDA driver error: out of memory

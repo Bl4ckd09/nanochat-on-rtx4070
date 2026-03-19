@@ -1,0 +1,1179 @@
+==== Hourly monitor started 2026-03-13 15:59:06 ====
+base_log=/home/sun0115/nanochat-learn/notes/d24_asp48_track_train_r32_p3_bs1_retry_2026-03-13_1557.log interval=3600s
+[2026-03-13 15:59:06]
+status: base_train running
+step: step 615187/820230 (75.00%) | loss: 2.539509 | lrm: 0.31 | dt: 2332.57ms | tok/sec: 7,023 | mfu: 0.00 | epoch: 8 | total time: 23922.72m | eta: 7973.6m
+val:  not yet
+core: not yet
+eta:  step 615187/820230 (75.00%) | loss: 2.539509 | lrm: 0.31 | dt: 2332.57ms | tok/sec: 7,023 | mfu: 0.00 | epoch: 8 | total time: 23922.72m | eta: 7973.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 16:59:54]
+status: base_train running
+step: step 616757/820230 (75.19%) | loss: 2.669833 | lrm: 0.31 | dt: 2280.31ms | tok/sec: 7,184 | mfu: 0.00 | epoch: 8 | total time: 23983.50m | eta: 7912.5m
+val:  not yet
+core: not yet
+eta:  step 616757/820230 (75.19%) | loss: 2.669833 | lrm: 0.31 | dt: 2280.31ms | tok/sec: 7,184 | mfu: 0.00 | epoch: 8 | total time: 23983.50m | eta: 7912.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  97 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 18:01:10]
+status: base_train running
+step: step 618337/820230 (75.39%) | loss: 2.658557 | lrm: 0.31 | dt: 2260.71ms | tok/sec: 7,247 | mfu: 0.00 | epoch: 8 | total time: 24044.75m | eta: 7851.0m
+val:  not yet
+core: not yet
+eta:  step 618337/820230 (75.39%) | loss: 2.658557 | lrm: 0.31 | dt: 2260.71ms | tok/sec: 7,247 | mfu: 0.00 | epoch: 8 | total time: 24044.75m | eta: 7851.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 19:02:41]
+status: base_train running
+step: step 619923/820230 (75.58%) | loss: 2.620249 | lrm: 0.31 | dt: 2295.44ms | tok/sec: 7,137 | mfu: 0.00 | epoch: 8 | total time: 24106.26m | eta: 7789.2m
+val:  not yet
+core: not yet
+eta:  step 619923/820230 (75.58%) | loss: 2.620249 | lrm: 0.31 | dt: 2295.44ms | tok/sec: 7,137 | mfu: 0.00 | epoch: 8 | total time: 24106.26m | eta: 7789.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 20:04:18]
+status: base_train running
+step: step 621499/820230 (75.77%) | loss: 2.672602 | lrm: 0.30 | dt: 2271.70ms | tok/sec: 7,212 | mfu: 0.00 | epoch: 8 | total time: 24167.45m | eta: 7727.9m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 621499/820230 (75.77%) | loss: 2.672602 | lrm: 0.30 | dt: 2271.70ms | tok/sec: 7,212 | mfu: 0.00 | epoch: 8 | total time: 24167.45m | eta: 7727.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 21:06:04]
+status: base_train running
+step: step 623089/820230 (75.97%) | loss: 2.590887 | lrm: 0.30 | dt: 2289.05ms | tok/sec: 7,157 | mfu: 0.00 | epoch: 8 | total time: 24229.18m | eta: 7666.1m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 623089/820230 (75.97%) | loss: 2.590887 | lrm: 0.30 | dt: 2289.05ms | tok/sec: 7,157 | mfu: 0.00 | epoch: 8 | total time: 24229.18m | eta: 7666.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 22:08:00]
+status: base_train running
+step: step 624684/820230 (76.16%) | loss: 2.610446 | lrm: 0.30 | dt: 2257.69ms | tok/sec: 7,256 | mfu: 0.00 | epoch: 8 | total time: 24291.06m | eta: 7604.0m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 624684/820230 (76.16%) | loss: 2.610446 | lrm: 0.30 | dt: 2257.69ms | tok/sec: 7,256 | mfu: 0.00 | epoch: 8 | total time: 24291.06m | eta: 7604.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  80 %, 10945 MiB, 12282 MiB
+
+[2026-03-13 23:10:09]
+status: base_train running
+step: step 626282/820230 (76.35%) | loss: 2.637912 | lrm: 0.30 | dt: 2244.34ms | tok/sec: 7,300 | mfu: 0.00 | epoch: 8 | total time: 24353.04m | eta: 7541.8m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 626282/820230 (76.35%) | loss: 2.637912 | lrm: 0.30 | dt: 2244.34ms | tok/sec: 7,300 | mfu: 0.00 | epoch: 8 | total time: 24353.04m | eta: 7541.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 00:12:28]
+status: base_train running
+step: step 627886/820230 (76.55%) | loss: 2.622359 | lrm: 0.29 | dt: 2233.77ms | tok/sec: 7,334 | mfu: 0.00 | epoch: 8 | total time: 24415.33m | eta: 7479.4m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 627886/820230 (76.55%) | loss: 2.622359 | lrm: 0.29 | dt: 2233.77ms | tok/sec: 7,334 | mfu: 0.00 | epoch: 8 | total time: 24415.33m | eta: 7479.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 01:14:32]
+status: base_train running
+step: step 629485/820230 (76.74%) | loss: 2.705861 | lrm: 0.29 | dt: 2413.48ms | tok/sec: 6,788 | mfu: 0.00 | epoch: 8 | total time: 24477.38m | eta: 7417.2m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 629485/820230 (76.74%) | loss: 2.705861 | lrm: 0.29 | dt: 2413.48ms | tok/sec: 6,788 | mfu: 0.00 | epoch: 8 | total time: 24477.38m | eta: 7417.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 02:17:00]
+status: base_train running
+step: step 631089/820230 (76.94%) | loss: 2.674603 | lrm: 0.29 | dt: 2214.84ms | tok/sec: 7,397 | mfu: 0.00 | epoch: 8 | total time: 24539.69m | eta: 7354.8m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 631089/820230 (76.94%) | loss: 2.674603 | lrm: 0.29 | dt: 2214.84ms | tok/sec: 7,397 | mfu: 0.00 | epoch: 8 | total time: 24539.69m | eta: 7354.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 03:19:49]
+status: base_train running
+step: step 632706/820230 (77.14%) | loss: 2.528427 | lrm: 0.29 | dt: 2306.71ms | tok/sec: 7,102 | mfu: 0.00 | epoch: 8 | total time: 24602.47m | eta: 7291.9m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 632706/820230 (77.14%) | loss: 2.528427 | lrm: 0.29 | dt: 2306.71ms | tok/sec: 7,102 | mfu: 0.00 | epoch: 8 | total time: 24602.47m | eta: 7291.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 04:22:53]
+status: base_train running
+step: step 634331/820230 (77.34%) | loss: 2.659714 | lrm: 0.28 | dt: 2207.67ms | tok/sec: 7,421 | mfu: 0.00 | epoch: 8 | total time: 24665.53m | eta: 7228.7m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 634331/820230 (77.34%) | loss: 2.659714 | lrm: 0.28 | dt: 2207.67ms | tok/sec: 7,421 | mfu: 0.00 | epoch: 8 | total time: 24665.53m | eta: 7228.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 05:26:03]
+status: base_train running
+step: step 635953/820230 (77.53%) | loss: 2.630734 | lrm: 0.28 | dt: 2189.23ms | tok/sec: 7,483 | mfu: 0.00 | epoch: 8 | total time: 24728.50m | eta: 7165.6m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 635953/820230 (77.53%) | loss: 2.630734 | lrm: 0.28 | dt: 2189.23ms | tok/sec: 7,483 | mfu: 0.00 | epoch: 8 | total time: 24728.50m | eta: 7165.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 06:29:27]
+status: base_train running
+step: step 637586/820230 (77.73%) | loss: 2.758539 | lrm: 0.28 | dt: 4027.69ms | tok/sec: 4,067 | mfu: 0.00 | epoch: 8 | total time: 24791.90m | eta: 7102.0m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 637586/820230 (77.73%) | loss: 2.758539 | lrm: 0.28 | dt: 4027.69ms | tok/sec: 4,067 | mfu: 0.00 | epoch: 8 | total time: 24791.90m | eta: 7102.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 07:32:49]
+status: base_train running
+step: step 639218/820230 (77.93%) | loss: 2.733948 | lrm: 0.28 | dt: 2201.50ms | tok/sec: 7,442 | mfu: 0.00 | epoch: 8 | total time: 24855.23m | eta: 7038.5m
+val:  Step 620000 | Validation bpb: 0.916422
+core: not yet
+eta:  step 639218/820230 (77.93%) | loss: 2.733948 | lrm: 0.28 | dt: 2201.50ms | tok/sec: 7,442 | mfu: 0.00 | epoch: 8 | total time: 24855.23m | eta: 7038.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 08:34:37]
+status: base_train running
+step: step 640797/820230 (78.12%) | loss: 2.626922 | lrm: 0.27 | dt: 2322.40ms | tok/sec: 7,054 | mfu: 0.00 | epoch: 8 | total time: 24916.59m | eta: 6977.1m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 640797/820230 (78.12%) | loss: 2.626922 | lrm: 0.27 | dt: 2322.40ms | tok/sec: 7,054 | mfu: 0.00 | epoch: 8 | total time: 24916.59m | eta: 6977.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 09:34:37]
+status: base_train running
+step: step 642342/820230 (78.31%) | loss: 2.702580 | lrm: 0.27 | dt: 2338.16ms | tok/sec: 7,007 | mfu: 0.00 | epoch: 8 | total time: 24976.59m | eta: 6917.0m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 642342/820230 (78.31%) | loss: 2.702580 | lrm: 0.27 | dt: 2338.16ms | tok/sec: 7,007 | mfu: 0.00 | epoch: 8 | total time: 24976.59m | eta: 6917.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 10:34:37]
+status: base_train running
+step: step 643886/820230 (78.50%) | loss: 2.524260 | lrm: 0.27 | dt: 2317.41ms | tok/sec: 7,069 | mfu: 0.00 | epoch: 8 | total time: 25036.57m | eta: 6857.0m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 643886/820230 (78.50%) | loss: 2.524260 | lrm: 0.27 | dt: 2317.41ms | tok/sec: 7,069 | mfu: 0.00 | epoch: 8 | total time: 25036.57m | eta: 6857.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 11:34:37]
+status: base_train running
+step: step 645425/820230 (78.69%) | loss: 2.530017 | lrm: 0.27 | dt: 2331.17ms | tok/sec: 7,028 | mfu: 0.00 | epoch: 8 | total time: 25096.37m | eta: 6797.1m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 645425/820230 (78.69%) | loss: 2.530017 | lrm: 0.27 | dt: 2331.17ms | tok/sec: 7,028 | mfu: 0.00 | epoch: 8 | total time: 25096.37m | eta: 6797.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  97 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 12:34:37]
+status: base_train running
+step: step 646969/820230 (78.88%) | loss: 2.609309 | lrm: 0.26 | dt: 2313.06ms | tok/sec: 7,083 | mfu: 0.00 | epoch: 8 | total time: 25156.38m | eta: 6737.1m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 646969/820230 (78.88%) | loss: 2.609309 | lrm: 0.26 | dt: 2313.06ms | tok/sec: 7,083 | mfu: 0.00 | epoch: 8 | total time: 25156.38m | eta: 6737.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 13:34:43]
+status: base_train running
+step: step 648514/820230 (79.06%) | loss: 2.694568 | lrm: 0.26 | dt: 2262.60ms | tok/sec: 7,241 | mfu: 0.00 | epoch: 8 | total time: 25216.44m | eta: 6677.0m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 648514/820230 (79.06%) | loss: 2.694568 | lrm: 0.26 | dt: 2262.60ms | tok/sec: 7,241 | mfu: 0.00 | epoch: 8 | total time: 25216.44m | eta: 6677.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 14:35:30]
+status: base_train running
+step: step 650075/820230 (79.26%) | loss: 2.734263 | lrm: 0.26 | dt: 2297.32ms | tok/sec: 7,131 | mfu: 0.00 | epoch: 8 | total time: 25277.07m | eta: 6616.3m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 650075/820230 (79.26%) | loss: 2.734263 | lrm: 0.26 | dt: 2297.32ms | tok/sec: 7,131 | mfu: 0.00 | epoch: 8 | total time: 25277.07m | eta: 6616.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 15:36:41]
+status: base_train running
+step: step 651649/820230 (79.45%) | loss: 2.737020 | lrm: 0.26 | dt: 2305.06ms | tok/sec: 7,107 | mfu: 0.00 | epoch: 8 | total time: 25338.23m | eta: 6555.1m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 651649/820230 (79.45%) | loss: 2.737020 | lrm: 0.26 | dt: 2305.06ms | tok/sec: 7,107 | mfu: 0.00 | epoch: 8 | total time: 25338.23m | eta: 6555.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 16:38:09]
+status: base_train running
+step: step 653228/820230 (79.64%) | loss: 2.681074 | lrm: 0.25 | dt: 2265.49ms | tok/sec: 7,232 | mfu: 0.00 | epoch: 8 | total time: 25399.65m | eta: 6493.7m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 653228/820230 (79.64%) | loss: 2.681074 | lrm: 0.25 | dt: 2265.49ms | tok/sec: 7,232 | mfu: 0.00 | epoch: 8 | total time: 25399.65m | eta: 6493.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  88 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 17:39:44]
+status: base_train running
+step: step 654812/820230 (79.83%) | loss: 2.695297 | lrm: 0.25 | dt: 2301.58ms | tok/sec: 7,118 | mfu: 0.00 | epoch: 8 | total time: 25461.24m | eta: 6432.1m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 654812/820230 (79.83%) | loss: 2.695297 | lrm: 0.25 | dt: 2301.58ms | tok/sec: 7,118 | mfu: 0.00 | epoch: 8 | total time: 25461.24m | eta: 6432.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 18:41:23]
+status: base_train running
+step: step 656393/820230 (80.03%) | loss: 2.586417 | lrm: 0.25 | dt: 2258.28ms | tok/sec: 7,255 | mfu: 0.00 | epoch: 8 | total time: 25522.69m | eta: 6370.6m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 656393/820230 (80.03%) | loss: 2.586417 | lrm: 0.25 | dt: 2258.28ms | tok/sec: 7,255 | mfu: 0.00 | epoch: 8 | total time: 25522.69m | eta: 6370.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 19:43:27]
+status: base_train running
+step: step 657991/820230 (80.22%) | loss: 2.728725 | lrm: 0.25 | dt: 2265.86ms | tok/sec: 7,230 | mfu: 0.00 | epoch: 8 | total time: 25584.75m | eta: 6308.5m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 657991/820230 (80.22%) | loss: 2.728725 | lrm: 0.25 | dt: 2265.86ms | tok/sec: 7,230 | mfu: 0.00 | epoch: 8 | total time: 25584.75m | eta: 6308.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 20:45:43]
+status: base_train running
+step: step 659594/820230 (80.42%) | loss: 2.447271 | lrm: 0.24 | dt: 2228.68ms | tok/sec: 7,351 | mfu: 0.00 | epoch: 8 | total time: 25647.01m | eta: 6246.1m
+val:  Step 640000 | Validation bpb: 0.916132
+core: not yet
+eta:  step 659594/820230 (80.42%) | loss: 2.447271 | lrm: 0.24 | dt: 2228.68ms | tok/sec: 7,351 | mfu: 0.00 | epoch: 8 | total time: 25647.01m | eta: 6246.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 21:48:10]
+status: base_train running
+step: step 661190/820230 (80.61%) | loss: 2.738108 | lrm: 0.24 | dt: 2237.27ms | tok/sec: 7,323 | mfu: 0.00 | epoch: 8 | total time: 25709.01m | eta: 6184.0m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 661190/820230 (80.61%) | loss: 2.738108 | lrm: 0.24 | dt: 2237.27ms | tok/sec: 7,323 | mfu: 0.00 | epoch: 8 | total time: 25709.01m | eta: 6184.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 22:50:46]
+status: base_train running
+step: step 662800/820230 (80.81%) | loss: 2.665611 | lrm: 0.24 | dt: 2241.35ms | tok/sec: 7,309 | mfu: 0.00 | epoch: 8 | total time: 25771.57m | eta: 6121.4m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 662800/820230 (80.81%) | loss: 2.665611 | lrm: 0.24 | dt: 2241.35ms | tok/sec: 7,309 | mfu: 0.00 | epoch: 8 | total time: 25771.57m | eta: 6121.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-14 23:53:17]
+status: base_train running
+step: step 664408/820230 (81.00%) | loss: 2.649079 | lrm: 0.24 | dt: 2199.69ms | tok/sec: 7,448 | mfu: 0.00 | epoch: 8 | total time: 25834.06m | eta: 6058.9m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 664408/820230 (81.00%) | loss: 2.649079 | lrm: 0.24 | dt: 2199.69ms | tok/sec: 7,448 | mfu: 0.00 | epoch: 8 | total time: 25834.06m | eta: 6058.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  93 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 00:56:17]
+status: base_train running
+step: step 666025/820230 (81.20%) | loss: 2.574852 | lrm: 0.24 | dt: 2243.78ms | tok/sec: 7,301 | mfu: 0.00 | epoch: 8 | total time: 25896.91m | eta: 5996.0m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 666025/820230 (81.20%) | loss: 2.574852 | lrm: 0.24 | dt: 2243.78ms | tok/sec: 7,301 | mfu: 0.00 | epoch: 8 | total time: 25896.91m | eta: 5996.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 01:59:20]
+status: base_train running
+step: step 667646/820230 (81.40%) | loss: 2.707907 | lrm: 0.23 | dt: 2209.28ms | tok/sec: 7,415 | mfu: 0.00 | epoch: 8 | total time: 25959.84m | eta: 5933.0m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 667646/820230 (81.40%) | loss: 2.707907 | lrm: 0.23 | dt: 2209.28ms | tok/sec: 7,415 | mfu: 0.00 | epoch: 8 | total time: 25959.84m | eta: 5933.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 03:02:38]
+status: base_train running
+step: step 669275/820230 (81.60%) | loss: 2.585744 | lrm: 0.23 | dt: 2196.37ms | tok/sec: 7,459 | mfu: 0.00 | epoch: 8 | total time: 26023.11m | eta: 5869.6m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 669275/820230 (81.60%) | loss: 2.585744 | lrm: 0.23 | dt: 2196.37ms | tok/sec: 7,459 | mfu: 0.00 | epoch: 8 | total time: 26023.11m | eta: 5869.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 04:06:09]
+status: base_train running
+step: step 670906/820230 (81.79%) | loss: 2.785801 | lrm: 0.23 | dt: 2193.04ms | tok/sec: 7,470 | mfu: 0.00 | epoch: 8 | total time: 26086.40m | eta: 5806.2m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 670906/820230 (81.79%) | loss: 2.785801 | lrm: 0.23 | dt: 2193.04ms | tok/sec: 7,470 | mfu: 0.00 | epoch: 8 | total time: 26086.40m | eta: 5806.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 05:09:46]
+status: base_train running
+step: step 672544/820230 (81.99%) | loss: 2.602750 | lrm: 0.23 | dt: 2217.78ms | tok/sec: 7,387 | mfu: 0.00 | epoch: 9 | total time: 26149.98m | eta: 5742.4m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 672544/820230 (81.99%) | loss: 2.602750 | lrm: 0.23 | dt: 2217.78ms | tok/sec: 7,387 | mfu: 0.00 | epoch: 9 | total time: 26149.98m | eta: 5742.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 06:13:34]
+status: base_train running
+step: step 674186/820230 (82.19%) | loss: 2.732704 | lrm: 0.22 | dt: 2189.94ms | tok/sec: 7,481 | mfu: 0.00 | epoch: 9 | total time: 26213.76m | eta: 5678.6m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 674186/820230 (82.19%) | loss: 2.732704 | lrm: 0.22 | dt: 2189.94ms | tok/sec: 7,481 | mfu: 0.00 | epoch: 9 | total time: 26213.76m | eta: 5678.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  97 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 07:17:34]
+status: base_train running
+step: step 675829/820230 (82.40%) | loss: 2.723787 | lrm: 0.22 | dt: 2195.47ms | tok/sec: 7,462 | mfu: 0.00 | epoch: 9 | total time: 26277.56m | eta: 5614.7m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 675829/820230 (82.40%) | loss: 2.723787 | lrm: 0.22 | dt: 2195.47ms | tok/sec: 7,462 | mfu: 0.00 | epoch: 9 | total time: 26277.56m | eta: 5614.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 08:20:30]
+status: base_train running
+step: step 677449/820230 (82.59%) | loss: 2.629404 | lrm: 0.22 | dt: 2321.38ms | tok/sec: 7,057 | mfu: 0.00 | epoch: 9 | total time: 26340.52m | eta: 5551.7m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 677449/820230 (82.59%) | loss: 2.629404 | lrm: 0.22 | dt: 2321.38ms | tok/sec: 7,057 | mfu: 0.00 | epoch: 9 | total time: 26340.52m | eta: 5551.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 09:20:30]
+status: base_train running
+step: step 678993/820230 (82.78%) | loss: 2.671716 | lrm: 0.22 | dt: 2328.14ms | tok/sec: 7,037 | mfu: 0.00 | epoch: 9 | total time: 26400.51m | eta: 5491.6m
+val:  Step 660000 | Validation bpb: 0.911494
+core: not yet
+eta:  step 678993/820230 (82.78%) | loss: 2.671716 | lrm: 0.22 | dt: 2328.14ms | tok/sec: 7,037 | mfu: 0.00 | epoch: 9 | total time: 26400.51m | eta: 5491.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 10:20:30]
+status: base_train running
+step: step 680525/820230 (82.97%) | loss: 2.608213 | lrm: 0.21 | dt: 2331.33ms | tok/sec: 7,027 | mfu: 0.00 | epoch: 9 | total time: 26460.03m | eta: 5432.1m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 680525/820230 (82.97%) | loss: 2.608213 | lrm: 0.21 | dt: 2331.33ms | tok/sec: 7,027 | mfu: 0.00 | epoch: 9 | total time: 26460.03m | eta: 5432.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 11:20:30]
+status: base_train running
+step: step 682069/820230 (83.16%) | loss: 2.679505 | lrm: 0.21 | dt: 2325.07ms | tok/sec: 7,046 | mfu: 0.00 | epoch: 9 | total time: 26520.02m | eta: 5372.0m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 682069/820230 (83.16%) | loss: 2.679505 | lrm: 0.21 | dt: 2325.07ms | tok/sec: 7,046 | mfu: 0.00 | epoch: 9 | total time: 26520.02m | eta: 5372.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 12:20:30]
+status: base_train running
+step: step 683613/820230 (83.34%) | loss: 2.742449 | lrm: 0.21 | dt: 2300.21ms | tok/sec: 7,122 | mfu: 0.00 | epoch: 9 | total time: 26580.02m | eta: 5312.0m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 683613/820230 (83.34%) | loss: 2.742449 | lrm: 0.21 | dt: 2300.21ms | tok/sec: 7,122 | mfu: 0.00 | epoch: 9 | total time: 26580.02m | eta: 5312.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 13:20:31]
+status: base_train running
+step: step 685152/820230 (83.53%) | loss: 2.728471 | lrm: 0.21 | dt: 2305.25ms | tok/sec: 7,107 | mfu: 0.00 | epoch: 9 | total time: 26639.84m | eta: 5252.1m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 685152/820230 (83.53%) | loss: 2.728471 | lrm: 0.21 | dt: 2305.25ms | tok/sec: 7,107 | mfu: 0.00 | epoch: 9 | total time: 26639.84m | eta: 5252.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 14:21:17]
+status: base_train running
+step: step 686716/820230 (83.72%) | loss: 2.683902 | lrm: 0.20 | dt: 2279.88ms | tok/sec: 7,186 | mfu: 0.00 | epoch: 9 | total time: 26700.60m | eta: 5191.3m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 686716/820230 (83.72%) | loss: 2.683902 | lrm: 0.20 | dt: 2279.88ms | tok/sec: 7,186 | mfu: 0.00 | epoch: 9 | total time: 26700.60m | eta: 5191.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 15:22:31]
+status: base_train running
+step: step 688292/820230 (83.91%) | loss: 2.625346 | lrm: 0.20 | dt: 2280.41ms | tok/sec: 7,184 | mfu: 0.00 | epoch: 9 | total time: 26761.82m | eta: 5130.0m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 688292/820230 (83.91%) | loss: 2.625346 | lrm: 0.20 | dt: 2280.41ms | tok/sec: 7,184 | mfu: 0.00 | epoch: 9 | total time: 26761.82m | eta: 5130.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 16:23:53]
+status: base_train running
+step: step 689871/820230 (84.11%) | loss: 2.744967 | lrm: 0.20 | dt: 2289.46ms | tok/sec: 7,156 | mfu: 0.00 | epoch: 9 | total time: 26823.15m | eta: 5068.6m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 689871/820230 (84.11%) | loss: 2.744967 | lrm: 0.20 | dt: 2289.46ms | tok/sec: 7,156 | mfu: 0.00 | epoch: 9 | total time: 26823.15m | eta: 5068.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 17:25:31]
+status: base_train running
+step: step 691453/820230 (84.30%) | loss: 2.578987 | lrm: 0.20 | dt: 2328.98ms | tok/sec: 7,034 | mfu: 0.00 | epoch: 9 | total time: 26884.60m | eta: 5007.1m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 691453/820230 (84.30%) | loss: 2.578987 | lrm: 0.20 | dt: 2328.98ms | tok/sec: 7,034 | mfu: 0.00 | epoch: 9 | total time: 26884.60m | eta: 5007.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 18:26:59]
+status: base_train running
+step: step 693036/820230 (84.49%) | loss: 2.668281 | lrm: 0.19 | dt: 2276.90ms | tok/sec: 7,195 | mfu: 0.00 | epoch: 9 | total time: 26946.05m | eta: 4945.5m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 693036/820230 (84.49%) | loss: 2.668281 | lrm: 0.19 | dt: 2276.90ms | tok/sec: 7,195 | mfu: 0.00 | epoch: 9 | total time: 26946.05m | eta: 4945.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 19:28:41]
+status: base_train running
+step: step 694624/820230 (84.69%) | loss: 2.690010 | lrm: 0.19 | dt: 2199.65ms | tok/sec: 7,448 | mfu: 0.00 | epoch: 9 | total time: 27007.73m | eta: 4883.8m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 694624/820230 (84.69%) | loss: 2.690010 | lrm: 0.19 | dt: 2199.65ms | tok/sec: 7,448 | mfu: 0.00 | epoch: 9 | total time: 27007.73m | eta: 4883.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 20:30:52]
+status: base_train running
+step: step 696219/820230 (84.88%) | loss: 2.741695 | lrm: 0.19 | dt: 3430.63ms | tok/sec: 4,775 | mfu: 0.00 | epoch: 9 | total time: 27069.72m | eta: 4821.7m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 696219/820230 (84.88%) | loss: 2.741695 | lrm: 0.19 | dt: 3430.63ms | tok/sec: 4,775 | mfu: 0.00 | epoch: 9 | total time: 27069.72m | eta: 4821.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 21:32:53]
+status: base_train running
+step: step 697815/820230 (85.08%) | loss: 2.780893 | lrm: 0.19 | dt: 2228.00ms | tok/sec: 7,353 | mfu: 0.00 | epoch: 9 | total time: 27131.74m | eta: 4759.7m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 697815/820230 (85.08%) | loss: 2.780893 | lrm: 0.19 | dt: 2228.00ms | tok/sec: 7,353 | mfu: 0.00 | epoch: 9 | total time: 27131.74m | eta: 4759.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 22:35:14]
+status: base_train running
+step: step 699420/820230 (85.27%) | loss: 2.567509 | lrm: 0.18 | dt: 2210.47ms | tok/sec: 7,412 | mfu: 0.00 | epoch: 9 | total time: 27194.09m | eta: 4697.3m
+val:  Step 680000 | Validation bpb: 0.906971
+core: not yet
+eta:  step 699420/820230 (85.27%) | loss: 2.567509 | lrm: 0.18 | dt: 2210.47ms | tok/sec: 7,412 | mfu: 0.00 | epoch: 9 | total time: 27194.09m | eta: 4697.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-15 23:37:27]
+status: base_train running
+step: step 701010/820230 (85.47%) | loss: 2.585478 | lrm: 0.18 | dt: 2286.76ms | tok/sec: 7,164 | mfu: 0.00 | epoch: 9 | total time: 27255.82m | eta: 4635.4m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 701010/820230 (85.47%) | loss: 2.585478 | lrm: 0.18 | dt: 2286.76ms | tok/sec: 7,164 | mfu: 0.00 | epoch: 9 | total time: 27255.82m | eta: 4635.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  97 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 00:40:17]
+status: base_train running
+step: step 702627/820230 (85.66%) | loss: 2.521846 | lrm: 0.18 | dt: 2217.05ms | tok/sec: 7,390 | mfu: 0.00 | epoch: 9 | total time: 27318.63m | eta: 4572.6m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 702627/820230 (85.66%) | loss: 2.521846 | lrm: 0.18 | dt: 2217.05ms | tok/sec: 7,390 | mfu: 0.00 | epoch: 9 | total time: 27318.63m | eta: 4572.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 01:43:16]
+status: base_train running
+step: step 704248/820230 (85.86%) | loss: 2.666579 | lrm: 0.18 | dt: 2206.92ms | tok/sec: 7,423 | mfu: 0.00 | epoch: 9 | total time: 27381.60m | eta: 4509.5m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 704248/820230 (85.86%) | loss: 2.666579 | lrm: 0.18 | dt: 2206.92ms | tok/sec: 7,423 | mfu: 0.00 | epoch: 9 | total time: 27381.60m | eta: 4509.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 02:46:22]
+status: base_train running
+step: step 705868/820230 (86.06%) | loss: 2.601726 | lrm: 0.17 | dt: 2212.96ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 9 | total time: 27444.49m | eta: 4446.5m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 705868/820230 (86.06%) | loss: 2.601726 | lrm: 0.17 | dt: 2212.96ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 9 | total time: 27444.49m | eta: 4446.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 03:49:52]
+status: base_train running
+step: step 707503/820230 (86.26%) | loss: 2.564873 | lrm: 0.17 | dt: 2176.84ms | tok/sec: 7,526 | mfu: 0.00 | epoch: 9 | total time: 27507.99m | eta: 4382.9m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 707503/820230 (86.26%) | loss: 2.564873 | lrm: 0.17 | dt: 2176.84ms | tok/sec: 7,526 | mfu: 0.00 | epoch: 9 | total time: 27507.99m | eta: 4382.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 04:53:25]
+status: base_train running
+step: step 709139/820230 (86.46%) | loss: 2.604039 | lrm: 0.17 | dt: 2364.60ms | tok/sec: 6,928 | mfu: 0.00 | epoch: 9 | total time: 27571.54m | eta: 4319.3m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 709139/820230 (86.46%) | loss: 2.604039 | lrm: 0.17 | dt: 2364.60ms | tok/sec: 6,928 | mfu: 0.00 | epoch: 9 | total time: 27571.54m | eta: 4319.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 05:56:58]
+status: base_train running
+step: step 710771/820230 (86.66%) | loss: 2.556150 | lrm: 0.17 | dt: 2190.25ms | tok/sec: 7,480 | mfu: 0.00 | epoch: 9 | total time: 27634.87m | eta: 4255.8m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 710771/820230 (86.66%) | loss: 2.556150 | lrm: 0.17 | dt: 2190.25ms | tok/sec: 7,480 | mfu: 0.00 | epoch: 9 | total time: 27634.87m | eta: 4255.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 07:00:48]
+status: base_train running
+step: step 712414/820230 (86.86%) | loss: 2.607604 | lrm: 0.16 | dt: 2206.10ms | tok/sec: 7,426 | mfu: 0.00 | epoch: 9 | total time: 27698.68m | eta: 4191.9m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 712414/820230 (86.86%) | loss: 2.607604 | lrm: 0.16 | dt: 2206.10ms | tok/sec: 7,426 | mfu: 0.00 | epoch: 9 | total time: 27698.68m | eta: 4191.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 08:04:42]
+status: base_train running
+step: step 714060/820230 (87.06%) | loss: 2.654414 | lrm: 0.16 | dt: 2288.65ms | tok/sec: 7,158 | mfu: 0.00 | epoch: 9 | total time: 27762.58m | eta: 4127.9m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 714060/820230 (87.06%) | loss: 2.654414 | lrm: 0.16 | dt: 2288.65ms | tok/sec: 7,158 | mfu: 0.00 | epoch: 9 | total time: 27762.58m | eta: 4127.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 09:04:43]
+status: base_train running
+step: step 715600/820230 (87.24%) | loss: 2.634635 | lrm: 0.16 | dt: 2315.78ms | tok/sec: 7,074 | mfu: 0.00 | epoch: 9 | total time: 27822.39m | eta: 4068.1m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 715600/820230 (87.24%) | loss: 2.634635 | lrm: 0.16 | dt: 2315.78ms | tok/sec: 7,074 | mfu: 0.00 | epoch: 9 | total time: 27822.39m | eta: 4068.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 10:04:44]
+status: base_train running
+step: step 717144/820230 (87.43%) | loss: 2.661905 | lrm: 0.16 | dt: 2326.81ms | tok/sec: 7,041 | mfu: 0.00 | epoch: 9 | total time: 27882.37m | eta: 4008.0m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 717144/820230 (87.43%) | loss: 2.661905 | lrm: 0.16 | dt: 2326.81ms | tok/sec: 7,041 | mfu: 0.00 | epoch: 9 | total time: 27882.37m | eta: 4008.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 11:04:44]
+status: base_train running
+step: step 718686/820230 (87.62%) | loss: 2.569627 | lrm: 0.15 | dt: 2327.77ms | tok/sec: 7,038 | mfu: 0.00 | epoch: 9 | total time: 27942.28m | eta: 3948.1m
+val:  Step 700000 | Validation bpb: 0.914167
+core: not yet
+eta:  step 718686/820230 (87.62%) | loss: 2.569627 | lrm: 0.15 | dt: 2327.77ms | tok/sec: 7,038 | mfu: 0.00 | epoch: 9 | total time: 27942.28m | eta: 3948.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 12:04:44]
+status: base_train running
+step: step 720219/820230 (87.81%) | loss: 2.582321 | lrm: 0.15 | dt: 2308.80ms | tok/sec: 7,096 | mfu: 0.00 | epoch: 9 | total time: 28001.85m | eta: 3888.4m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 720219/820230 (87.81%) | loss: 2.582321 | lrm: 0.15 | dt: 2308.80ms | tok/sec: 7,096 | mfu: 0.00 | epoch: 9 | total time: 28001.85m | eta: 3888.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 13:04:44]
+status: base_train running
+step: step 721763/820230 (88.00%) | loss: 2.672178 | lrm: 0.15 | dt: 2326.52ms | tok/sec: 7,042 | mfu: 0.00 | epoch: 9 | total time: 28061.82m | eta: 3828.4m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 721763/820230 (88.00%) | loss: 2.672178 | lrm: 0.15 | dt: 2326.52ms | tok/sec: 7,042 | mfu: 0.00 | epoch: 9 | total time: 28061.82m | eta: 3828.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 14:05:02]
+status: base_train running
+step: step 723315/820230 (88.18%) | loss: 2.608477 | lrm: 0.15 | dt: 2311.26ms | tok/sec: 7,088 | mfu: 0.00 | epoch: 9 | total time: 28122.11m | eta: 3768.1m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 723315/820230 (88.18%) | loss: 2.608477 | lrm: 0.15 | dt: 2311.26ms | tok/sec: 7,088 | mfu: 0.00 | epoch: 9 | total time: 28122.11m | eta: 3768.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 15:06:09]
+status: base_train running
+step: step 724889/820230 (88.38%) | loss: 2.701510 | lrm: 0.15 | dt: 2308.31ms | tok/sec: 7,097 | mfu: 0.00 | epoch: 9 | total time: 28183.23m | eta: 3706.8m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 724889/820230 (88.38%) | loss: 2.701510 | lrm: 0.15 | dt: 2308.31ms | tok/sec: 7,097 | mfu: 0.00 | epoch: 9 | total time: 28183.23m | eta: 3706.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 16:07:21]
+status: base_train running
+step: step 726458/820230 (88.57%) | loss: 2.611880 | lrm: 0.14 | dt: 2235.93ms | tok/sec: 7,327 | mfu: 0.00 | epoch: 9 | total time: 28244.21m | eta: 3645.8m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 726458/820230 (88.57%) | loss: 2.611880 | lrm: 0.14 | dt: 2235.93ms | tok/sec: 7,327 | mfu: 0.00 | epoch: 9 | total time: 28244.21m | eta: 3645.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 17:08:51]
+status: base_train running
+step: step 728041/820230 (88.76%) | loss: 2.569601 | lrm: 0.14 | dt: 3170.59ms | tok/sec: 5,167 | mfu: 0.00 | epoch: 9 | total time: 28305.72m | eta: 3584.3m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 728041/820230 (88.76%) | loss: 2.569601 | lrm: 0.14 | dt: 3170.59ms | tok/sec: 5,167 | mfu: 0.00 | epoch: 9 | total time: 28305.72m | eta: 3584.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 18:10:25]
+status: base_train running
+step: step 729625/820230 (88.95%) | loss: 2.500182 | lrm: 0.14 | dt: 2275.69ms | tok/sec: 7,199 | mfu: 0.00 | epoch: 9 | total time: 28367.26m | eta: 3522.7m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 729625/820230 (88.95%) | loss: 2.500182 | lrm: 0.14 | dt: 2275.69ms | tok/sec: 7,199 | mfu: 0.00 | epoch: 9 | total time: 28367.26m | eta: 3522.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 19:12:06]
+status: base_train running
+step: step 731207/820230 (89.15%) | loss: 2.623903 | lrm: 0.14 | dt: 2280.35ms | tok/sec: 7,184 | mfu: 0.00 | epoch: 9 | total time: 28428.73m | eta: 3461.2m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 731207/820230 (89.15%) | loss: 2.623903 | lrm: 0.14 | dt: 2280.35ms | tok/sec: 7,184 | mfu: 0.00 | epoch: 9 | total time: 28428.73m | eta: 3461.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 20:13:59]
+status: base_train running
+step: step 732801/820230 (89.34%) | loss: 2.648084 | lrm: 0.13 | dt: 3181.10ms | tok/sec: 5,150 | mfu: 0.00 | epoch: 9 | total time: 28490.63m | eta: 3399.2m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 732801/820230 (89.34%) | loss: 2.648084 | lrm: 0.13 | dt: 3181.10ms | tok/sec: 5,150 | mfu: 0.00 | epoch: 9 | total time: 28490.63m | eta: 3399.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 21:16:06]
+status: base_train running
+step: step 734401/820230 (89.54%) | loss: 2.649404 | lrm: 0.13 | dt: 2262.12ms | tok/sec: 7,242 | mfu: 0.00 | epoch: 9 | total time: 28552.74m | eta: 3337.0m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 734401/820230 (89.54%) | loss: 2.649404 | lrm: 0.13 | dt: 2262.12ms | tok/sec: 7,242 | mfu: 0.00 | epoch: 9 | total time: 28552.74m | eta: 3337.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 22:18:34]
+status: base_train running
+step: step 736003/820230 (89.73%) | loss: 2.677102 | lrm: 0.13 | dt: 2236.57ms | tok/sec: 7,325 | mfu: 0.00 | epoch: 9 | total time: 28615.00m | eta: 3274.7m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 736003/820230 (89.73%) | loss: 2.677102 | lrm: 0.13 | dt: 2236.57ms | tok/sec: 7,325 | mfu: 0.00 | epoch: 9 | total time: 28615.00m | eta: 3274.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-16 23:21:07]
+status: base_train running
+step: step 737613/820230 (89.93%) | loss: 2.564621 | lrm: 0.13 | dt: 2236.98ms | tok/sec: 7,324 | mfu: 0.00 | epoch: 9 | total time: 28677.53m | eta: 3212.1m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 737613/820230 (89.93%) | loss: 2.564621 | lrm: 0.13 | dt: 2236.98ms | tok/sec: 7,324 | mfu: 0.00 | epoch: 9 | total time: 28677.53m | eta: 3212.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 00:23:55]
+status: base_train running
+step: step 739229/820230 (90.12%) | loss: 2.626609 | lrm: 0.12 | dt: 2221.75ms | tok/sec: 7,374 | mfu: 0.00 | epoch: 9 | total time: 28740.30m | eta: 3149.3m
+val:  Step 720000 | Validation bpb: 0.917084
+core: not yet
+eta:  step 739229/820230 (90.12%) | loss: 2.626609 | lrm: 0.12 | dt: 2221.75ms | tok/sec: 7,374 | mfu: 0.00 | epoch: 9 | total time: 28740.30m | eta: 3149.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 01:26:52]
+status: base_train running
+step: step 740839/820230 (90.32%) | loss: 2.566119 | lrm: 0.12 | dt: 2206.59ms | tok/sec: 7,425 | mfu: 0.00 | epoch: 9 | total time: 28802.82m | eta: 3086.7m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 740839/820230 (90.32%) | loss: 2.566119 | lrm: 0.12 | dt: 2206.59ms | tok/sec: 7,425 | mfu: 0.00 | epoch: 9 | total time: 28802.82m | eta: 3086.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 02:30:00]
+status: base_train running
+step: step 742464/820230 (90.52%) | loss: 2.667349 | lrm: 0.12 | dt: 2228.77ms | tok/sec: 7,351 | mfu: 0.00 | epoch: 9 | total time: 28865.91m | eta: 3023.5m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 742464/820230 (90.52%) | loss: 2.667349 | lrm: 0.12 | dt: 2228.77ms | tok/sec: 7,351 | mfu: 0.00 | epoch: 9 | total time: 28865.91m | eta: 3023.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 03:33:14]
+status: base_train running
+step: step 744093/820230 (90.72%) | loss: 2.541625 | lrm: 0.12 | dt: 2197.53ms | tok/sec: 7,455 | mfu: 0.00 | epoch: 9 | total time: 28929.14m | eta: 2960.1m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 744093/820230 (90.72%) | loss: 2.541625 | lrm: 0.12 | dt: 2197.53ms | tok/sec: 7,455 | mfu: 0.00 | epoch: 9 | total time: 28929.14m | eta: 2960.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 04:36:40]
+status: base_train running
+step: step 745722/820230 (90.92%) | loss: 2.599665 | lrm: 0.11 | dt: 2154.33ms | tok/sec: 7,605 | mfu: 0.00 | epoch: 9 | total time: 28992.41m | eta: 2896.8m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 745722/820230 (90.92%) | loss: 2.599665 | lrm: 0.11 | dt: 2154.33ms | tok/sec: 7,605 | mfu: 0.00 | epoch: 9 | total time: 28992.41m | eta: 2896.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 05:40:12]
+status: base_train running
+step: step 747357/820230 (91.12%) | loss: 2.607484 | lrm: 0.11 | dt: 2193.33ms | tok/sec: 7,469 | mfu: 0.00 | epoch: 9 | total time: 29055.92m | eta: 2833.2m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 747357/820230 (91.12%) | loss: 2.607484 | lrm: 0.11 | dt: 2193.33ms | tok/sec: 7,469 | mfu: 0.00 | epoch: 9 | total time: 29055.92m | eta: 2833.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 06:44:01]
+status: base_train running
+step: step 749001/820230 (91.32%) | loss: 2.561115 | lrm: 0.11 | dt: 2206.79ms | tok/sec: 7,424 | mfu: 0.00 | epoch: 9 | total time: 29119.71m | eta: 2769.3m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 749001/820230 (91.32%) | loss: 2.561115 | lrm: 0.11 | dt: 2206.79ms | tok/sec: 7,424 | mfu: 0.00 | epoch: 9 | total time: 29119.71m | eta: 2769.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 07:48:04]
+status: base_train running
+step: step 750645/820230 (91.52%) | loss: 2.646111 | lrm: 0.11 | dt: 2165.32ms | tok/sec: 7,566 | mfu: 0.00 | epoch: 9 | total time: 29183.51m | eta: 2705.4m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 750645/820230 (91.52%) | loss: 2.646111 | lrm: 0.11 | dt: 2165.32ms | tok/sec: 7,566 | mfu: 0.00 | epoch: 9 | total time: 29183.51m | eta: 2705.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 08:49:14]
+status: base_train running
+step: step 752220/820230 (91.71%) | loss: 2.769038 | lrm: 0.10 | dt: 2321.43ms | tok/sec: 7,057 | mfu: 0.00 | epoch: 9 | total time: 29244.67m | eta: 2644.1m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 752220/820230 (91.71%) | loss: 2.769038 | lrm: 0.10 | dt: 2321.43ms | tok/sec: 7,057 | mfu: 0.00 | epoch: 9 | total time: 29244.67m | eta: 2644.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 09:49:15]
+status: base_train running
+step: step 753765/820230 (91.90%) | loss: 2.636445 | lrm: 0.10 | dt: 2326.87ms | tok/sec: 7,041 | mfu: 0.00 | epoch: 9 | total time: 29304.65m | eta: 2584.0m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 753765/820230 (91.90%) | loss: 2.636445 | lrm: 0.10 | dt: 2326.87ms | tok/sec: 7,041 | mfu: 0.00 | epoch: 9 | total time: 29304.65m | eta: 2584.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 10:49:15]
+status: base_train running
+step: step 755305/820230 (92.08%) | loss: 2.583703 | lrm: 0.10 | dt: 2324.91ms | tok/sec: 7,047 | mfu: 0.00 | epoch: 9 | total time: 29364.46m | eta: 2524.2m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 755305/820230 (92.08%) | loss: 2.583703 | lrm: 0.10 | dt: 2324.91ms | tok/sec: 7,047 | mfu: 0.00 | epoch: 9 | total time: 29364.46m | eta: 2524.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 11:49:15]
+status: base_train running
+step: step 756848/820230 (92.27%) | loss: 2.603815 | lrm: 0.10 | dt: 2314.72ms | tok/sec: 7,078 | mfu: 0.00 | epoch: 10 | total time: 29424.43m | eta: 2464.2m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 756848/820230 (92.27%) | loss: 2.603815 | lrm: 0.10 | dt: 2314.72ms | tok/sec: 7,078 | mfu: 0.00 | epoch: 10 | total time: 29424.43m | eta: 2464.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  97 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 12:49:15]
+status: base_train running
+step: step 758391/820230 (92.46%) | loss: 2.658047 | lrm: 0.09 | dt: 2317.99ms | tok/sec: 7,068 | mfu: 0.00 | epoch: 10 | total time: 29484.41m | eta: 2404.2m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 758392/820230 (92.46%) | loss: 2.670115 | lrm: 0.09 | dt: 2317.07ms | tok/sec: 7,070 | mfu: 0.00 | epoch: 10 | total time: 29484.45m | eta: 2404.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 13:49:23]
+status: base_train running
+step: step 759938/820230 (92.65%) | loss: 2.588055 | lrm: 0.09 | dt: 2374.84ms | tok/sec: 6,898 | mfu: 0.00 | epoch: 10 | total time: 29544.54m | eta: 2344.0m
+val:  Step 740000 | Validation bpb: 0.915992
+core: not yet
+eta:  step 759938/820230 (92.65%) | loss: 2.588055 | lrm: 0.09 | dt: 2374.84ms | tok/sec: 6,898 | mfu: 0.00 | epoch: 10 | total time: 29544.54m | eta: 2344.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 14:50:27]
+status: base_train running
+step: step 761498/820230 (92.84%) | loss: 2.690282 | lrm: 0.09 | dt: 2282.75ms | tok/sec: 7,177 | mfu: 0.00 | epoch: 10 | total time: 29605.17m | eta: 2283.4m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 761498/820230 (92.84%) | loss: 2.690282 | lrm: 0.09 | dt: 2282.75ms | tok/sec: 7,177 | mfu: 0.00 | epoch: 10 | total time: 29605.17m | eta: 2283.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 15:51:43]
+status: base_train running
+step: step 763074/820230 (93.03%) | loss: 2.610861 | lrm: 0.09 | dt: 2268.26ms | tok/sec: 7,223 | mfu: 0.00 | epoch: 10 | total time: 29666.43m | eta: 2222.1m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 763074/820230 (93.03%) | loss: 2.610861 | lrm: 0.09 | dt: 2268.26ms | tok/sec: 7,223 | mfu: 0.00 | epoch: 10 | total time: 29666.43m | eta: 2222.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 16:53:15]
+status: base_train running
+step: step 764657/820230 (93.22%) | loss: 2.634963 | lrm: 0.08 | dt: 2354.59ms | tok/sec: 6,958 | mfu: 0.00 | epoch: 10 | total time: 29727.92m | eta: 2160.6m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 764657/820230 (93.22%) | loss: 2.634963 | lrm: 0.08 | dt: 2354.59ms | tok/sec: 6,958 | mfu: 0.00 | epoch: 10 | total time: 29727.92m | eta: 2160.6m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 17:54:54]
+status: base_train running
+step: step 766239/820230 (93.42%) | loss: 2.506833 | lrm: 0.08 | dt: 2253.07ms | tok/sec: 7,271 | mfu: 0.00 | epoch: 10 | total time: 29789.38m | eta: 2099.1m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 766239/820230 (93.42%) | loss: 2.506833 | lrm: 0.08 | dt: 2253.07ms | tok/sec: 7,271 | mfu: 0.00 | epoch: 10 | total time: 29789.38m | eta: 2099.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 18:56:45]
+status: base_train running
+step: step 767831/820230 (93.61%) | loss: 2.691048 | lrm: 0.08 | dt: 2136.11ms | tok/sec: 7,670 | mfu: 0.00 | epoch: 10 | total time: 29851.23m | eta: 2037.2m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 767831/820230 (93.61%) | loss: 2.691048 | lrm: 0.08 | dt: 2136.11ms | tok/sec: 7,670 | mfu: 0.00 | epoch: 10 | total time: 29851.23m | eta: 2037.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 19:58:43]
+status: base_train running
+step: step 769423/820230 (93.81%) | loss: 2.571744 | lrm: 0.08 | dt: 2237.51ms | tok/sec: 7,322 | mfu: 0.00 | epoch: 10 | total time: 29913.08m | eta: 1975.3m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 769423/820230 (93.81%) | loss: 2.571744 | lrm: 0.08 | dt: 2237.51ms | tok/sec: 7,322 | mfu: 0.00 | epoch: 10 | total time: 29913.08m | eta: 1975.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 21:00:54]
+status: base_train running
+step: step 771018/820230 (94.00%) | loss: 2.694329 | lrm: 0.07 | dt: 2245.94ms | tok/sec: 7,294 | mfu: 0.00 | epoch: 10 | total time: 29975.08m | eta: 1913.3m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 771018/820230 (94.00%) | loss: 2.694329 | lrm: 0.07 | dt: 2245.94ms | tok/sec: 7,294 | mfu: 0.00 | epoch: 10 | total time: 29975.08m | eta: 1913.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 22:03:17]
+status: base_train running
+step: step 772623/820230 (94.20%) | loss: 2.557689 | lrm: 0.07 | dt: 2240.96ms | tok/sec: 7,311 | mfu: 0.00 | epoch: 10 | total time: 30037.44m | eta: 1850.9m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 772623/820230 (94.20%) | loss: 2.557689 | lrm: 0.07 | dt: 2240.96ms | tok/sec: 7,311 | mfu: 0.00 | epoch: 10 | total time: 30037.44m | eta: 1850.9m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-17 23:05:48]
+status: base_train running
+step: step 774233/820230 (94.39%) | loss: 2.528130 | lrm: 0.07 | dt: 2237.97ms | tok/sec: 7,320 | mfu: 0.00 | epoch: 10 | total time: 30099.93m | eta: 1788.3m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 774233/820230 (94.39%) | loss: 2.528130 | lrm: 0.07 | dt: 2237.97ms | tok/sec: 7,320 | mfu: 0.00 | epoch: 10 | total time: 30099.93m | eta: 1788.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 00:08:26]
+status: base_train running
+step: step 775840/820230 (94.59%) | loss: 2.636070 | lrm: 0.07 | dt: 2256.71ms | tok/sec: 7,260 | mfu: 0.00 | epoch: 10 | total time: 30162.34m | eta: 1725.8m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 775840/820230 (94.59%) | loss: 2.636070 | lrm: 0.07 | dt: 2256.71ms | tok/sec: 7,260 | mfu: 0.00 | epoch: 10 | total time: 30162.34m | eta: 1725.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 01:10:58]
+status: base_train running
+step: step 777448/820230 (94.78%) | loss: 2.673373 | lrm: 0.07 | dt: 2249.93ms | tok/sec: 7,282 | mfu: 0.00 | epoch: 10 | total time: 30224.86m | eta: 1663.3m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 777448/820230 (94.78%) | loss: 2.673373 | lrm: 0.07 | dt: 2249.93ms | tok/sec: 7,282 | mfu: 0.00 | epoch: 10 | total time: 30224.86m | eta: 1663.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 02:14:00]
+status: base_train running
+step: step 779070/820230 (94.98%) | loss: 2.634621 | lrm: 0.06 | dt: 2243.13ms | tok/sec: 7,304 | mfu: 0.00 | epoch: 10 | total time: 30287.88m | eta: 1600.2m
+val:  Step 760000 | Validation bpb: 0.910298
+core: not yet
+eta:  step 779070/820230 (94.98%) | loss: 2.634621 | lrm: 0.06 | dt: 2243.13ms | tok/sec: 7,304 | mfu: 0.00 | epoch: 10 | total time: 30287.88m | eta: 1600.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 03:17:17]
+status: base_train running
+step: step 780688/820230 (95.18%) | loss: 2.585533 | lrm: 0.06 | dt: 2221.66ms | tok/sec: 7,374 | mfu: 0.00 | epoch: 10 | total time: 30350.70m | eta: 1537.3m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 780688/820230 (95.18%) | loss: 2.585533 | lrm: 0.06 | dt: 2221.66ms | tok/sec: 7,374 | mfu: 0.00 | epoch: 10 | total time: 30350.70m | eta: 1537.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 04:20:40]
+status: base_train running
+step: step 782320/820230 (95.38%) | loss: 2.589636 | lrm: 0.06 | dt: 2163.07ms | tok/sec: 7,574 | mfu: 0.00 | epoch: 10 | total time: 30414.07m | eta: 1473.8m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 782320/820230 (95.38%) | loss: 2.589636 | lrm: 0.06 | dt: 2163.07ms | tok/sec: 7,574 | mfu: 0.00 | epoch: 10 | total time: 30414.07m | eta: 1473.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 05:24:15]
+status: base_train running
+step: step 783957/820230 (95.58%) | loss: 2.558275 | lrm: 0.06 | dt: 2181.70ms | tok/sec: 7,509 | mfu: 0.00 | epoch: 10 | total time: 30477.63m | eta: 1410.2m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 783957/820230 (95.58%) | loss: 2.558275 | lrm: 0.06 | dt: 2181.70ms | tok/sec: 7,509 | mfu: 0.00 | epoch: 10 | total time: 30477.63m | eta: 1410.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 06:28:15]
+status: base_train running
+step: step 785600/820230 (95.78%) | loss: 2.554536 | lrm: 0.05 | dt: 2102.56ms | tok/sec: 7,792 | mfu: 0.00 | epoch: 10 | total time: 30541.45m | eta: 1346.3m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 785601/820230 (95.78%) | loss: 2.558800 | lrm: 0.05 | dt: 2130.13ms | tok/sec: 7,691 | mfu: 0.00 | epoch: 10 | total time: 30541.48m | eta: 1346.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 07:31:58]
+status: base_train running
+step: step 787242/820230 (95.98%) | loss: 2.681414 | lrm: 0.05 | dt: 2213.54ms | tok/sec: 7,401 | mfu: 0.00 | epoch: 10 | total time: 30605.15m | eta: 1282.5m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 787242/820230 (95.98%) | loss: 2.681414 | lrm: 0.05 | dt: 2213.54ms | tok/sec: 7,401 | mfu: 0.00 | epoch: 10 | total time: 30605.15m | eta: 1282.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 08:34:24]
+status: base_train running
+step: step 788848/820230 (96.17%) | loss: 2.494883 | lrm: 0.05 | dt: 2344.96ms | tok/sec: 6,986 | mfu: 0.00 | epoch: 10 | total time: 30667.58m | eta: 1220.0m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 788848/820230 (96.17%) | loss: 2.494883 | lrm: 0.05 | dt: 2344.96ms | tok/sec: 6,986 | mfu: 0.00 | epoch: 10 | total time: 30667.58m | eta: 1220.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 09:34:24]
+status: base_train running
+step: step 790387/820230 (96.36%) | loss: 2.601563 | lrm: 0.05 | dt: 2350.10ms | tok/sec: 6,971 | mfu: 0.00 | epoch: 10 | total time: 30727.39m | eta: 1160.2m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 790387/820230 (96.36%) | loss: 2.601563 | lrm: 0.05 | dt: 2350.10ms | tok/sec: 6,971 | mfu: 0.00 | epoch: 10 | total time: 30727.39m | eta: 1160.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 10:34:24]
+status: base_train running
+step: step 791931/820230 (96.55%) | loss: 2.579049 | lrm: 0.04 | dt: 2322.27ms | tok/sec: 7,055 | mfu: 0.00 | epoch: 10 | total time: 30787.37m | eta: 1100.2m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 791931/820230 (96.55%) | loss: 2.579049 | lrm: 0.04 | dt: 2322.27ms | tok/sec: 7,055 | mfu: 0.00 | epoch: 10 | total time: 30787.37m | eta: 1100.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 11:34:24]
+status: base_train running
+step: step 793475/820230 (96.74%) | loss: 2.479816 | lrm: 0.04 | dt: 2351.43ms | tok/sec: 6,967 | mfu: 0.00 | epoch: 10 | total time: 30847.35m | eta: 1040.1m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 793475/820230 (96.74%) | loss: 2.479816 | lrm: 0.04 | dt: 2351.43ms | tok/sec: 6,967 | mfu: 0.00 | epoch: 10 | total time: 30847.35m | eta: 1040.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 12:34:25]
+status: base_train running
+step: step 795014/820230 (96.93%) | loss: 2.523637 | lrm: 0.04 | dt: 2326.63ms | tok/sec: 7,041 | mfu: 0.00 | epoch: 10 | total time: 30907.16m | eta: 980.3m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 795015/820230 (96.93%) | loss: 2.526203 | lrm: 0.04 | dt: 2305.19ms | tok/sec: 7,107 | mfu: 0.00 | epoch: 10 | total time: 30907.20m | eta: 980.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  97 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 13:34:34]
+status: base_train running
+step: step 796561/820230 (97.11%) | loss: 2.488688 | lrm: 0.04 | dt: 2280.74ms | tok/sec: 7,183 | mfu: 0.00 | epoch: 10 | total time: 30967.31m | eta: 920.2m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 796561/820230 (97.11%) | loss: 2.488688 | lrm: 0.04 | dt: 2280.74ms | tok/sec: 7,183 | mfu: 0.00 | epoch: 10 | total time: 30967.31m | eta: 920.2m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 14:35:38]
+status: base_train running
+step: step 798131/820230 (97.31%) | loss: 2.657960 | lrm: 0.03 | dt: 2289.39ms | tok/sec: 7,156 | mfu: 0.00 | epoch: 10 | total time: 31028.35m | eta: 859.1m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 798131/820230 (97.31%) | loss: 2.657960 | lrm: 0.03 | dt: 2289.39ms | tok/sec: 7,156 | mfu: 0.00 | epoch: 10 | total time: 31028.35m | eta: 859.1m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 15:36:58]
+status: base_train running
+step: step 799710/820230 (97.50%) | loss: 2.559313 | lrm: 0.03 | dt: 2251.27ms | tok/sec: 7,277 | mfu: 0.00 | epoch: 10 | total time: 31089.69m | eta: 797.7m
+val:  Step 780000 | Validation bpb: 0.907082
+core: not yet
+eta:  step 799710/820230 (97.50%) | loss: 2.559313 | lrm: 0.03 | dt: 2251.27ms | tok/sec: 7,277 | mfu: 0.00 | epoch: 10 | total time: 31089.69m | eta: 797.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 16:38:27]
+status: base_train running
+step: step 801281/820230 (97.69%) | loss: 2.608153 | lrm: 0.03 | dt: 2194.45ms | tok/sec: 7,466 | mfu: 0.00 | epoch: 10 | total time: 31150.72m | eta: 736.7m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 801281/820230 (97.69%) | loss: 2.608153 | lrm: 0.03 | dt: 2194.45ms | tok/sec: 7,466 | mfu: 0.00 | epoch: 10 | total time: 31150.72m | eta: 736.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 17:39:48]
+status: base_train running
+step: step 802860/820230 (97.88%) | loss: 2.603842 | lrm: 0.03 | dt: 2282.98ms | tok/sec: 7,176 | mfu: 0.00 | epoch: 10 | total time: 31212.04m | eta: 675.3m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 802860/820230 (97.88%) | loss: 2.603842 | lrm: 0.03 | dt: 2282.98ms | tok/sec: 7,176 | mfu: 0.00 | epoch: 10 | total time: 31212.04m | eta: 675.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 18:41:37]
+status: base_train running
+step: step 804451/820230 (98.08%) | loss: 2.664424 | lrm: 0.02 | dt: 2223.90ms | tok/sec: 7,367 | mfu: 0.00 | epoch: 10 | total time: 31273.87m | eta: 613.4m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 804451/820230 (98.08%) | loss: 2.664424 | lrm: 0.02 | dt: 2223.90ms | tok/sec: 7,367 | mfu: 0.00 | epoch: 10 | total time: 31273.87m | eta: 613.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 19:43:45]
+status: base_train running
+step: step 806045/820230 (98.27%) | loss: 2.409990 | lrm: 0.02 | dt: 2274.42ms | tok/sec: 7,203 | mfu: 0.00 | epoch: 10 | total time: 31335.77m | eta: 551.5m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 806045/820230 (98.27%) | loss: 2.409990 | lrm: 0.02 | dt: 2274.42ms | tok/sec: 7,203 | mfu: 0.00 | epoch: 10 | total time: 31335.77m | eta: 551.5m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 20:45:51]
+status: base_train running
+step: step 807644/820230 (98.47%) | loss: 2.669292 | lrm: 0.02 | dt: 2254.29ms | tok/sec: 7,267 | mfu: 0.00 | epoch: 10 | total time: 31397.86m | eta: 489.3m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 807644/820230 (98.47%) | loss: 2.669292 | lrm: 0.02 | dt: 2254.29ms | tok/sec: 7,267 | mfu: 0.00 | epoch: 10 | total time: 31397.86m | eta: 489.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 21:48:19]
+status: base_train running
+step: step 809251/820230 (98.66%) | loss: 2.576562 | lrm: 0.02 | dt: 2227.49ms | tok/sec: 7,355 | mfu: 0.00 | epoch: 10 | total time: 31460.30m | eta: 426.8m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 809251/820230 (98.66%) | loss: 2.576562 | lrm: 0.02 | dt: 2227.49ms | tok/sec: 7,355 | mfu: 0.00 | epoch: 10 | total time: 31460.30m | eta: 426.8m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 22:50:59]
+status: base_train running
+step: step 810860/820230 (98.86%) | loss: 2.650123 | lrm: 0.01 | dt: 2220.40ms | tok/sec: 7,378 | mfu: 0.00 | epoch: 10 | total time: 31522.81m | eta: 364.3m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 810860/820230 (98.86%) | loss: 2.650123 | lrm: 0.01 | dt: 2220.40ms | tok/sec: 7,378 | mfu: 0.00 | epoch: 10 | total time: 31522.81m | eta: 364.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-18 23:53:47]
+status: base_train running
+step: step 812476/820230 (99.05%) | loss: 2.601957 | lrm: 0.01 | dt: 2227.41ms | tok/sec: 7,355 | mfu: 0.00 | epoch: 10 | total time: 31585.59m | eta: 301.4m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 812476/820230 (99.05%) | loss: 2.601957 | lrm: 0.01 | dt: 2227.41ms | tok/sec: 7,355 | mfu: 0.00 | epoch: 10 | total time: 31585.59m | eta: 301.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-19 00:56:51]
+status: base_train running
+step: step 814099/820230 (99.25%) | loss: 2.610498 | lrm: 0.01 | dt: 2132.56ms | tok/sec: 7,682 | mfu: 0.00 | epoch: 10 | total time: 31648.64m | eta: 238.3m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 814099/820230 (99.25%) | loss: 2.610498 | lrm: 0.01 | dt: 2132.56ms | tok/sec: 7,682 | mfu: 0.00 | epoch: 10 | total time: 31648.64m | eta: 238.3m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-19 01:59:58]
+status: base_train running
+step: step 815718/820230 (99.45%) | loss: 2.537575 | lrm: 0.01 | dt: 2232.84ms | tok/sec: 7,337 | mfu: 0.00 | epoch: 10 | total time: 31711.53m | eta: 175.4m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 815718/820230 (99.45%) | loss: 2.537575 | lrm: 0.01 | dt: 2232.84ms | tok/sec: 7,337 | mfu: 0.00 | epoch: 10 | total time: 31711.53m | eta: 175.4m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-19 03:03:19]
+status: base_train running
+step: step 817349/820230 (99.65%) | loss: 2.553560 | lrm: 0.00 | dt: 2196.89ms | tok/sec: 7,457 | mfu: 0.00 | epoch: 10 | total time: 31774.89m | eta: 112.0m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 817349/820230 (99.65%) | loss: 2.553560 | lrm: 0.00 | dt: 2196.89ms | tok/sec: 7,457 | mfu: 0.00 | epoch: 10 | total time: 31774.89m | eta: 112.0m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-19 04:06:32]
+status: base_train running
+step: step 818977/820230 (99.85%) | loss: 2.561863 | lrm: 0.00 | dt: 2200.62ms | tok/sec: 7,445 | mfu: 0.00 | epoch: 10 | total time: 31838.11m | eta: 48.7m
+val:  Step 800000 | Validation bpb: 0.916912
+core: not yet
+eta:  step 818977/820230 (99.85%) | loss: 2.561863 | lrm: 0.00 | dt: 2200.62ms | tok/sec: 7,445 | mfu: 0.00 | epoch: 10 | total time: 31838.11m | eta: 48.7m
+wandb:wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat/runs/ryf5hccj
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-19 05:09:50] status: base_train not running
+
+[2026-03-19 06:13:45] status: base_train not running
+
+[2026-03-19 07:17:49] status: base_train not running
+
+[2026-03-19 08:21:06] status: base_train not running
+
+[2026-03-19 09:21:20] status: base_train not running
+
+[2026-03-19 10:21:20] status: base_train not running
+
+[2026-03-19 11:21:20] status: base_train not running
+
+[2026-03-19 12:21:20] status: base_train not running
+

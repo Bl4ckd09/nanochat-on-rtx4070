@@ -1,0 +1,47 @@
+=== Eval snapshot 2026-02-09_1005 ===
+Git HEAD: 0ee59449afeeef1cc8dd7242672b456c81a1b220
+---
+{
+  "step": 500,
+  "val_bpb": 1.3601298464708034,
+  "model_config": {
+    "sequence_len": 2048,
+    "vocab_size": 32768,
+    "n_layer": 18,
+    "n_head": 18,
+    "n_kv_head": 18,
+    "n_embd": 1152,
+    "window_pattern": "L"
+  },
+  "user_config": {
+    "run": "sft_gsm8k_boost",
+    "device_type": "",
+    "dtype": "bfloat16",
+    "model_tag": "d18",
+    "model_step": 500,
+    "num_iterations": 500,
+    "max_seq_len": 2048,
+    "device_batch_size": 4,
+    "total_batch_size": 8192,
+    "embedding_lr": 0.3,
+    "unembedding_lr": 0.004,
+    "matrix_lr": 0.02,
+    "weight_decay": 0.1,
+    "init_lr_frac": 1.0,
+    "warmup_ratio": 0.1,
+    "warmdown_ratio": 0.2,
+    "adamw_only": true,
+    "freeze_layers": 0,
+    "lora": false,
+    "lora_rank": 8,
+    "lora_alpha": 16.0,
+    "lora_dropout": 0.0,
+    "lora_lr": 0.0001,
+    "eval_every": 50,
+    "eval_tokens": 524288,
+    "dry_run": false,
+    "keep_best_k": 1,
+    "no_save_optimizer": true,
+    "max_grad_norm": 1.0
+  }
+}

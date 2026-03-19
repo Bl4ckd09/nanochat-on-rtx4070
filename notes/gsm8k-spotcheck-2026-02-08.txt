@@ -1,0 +1,40 @@
+# GSM8K Spot-Check Results (2026-02-08)
+# Model: SFT d18/best step 500
+# Settings: temperature=0.7, top_k=50, max_tokens=1024
+
+## Summary
+- pass@1 (greedy, 100 samples): base 0%, SFT 0%
+- pass@8 (t=0.7, n=8, m=1024, 100 samples): base 0%, SFT 1% (1/100)
+
+## Diagnosis
+The model does NOT emit the `#### <number>` format at all.
+Instead of doing math, it generates incoherent rambling text.
+This is a fundamental capacity issue — the model cannot do grade-school math.
+
+## Sample outputs (SFT model, first 5 GSM8K test questions):
+
+Q1: "Darrell and Allen's ages are in the ratio of 7:11..."
+pred: None  ref: 109
+Completion: Generic rambling about "number of people" — no math attempted.
+
+Q2: "Lorraine and Colleen are trading stickers for buttons..."
+pred: None  ref: 89
+Completion: Random percentages, nonsensical calculations. Does use <|python_start|> once but wrong context.
+
+Q3: "Indras has 6 letters in her name..."
+pred: None  ref: 13
+Completion: Story-like text about teachers and families — no math attempted.
+
+Q4: "Bethany can run 10 laps..."
+pred: None  ref: 5
+Completion: Rambling about "solving problems" with random percentages.
+
+Q5: "An ice cream truck..."
+pred: None  ref: 25
+Completion: Narrative about trips and days — no math attempted.
+
+## Conclusion
+The bottleneck is model capacity + pretraining, not SFT format.
+The model hasn't learned to do arithmetic or follow the GSM8K answer format.
+GSM8K 6x oversampling may help with format but unlikely to help with reasoning.
+Recommend: proceed with Phase 3 anyway as an experiment, but expect modest gains at best.

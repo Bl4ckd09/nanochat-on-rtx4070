@@ -1,0 +1,44 @@
+/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 304: OS call failed or operation not supported on this OS (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+
+                                                       █████                █████
+                                                      ░░███                ░░███
+     ████████    ██████   ████████    ██████   ██████  ░███████    ██████  ███████
+    ░░███░░███  ░░░░░███ ░░███░░███  ███░░███ ███░░███ ░███░░███  ░░░░░███░░░███░
+     ░███ ░███   ███████  ░███ ░███ ░███ ░███░███ ░░░  ░███ ░███   ███████  ░███
+     ░███ ░███  ███░░███  ░███ ░███ ░███ ░███░███  ███ ░███ ░███  ███░░███  ░███ ███
+     ████ █████░░████████ ████ █████░░██████ ░░██████  ████ █████░░███████  ░░█████
+    ░░░░ ░░░░░  ░░░░░░░░ ░░░░ ░░░░░  ░░░░░░   ░░░░░░  ░░░░ ░░░░░  ░░░░░░░░   ░░░░░
+    
+Autodetected device type: cpu
+2026-02-19 21:18:12,527 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+WARNING: Flash Attention 3 not available, using PyTorch SDPA fallback
+WARNING: Training will be less efficient without FA3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Vocab size: 32,768
+num_layers: 24
+model_dim: 1152 (base: 1152, nudge: +0)
+num_heads: 9
+head_dim: 128
+num_kv_heads: 9
+Tokens / micro-batch / rank: 8 x 2048 = 16,384
+Tokens / micro-batch: 16,384
+Total batch size 16,384 => gradient accumulation steps: 1
+Scaling LRs by 0.1768 for batch size 16,384 (reference: 524,288)
+Scaling weight decay from 0.200000 to 0.050000 for depth 24
+Gradient checkpointing enabled (activation recomputation in backward)
+Parameter counts:
+wte                     : 37,748,736
+value_embeds            : 452,984,832
+lm_head                 : 37,748,736
+transformer_matrices    : 382,209,408
+scalars                 : 48
+total                   : 910,691,760
+Estimated FLOPs per token: 3.199226e+09
+Using user-provided number of iterations: 40
+Total number of training tokens: 655,360
+Tokens : Scaling params ratio: 0.00
+Total training FLOPs estimate: 2.096645e+15
+Scaling the LR for the AdamW parameters ∝1/√(1152/768) = 0.816497
+W0219 21:18:30.778000 1411300 .venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py:117] [0/0_1] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'

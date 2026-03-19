@@ -1,0 +1,14 @@
+chat_group=d18_clean200k_lora_prod_2026-02-17_1209_s1024/best
+chat_step=1000
+base_tag=d18_clean200k_safe_2026-02-13_1226
+base_step=200000
+timestamp=2026-02-18_1349
+arc_log=/home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_arc1k_2026-02-18_1349.log
+chatcore_log=/home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_chatcore_all200_2026-02-18_1349.log
+humaneval_log=/home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_humaneval_pass10_2026-02-18_1349.log
+base_log=/home/sun0115/nanochat-learn/notes/d18_clean200k_safe_2026-02-13_1226_s200000_base_core_bpb_sample_2026-02-18_1349.log
+
+[1/4] ARC-only quick signal (-x 1000)
+[2/4] Full ChatCORE bundle (-x 200)
+[3/4] HumanEval pass@10
+[4/4] Base-side CORE/BPB/sample

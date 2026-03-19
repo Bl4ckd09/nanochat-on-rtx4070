@@ -1,0 +1,60 @@
+
+                                                       █████                █████
+                                                      ░░███                ░░███
+     ████████    ██████   ████████    ██████   ██████  ░███████    ██████  ███████
+    ░░███░░███  ░░░░░███ ░░███░░███  ███░░███ ███░░███ ░███░░███  ░░░░░███░░░███░
+     ░███ ░███   ███████  ░███ ░███ ░███ ░███░███ ░░░  ░███ ░███   ███████  ░███
+     ░███ ░███  ███░░███  ░███ ░███ ░███ ░███░███  ███ ░███ ░███  ███░░███  ░███ ███
+     ████ █████░░████████ ████ █████░░██████ ░░██████  ████ █████░░███████  ░░█████
+    ░░░░ ░░░░░  ░░░░░░░░ ░░░░ ░░░░░  ░░░░░░   ░░░░░░  ░░░░ ░░░░░  ░░░░░░░░   ░░░░░
+    
+Autodetected device type: cuda
+2026-02-23 20:10:18,361 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-23 20:10:18,362 - nanochat.common - [33m[1mWARNING[0m - Peak flops undefined for: NVIDIA GeForce RTX 4070, MFU will show as 0%
+GPU: NVIDIA GeForce RTX 4070 | Peak FLOPS (BF16): inf
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+WARNING: Flash Attention 3 not available, using PyTorch SDPA fallback
+WARNING: Training will be less efficient without FA3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Vocab size: 32,768
+num_layers: 24
+model_dim: 1152 (base: 1152, nudge: +0)
+num_heads: 9
+head_dim: 128
+num_kv_heads: 9
+Tokens / micro-batch / rank: 1 x 2048 = 2,048
+Tokens / micro-batch: 2,048
+Total batch size 16,384 => gradient accumulation steps: 8
+Scaling LRs by 0.1768 for batch size 16,384 (reference: 524,288)
+Scaling weight decay from 0.200000 to 0.050000 for depth 24
+Gradient checkpointing enabled (activation recomputation in backward)
+Parameter counts:
+wte                     : 37,748,736
+value_embeds            : 452,984,832
+lm_head                 : 37,748,736
+transformer_matrices    : 382,209,408
+scalars                 : 48
+total                   : 910,691,760
+Estimated FLOPs per token: 3.199226e+09
+Calculated number of iterations from target data:param ratio: 615,173
+Total number of training tokens: 10,078,994,432
+Tokens : Scaling params ratio: 24.00
+Total training FLOPs estimate: 3.224498e+19
+Model torch.compile disabled by NANOCHAT_COMPILE_MODEL=0
+Scaling the LR for the AdamW parameters ∝1/√(1152/768) = 0.816497
+Step 00000 | Validation bpb: 3.180742
+step 00000/615173 (0.00%) | loss: 10.398252 | lrm: 0.00 | dt: 2480.34ms | tok/sec: 6,605 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00001/615173 (0.00%) | loss: 10.398836 | lrm: 0.00 | dt: 2352.23ms | tok/sec: 6,965 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00002/615173 (0.00%) | loss: 10.398459 | lrm: 0.00 | dt: 2345.85ms | tok/sec: 6,984 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00003/615173 (0.00%) | loss: 10.398110 | lrm: 0.00 | dt: 2342.92ms | tok/sec: 6,992 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00004/615173 (0.00%) | loss: 10.397662 | lrm: 0.00 | dt: 2342.61ms | tok/sec: 6,993 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00005/615173 (0.00%) | loss: 10.397654 | lrm: 0.00 | dt: 1895.68ms | tok/sec: 8,642 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00006/615173 (0.00%) | loss: 10.397567 | lrm: 0.00 | dt: 2338.61ms | tok/sec: 7,005 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00007/615173 (0.00%) | loss: 10.397601 | lrm: 0.00 | dt: 2338.84ms | tok/sec: 7,005 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00008/615173 (0.00%) | loss: 10.397580 | lrm: 0.00 | dt: 2339.54ms | tok/sec: 7,003 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00009/615173 (0.00%) | loss: 10.397480 | lrm: 0.00 | dt: 2390.97ms | tok/sec: 6,852 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00010/615173 (0.00%) | loss: 10.397365 | lrm: 0.00 | dt: 2402.48ms | tok/sec: 6,819 | mfu: 0.00 | epoch: 1 | total time: 0.00m
+step 00011/615173 (0.00%) | loss: 10.397026 | lrm: 0.00 | dt: 2314.25ms | tok/sec: 7,079 | mfu: 0.00 | epoch: 1 | total time: 0.04m | eta: 23727.4m
+step 00012/615173 (0.00%) | loss: 10.396943 | lrm: 0.00 | dt: 2334.40ms | tok/sec: 7,018 | mfu: 0.00 | epoch: 1 | total time: 0.08m | eta: 23830.6m
+step 00013/615173 (0.00%) | loss: 10.396998 | lrm: 0.00 | dt: 2361.91ms | tok/sec: 6,936 | mfu: 0.00 | epoch: 1 | total time: 0.12m | eta: 23959.0m
+step 00014/615173 (0.00%) | loss: 10.397003 | lrm: 0.00 | dt: 2361.67ms | tok/sec: 6,937 | mfu: 0.00 | epoch: 1 | total time: 0.16m | eta: 24022.5m

@@ -1,0 +1,53 @@
+2026-02-16 10:57:28,182 - nanochat.common - INFO - Distributed world size: 1
+2026-02-16 10:57:28,182 - nanochat.checkpoint_manager - INFO - Loading model fro
+m /home/sun0115/.cache/nanochat/base_checkpoints/d18_clean200k_safe_2026-02-13_1
+226 with step 200000
+2026-02-16 10:57:30,914 - nanochat.checkpoint_manager - INFO - Building model wi
+th config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 1
+8, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Evaluating model: base_model (step 200000)
+Eval modes: core
+
+================================================================================
+CORE Evaluation
+================================================================================
+Evaluating: hellaswag_zeroshot (0-shot, type: multiple_choice)... accuracy: 0.34
+89 | centered: 0.1319 | evaluated: 10042 | skipped: 0 | time: 148.35s
+Evaluating: jeopardy (10-shot, type: language_modeling)... accuracy: 0.0066 | ce
+ntered: 0.0066 | evaluated: 2117 | skipped: 0 | time: 30.58s
+Evaluating: bigbench_qa_wikidata (10-shot, type: language_modeling)...
+
+
+
+
+
+
+accuracy: 0.3348 | centered: 0.3348 | evaluated: 20321 | skipped: 0 | time: 266.96s
+Evaluating: arc_easy (10-shot, type: multiple_choice)... accuracy: 0.5358 | centered: 0.3810 | evaluated: 2376 | skipped: 0 | time: 83.75s
+Evaluating: arc_challenge (10-shot, type: multiple_choice)... accuracy: 0.2756 | centered: 0.0341 | evaluated: 1172 | skipped: 0 | time: 48.74s
+Evaluating: copa (0-shot, type: multiple_choice)... accuracy: 0.6000 | centered: 0.2000 | evaluated: 100 | skipped: 0 | time: 1.33s
+Evaluating: commonsense_qa (10-shot, type: multiple_choice)... accuracy: 0.2785 | centered: 0.0981 | evaluated: 1221 | skipped: 0 | time: 57.83s
+Evaluating: piqa (10-shot, type: multiple_choice)... accuracy: 0.6300 | centered: 0.2601 | evaluated: 1838 | skipped: 0 | time: 41.57s
+Evaluating: openbook_qa (0-shot, type: multiple_choice)... accuracy: 0.3180 | centered: 0.0907 | evaluated: 500 | skipped: 0 | time: 6.67s
+Evaluating: lambada_openai (0-shot, type: language_modeling)... accuracy: 0.2798 | centered: 0.2798 | evaluated: 5153 | skipped: 0 | time: 66.21s
+Evaluating: hellaswag (10-shot, type: multiple_choice)... accuracy: 0.2920 | centered: 0.0560 | evaluated: 10042 | skipped: 0 | time: 4940.31s
+Evaluating: winograd (0-shot, type: schema)... accuracy: 0.6117 | centered: 0.2234 | evaluated: 273 | skipped: 0 | time: 3.43s
+Evaluating: winogrande (0-shot, type: schema)... accuracy: 0.5114 | centered: 0.0229 | evaluated: 1267 | skipped: 0 | time: 16.02s
+Evaluating: bigbench_dyck_languages (10-shot, type: language_modeling)... accuracy: 0.1030 | centered: 0.1030 | evaluated: 1000 | skipped: 0 | time: 19.26s
+Evaluating: agi_eval_lsat_ar (3-shot, type: multiple_choice)... accuracy: 0.2435 | centered: 0.0543 | evaluated: 230 | skipped: 0 | time: 111.11s
+Evaluating: bigbench_cs_algorithms (10-shot, type: language_modeling)... accuracy: 0.4106 | centered: 0.4106 | evaluated: 1320 | skipped: 0 | time: 23.04s
+Evaluating: bigbench_operators (10-shot, type: language_modeling)... accuracy: 0.1762 | centered: 0.1762 | evaluated: 210 | skipped: 0 | time: 3.49s
+Evaluating: bigbench_repeat_copy_logic (10-shot, type: language_modeling)... accuracy: 0.0312 | centered: 0.0312 | evaluated: 32 | skipped: 0 | time: 0.60s
+Evaluating: squad (10-shot, type: language_modeling)... accuracy: 0.0000 | centered: 0.0000 | evaluated: 10570 | skipped: 0 | time: 837.44s
+Evaluating: coqa (0-shot, type: language_modeling)... accuracy: 0.1145 | centered: 0.1145 | evaluated: 7983 | skipped: 0 | time: 133.36s
+Evaluating: boolq (10-shot, type: multiple_choice)... accuracy: 0.4602 | centered: -0.4204 | evaluated: 3270 | skipped: 0 | time: 1410.05s
+Evaluating: bigbench_language_identification (10-shot, type: multiple_choice)... accuracy: 0.2470 | centered: 0.1716 | evaluated: 9995 | skipped: 5 | time: 13948.38s
+
+Results written to: /home/sun0115/.cache/nanochat/base_eval/base_model_200000.csv
+CORE metric: 0.1255
+[done] core skip run complete
+[?2004h[01;32msun0115@DESKTOP-L4C74MD[00m:[01;34m~/nanochat-learn/nanochat[00m$ 
+Broadcast message from root@DESKTOP-L4C74MD (Mon 2026-02-23 19:49:52 GMT):
+
+The system will power off now!
+

@@ -1,0 +1,5 @@
+2026-02-19 06:12:40,951 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-19 06:12:40,952 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_prod_2026-02-17_1209_s1024/best with step 1000
+2026-02-19 06:12:42,675 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 1024, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Final: 262/1000 (26.20%)
+MMLU accuracy: 26.20%

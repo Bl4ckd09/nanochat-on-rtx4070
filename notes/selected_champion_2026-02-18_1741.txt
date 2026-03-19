@@ -1,0 +1,4 @@
+objective=mmlu
+selected_group=d18_clean200k_lora_prod_2026-02-17_1209_s1024/best
+selected_step=1000
+selection_time=2026-02-19T01:41:31+00:00

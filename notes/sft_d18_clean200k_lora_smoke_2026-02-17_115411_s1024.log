@@ -1,0 +1,133 @@
+2026-02-17 11:54:13,529 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/sun0115/.netrc.
+wandb: Currently logged in as: sunshines (sunshines-gmail-com) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 3fhxzhn8
+wandb: Tracking run with wandb version 0.24.2
+wandb: Run data is saved locally in /home/sun0115/nanochat-learn/nanochat/wandb/run-20260217_115413-3fhxzhn8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run d18_clean200k_lora_smoke_2026-02-17_115411_s1024
+wandb: ⭐️ View project at https://wandb.ai/sunshines-gmail-com/nanochat-sft
+wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/3fhxzhn8
+2026-02-17 11:54:14,680 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18_clean200k_safe_2026-02-13_1226 with step 200000
+2026-02-17 11:54:16,265 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Skipping torch.compile in LoRA mode for stability
+LoRA enabled: rank=64, alpha=128.0
+Applied LoRA to 90 layers
+Trainable params: 17,252,352 / 719,148,132 (2.40%)
+Skipping torch.compile in LoRA mode for stability
+Tokens / micro-batch / rank: 1 x 1024 = 1,024
+Tokens / micro-batch: 1,024
+Total batch size 8,192 => gradient accumulation steps: 8
+Using AdamW optimizer for LoRA params with lr=0.0001
+Step 00000 | Validation bpb: 0.9116
+step 00001 (1.67%) | loss: 1.803574 | lrm: 0.08 | dt: 718.07ms | tok/sec: 11,408 | mfu: 2.51 | epoch: 1 | total time: 0.00m
+step 00002 (3.33%) | loss: 2.003220 | lrm: 0.17 | dt: 564.64ms | tok/sec: 14,508 | mfu: 3.19 | epoch: 1 | total time: 0.00m
+step 00003 (5.00%) | loss: 2.295371 | lrm: 0.25 | dt: 557.53ms | tok/sec: 14,693 | mfu: 3.23 | epoch: 1 | total time: 0.00m
+step 00004 (6.67%) | loss: 2.515462 | lrm: 0.33 | dt: 489.36ms | tok/sec: 16,740 | mfu: 3.69 | epoch: 1 | total time: 0.00m
+step 00005 (8.33%) | loss: 2.455824 | lrm: 0.42 | dt: 487.25ms | tok/sec: 16,812 | mfu: 3.70 | epoch: 1 | total time: 0.00m
+step 00006 (10.00%) | loss: 2.454613 | lrm: 0.50 | dt: 559.19ms | tok/sec: 14,649 | mfu: 3.23 | epoch: 1 | total time: 0.00m
+step 00007 (11.67%) | loss: 2.524094 | lrm: 0.58 | dt: 556.49ms | tok/sec: 14,720 | mfu: 3.24 | epoch: 1 | total time: 0.00m
+step 00008 (13.33%) | loss: 2.630300 | lrm: 0.67 | dt: 485.83ms | tok/sec: 16,861 | mfu: 3.71 | epoch: 1 | total time: 0.00m
+step 00009 (15.00%) | loss: 2.532456 | lrm: 0.75 | dt: 562.52ms | tok/sec: 14,562 | mfu: 3.21 | epoch: 1 | total time: 0.00m
+step 00010 (16.67%) | loss: 2.501200 | lrm: 0.83 | dt: 541.75ms | tok/sec: 15,121 | mfu: 3.33 | epoch: 1 | total time: 0.00m
+step 00011 (18.33%) | loss: 2.524651 | lrm: 0.92 | dt: 526.11ms | tok/sec: 15,570 | mfu: 3.43 | epoch: 1 | total time: 0.01m
+step 00012 (20.00%) | loss: 2.539410 | lrm: 1.00 | dt: 536.05ms | tok/sec: 15,282 | mfu: 3.36 | epoch: 1 | total time: 0.02m
+step 00013 (21.67%) | loss: 2.451349 | lrm: 1.00 | dt: 527.03ms | tok/sec: 15,543 | mfu: 3.42 | epoch: 1 | total time: 0.03m
+step 00014 (23.33%) | loss: 2.445576 | lrm: 1.00 | dt: 516.52ms | tok/sec: 15,859 | mfu: 3.49 | epoch: 1 | total time: 0.04m
+step 00015 (25.00%) | loss: 2.474835 | lrm: 1.00 | dt: 524.17ms | tok/sec: 15,628 | mfu: 3.44 | epoch: 1 | total time: 0.04m
+step 00016 (26.67%) | loss: 2.378299 | lrm: 1.00 | dt: 535.21ms | tok/sec: 15,306 | mfu: 3.37 | epoch: 1 | total time: 0.05m
+step 00017 (28.33%) | loss: 2.362248 | lrm: 1.00 | dt: 529.12ms | tok/sec: 15,482 | mfu: 3.41 | epoch: 1 | total time: 0.06m
+step 00018 (30.00%) | loss: 2.406062 | lrm: 1.00 | dt: 555.81ms | tok/sec: 14,738 | mfu: 3.24 | epoch: 1 | total time: 0.07m
+step 00019 (31.67%) | loss: 2.411421 | lrm: 1.00 | dt: 532.36ms | tok/sec: 15,388 | mfu: 3.39 | epoch: 1 | total time: 0.08m
+step 00020 (33.33%) | loss: 2.486870 | lrm: 1.00 | dt: 536.65ms | tok/sec: 15,264 | mfu: 3.36 | epoch: 1 | total time: 0.09m
+step 00021 (35.00%) | loss: 2.451380 | lrm: 1.00 | dt: 534.36ms | tok/sec: 15,330 | mfu: 3.38 | epoch: 1 | total time: 0.10m
+step 00022 (36.67%) | loss: 2.445610 | lrm: 1.00 | dt: 544.56ms | tok/sec: 15,043 | mfu: 3.31 | epoch: 1 | total time: 0.11m
+step 00023 (38.33%) | loss: 2.545288 | lrm: 1.00 | dt: 564.29ms | tok/sec: 14,517 | mfu: 3.20 | epoch: 1 | total time: 0.12m
+step 00024 (40.00%) | loss: 2.550411 | lrm: 1.00 | dt: 543.99ms | tok/sec: 15,059 | mfu: 3.32 | epoch: 1 | total time: 0.13m
+step 00025 (41.67%) | loss: 2.511675 | lrm: 1.00 | dt: 559.79ms | tok/sec: 14,633 | mfu: 3.22 | epoch: 1 | total time: 0.13m
+Step 00025 | Validation bpb: 0.7337
+2026-02-17 11:55:18,182 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved model parameters to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/best/model_000025.pt
+2026-02-17 11:55:18,191 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved metadata to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/best/meta_000025.json
+Saved best checkpoint at step 25 (val_bpb=0.7337)
+step 00026 (43.33%) | loss: 2.561591 | lrm: 1.00 | dt: 833.54ms | tok/sec: 9,827 | mfu: 2.16 | epoch: 1 | total time: 0.15m
+step 00027 (45.00%) | loss: 2.613358 | lrm: 1.00 | dt: 607.91ms | tok/sec: 13,475 | mfu: 2.97 | epoch: 1 | total time: 0.16m
+step 00028 (46.67%) | loss: 2.520287 | lrm: 1.00 | dt: 501.51ms | tok/sec: 16,334 | mfu: 3.60 | epoch: 1 | total time: 0.17m
+step 00029 (48.33%) | loss: 2.573858 | lrm: 1.00 | dt: 575.49ms | tok/sec: 14,234 | mfu: 3.13 | epoch: 1 | total time: 0.18m
+step 00030 (50.00%) | loss: 2.529719 | lrm: 1.00 | dt: 575.77ms | tok/sec: 14,228 | mfu: 3.13 | epoch: 1 | total time: 0.19m
+step 00031 (51.67%) | loss: 2.470477 | lrm: 1.00 | dt: 562.95ms | tok/sec: 14,551 | mfu: 3.20 | epoch: 1 | total time: 0.20m
+step 00032 (53.33%) | loss: 2.499034 | lrm: 1.00 | dt: 569.31ms | tok/sec: 14,389 | mfu: 3.17 | epoch: 1 | total time: 0.20m
+step 00033 (55.00%) | loss: 2.463996 | lrm: 1.00 | dt: 550.25ms | tok/sec: 14,887 | mfu: 3.28 | epoch: 1 | total time: 0.21m
+step 00034 (56.67%) | loss: 2.407111 | lrm: 1.00 | dt: 560.40ms | tok/sec: 14,618 | mfu: 3.22 | epoch: 1 | total time: 0.22m
+step 00035 (58.33%) | loss: 2.437548 | lrm: 1.00 | dt: 480.60ms | tok/sec: 17,045 | mfu: 3.75 | epoch: 1 | total time: 0.23m
+step 00036 (60.00%) | loss: 2.459709 | lrm: 1.00 | dt: 489.40ms | tok/sec: 16,738 | mfu: 3.69 | epoch: 1 | total time: 0.24m
+step 00037 (61.67%) | loss: 2.436753 | lrm: 1.00 | dt: 540.53ms | tok/sec: 15,155 | mfu: 3.34 | epoch: 1 | total time: 0.25m
+step 00038 (63.33%) | loss: 2.492837 | lrm: 1.00 | dt: 541.23ms | tok/sec: 15,135 | mfu: 3.33 | epoch: 1 | total time: 0.26m
+step 00039 (65.00%) | loss: 2.469664 | lrm: 1.00 | dt: 561.33ms | tok/sec: 14,594 | mfu: 3.21 | epoch: 1 | total time: 0.27m
+step 00040 (66.67%) | loss: 2.427334 | lrm: 1.00 | dt: 562.37ms | tok/sec: 14,566 | mfu: 3.21 | epoch: 1 | total time: 0.28m
+step 00041 (68.33%) | loss: 2.463923 | lrm: 1.00 | dt: 557.90ms | tok/sec: 14,683 | mfu: 3.23 | epoch: 1 | total time: 0.29m
+step 00042 (70.00%) | loss: 2.494963 | lrm: 1.00 | dt: 541.13ms | tok/sec: 15,138 | mfu: 3.33 | epoch: 1 | total time: 0.29m
+step 00043 (71.67%) | loss: 2.433499 | lrm: 0.94 | dt: 541.09ms | tok/sec: 15,139 | mfu: 3.33 | epoch: 1 | total time: 0.30m
+step 00044 (73.33%) | loss: 2.499525 | lrm: 0.89 | dt: 557.99ms | tok/sec: 14,681 | mfu: 3.23 | epoch: 1 | total time: 0.31m
+step 00045 (75.00%) | loss: 2.411739 | lrm: 0.83 | dt: 550.18ms | tok/sec: 14,889 | mfu: 3.28 | epoch: 1 | total time: 0.32m
+step 00046 (76.67%) | loss: 2.379532 | lrm: 0.78 | dt: 549.18ms | tok/sec: 14,916 | mfu: 3.28 | epoch: 1 | total time: 0.33m
+step 00047 (78.33%) | loss: 2.334424 | lrm: 0.72 | dt: 559.07ms | tok/sec: 14,653 | mfu: 3.23 | epoch: 1 | total time: 0.34m
+step 00048 (80.00%) | loss: 2.335918 | lrm: 0.67 | dt: 547.85ms | tok/sec: 14,952 | mfu: 3.29 | epoch: 1 | total time: 0.35m
+step 00049 (81.67%) | loss: 2.316805 | lrm: 0.61 | dt: 540.47ms | tok/sec: 15,157 | mfu: 3.34 | epoch: 1 | total time: 0.36m
+step 00050 (83.33%) | loss: 2.313413 | lrm: 0.56 | dt: 526.89ms | tok/sec: 15,547 | mfu: 3.42 | epoch: 1 | total time: 0.37m
+Step 00050 | Validation bpb: 0.7121
+2026-02-17 11:55:52,386 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved model parameters to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/best/model_000050.pt
+2026-02-17 11:55:52,387 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved metadata to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/best/meta_000050.json
+Saved best checkpoint at step 50 (val_bpb=0.7121)
+step 00051 (85.00%) | loss: 2.274634 | lrm: 0.50 | dt: 693.33ms | tok/sec: 11,815 | mfu: 2.60 | epoch: 1 | total time: 0.38m
+step 00052 (86.67%) | loss: 2.222235 | lrm: 0.44 | dt: 777.84ms | tok/sec: 10,531 | mfu: 2.32 | epoch: 1 | total time: 0.39m
+step 00053 (88.33%) | loss: 2.237166 | lrm: 0.39 | dt: 572.40ms | tok/sec: 14,311 | mfu: 3.15 | epoch: 1 | total time: 0.40m
+step 00054 (90.00%) | loss: 2.180084 | lrm: 0.33 | dt: 577.81ms | tok/sec: 14,177 | mfu: 3.12 | epoch: 1 | total time: 0.41m
+step 00055 (91.67%) | loss: 2.179399 | lrm: 0.28 | dt: 577.70ms | tok/sec: 14,180 | mfu: 3.12 | epoch: 1 | total time: 0.42m
+step 00056 (93.33%) | loss: 2.176219 | lrm: 0.22 | dt: 572.25ms | tok/sec: 14,315 | mfu: 3.15 | epoch: 1 | total time: 0.43m
+step 00057 (95.00%) | loss: 2.142334 | lrm: 0.17 | dt: 586.66ms | tok/sec: 13,963 | mfu: 3.07 | epoch: 1 | total time: 0.44m
+step 00058 (96.67%) | loss: 2.146703 | lrm: 0.11 | dt: 573.58ms | tok/sec: 14,282 | mfu: 3.14 | epoch: 1 | total time: 0.45m
+step 00059 (98.33%) | loss: 2.169819 | lrm: 0.06 | dt: 623.09ms | tok/sec: 13,147 | mfu: 2.89 | epoch: 1 | total time: 0.46m
+step 00060 (100.00%) | loss: 2.271370 | lrm: 0.00 | dt: 470.33ms | tok/sec: 17,417 | mfu: 3.83 | epoch: 1 | total time: 0.47m
+Step 00060 | Validation bpb: 0.7106
+2026-02-17 11:56:15,950 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved model parameters to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/best/model_000060.pt
+2026-02-17 11:56:15,951 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved metadata to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/best/meta_000060.json
+Saved best checkpoint at step 60 (val_bpb=0.7106)
+Saved LoRA adapter weights to /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/lora_adapter_000060.pt
+Merging LoRA weights into base model for checkpoint...
+2026-02-17 11:56:17,918 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved model parameters to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/model_000060.pt
+2026-02-17 11:56:17,919 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Saved metadata to: /home/sun0115/.cache/nanochat/chatsft_checkpoints/d18_clean200k_lora_smoke_2026-02-17_115411_s1024/meta_000060.json
+Peak memory usage: 6401.51MiB
+Total training time: 0.47m
+Minimum validation bpb: 0.7106
+wandb: updating run metadata
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading output.log
+wandb: uploading history steps 9-9, summary, console lines 80-90
+wandb: 
+wandb: Run history:
+wandb:                 step ▁▂▃▄▅▆▇▇██
+wandb: total_training_flops ▁▂▃▄▄▆▇▇██
+wandb:  total_training_time ▁▁▂▃▄▅▆▆██
+wandb:             train/dt ▆▅█▇▅▁
+wandb:          train/epoch ▁▁▁▁▁▁
+wandb:           train/loss ▇▇█▅▂▁
+wandb:            train/lrm ▇███▅▁
+wandb:            train/mfu ▃▃▁▂▄█
+wandb:    train/tok_per_sec ▃▃▁▂▄█
+wandb:              val/bpb █▂▁▁
+wandb: 
+wandb: Run summary:
+wandb:                 step 60
+wandb: total_training_flops 1070219132928000
+wandb:  total_training_time 28.07541
+wandb:             train/dt 0.47033
+wandb:          train/epoch 1
+wandb:           train/loss 2.27137
+wandb:            train/lrm 0
+wandb:            train/mfu 3.83463
+wandb:    train/tok_per_sec 17417
+wandb:              val/bpb 0.7106
+wandb: 
+wandb: 🚀 View run d18_clean200k_lora_smoke_2026-02-17_115411_s1024 at: https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/3fhxzhn8
+wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-sft
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260217_115413-3fhxzhn8/logs

@@ -1,0 +1,14 @@
+model_group=d18_clean200k_lora_prod_2026-02-17_1209_s1024/best
+step=1000
+max_problems=1000
+timestamp=2026-02-19_0258
+logs:
+  pass1: /home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_gsm8k_pass1_1000_2026-02-19_0258.log
+  pass8: /home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_gsm8k_pass8_1000_2026-02-19_0258.log
+  mmlu: /home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_mmlu_1000_2026-02-19_0258.log
+  spellingbee: /home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_spellingbee_1000_2026-02-19_0258.log
+
+GSM8K pass@8: 8/1000 = 0.80% | Wilson95% [0.41%, 1.57%]
+MMLU: 262/1000 = 26.20% | Wilson95% [23.57%, 29.01%]
+SpellingBee: 9/256 = 3.52% | Wilson95% [1.86%, 6.55%]
+[done] confirmation eval complete

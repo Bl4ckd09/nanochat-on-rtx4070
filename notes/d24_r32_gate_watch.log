@@ -1,0 +1,41 @@
+[start] 2026-03-13 16:02:05 gate monitor log=/home/sun0115/nanochat-learn/notes/d24_asp48_track_train_r32_p3_bs1_retry_2026-03-13_1557.log start_step=615173 target_step=616173
+[start] 2026-03-13 16:02:05 gate monitor log=/home/sun0115/nanochat-learn/notes/d24_asp48_track_train_r32_p3_bs1_retry_2026-03-13_1557.log start_step=615173 target_step=616173
+[poll] 2026-03-13 16:02:05 latest_step=615264 target_step=616173
+[start] 2026-03-13 16:03:11 gate monitor log=/home/sun0115/nanochat-learn/notes/d24_asp48_track_train_r32_p3_bs1_retry_2026-03-13_1557.log start_step=615173 target_step=616173
+[poll] 2026-03-13 16:03:11 latest_step=615293 target_step=616173
+[poll] 2026-03-13 16:04:11 latest_step=615318 target_step=616173
+[poll] 2026-03-13 16:05:11 latest_step=615344 target_step=616173
+[poll] 2026-03-13 16:06:11 latest_step=615370 target_step=616173
+[poll] 2026-03-13 16:07:11 latest_step=615396 target_step=616173
+[poll] 2026-03-13 16:08:11 latest_step=615422 target_step=616173
+[poll] 2026-03-13 16:09:11 latest_step=615447 target_step=616173
+[poll] 2026-03-13 16:10:11 latest_step=615473 target_step=616173
+[poll] 2026-03-13 16:11:11 latest_step=615499 target_step=616173
+[poll] 2026-03-13 16:12:12 latest_step=615525 target_step=616173
+[poll] 2026-03-13 16:13:13 latest_step=615551 target_step=616173
+[poll] 2026-03-13 16:14:14 latest_step=615578 target_step=616173
+[poll] 2026-03-13 16:15:15 latest_step=615604 target_step=616173
+[poll] 2026-03-13 16:16:16 latest_step=615630 target_step=616173
+[poll] 2026-03-13 16:17:16 latest_step=615656 target_step=616173
+[poll] 2026-03-13 16:18:17 latest_step=615682 target_step=616173
+[poll] 2026-03-13 16:19:18 latest_step=615709 target_step=616173
+[poll] 2026-03-13 16:20:19 latest_step=615735 target_step=616173
+[poll] 2026-03-13 16:21:20 latest_step=615761 target_step=616173
+[poll] 2026-03-13 16:22:21 latest_step=615787 target_step=616173
+[poll] 2026-03-13 16:23:23 latest_step=615814 target_step=616173
+[poll] 2026-03-13 16:24:23 latest_step=615840 target_step=616173
+[poll] 2026-03-13 16:25:24 latest_step=615866 target_step=616173
+[poll] 2026-03-13 16:26:25 latest_step=615892 target_step=616173
+[poll] 2026-03-13 16:27:26 latest_step=615919 target_step=616173
+[poll] 2026-03-13 16:28:27 latest_step=615945 target_step=616173
+[poll] 2026-03-13 16:29:28 latest_step=615971 target_step=616173
+[poll] 2026-03-13 16:30:29 latest_step=615997 target_step=616173
+[poll] 2026-03-13 16:31:30 latest_step=616024 target_step=616173
+[poll] 2026-03-13 16:32:31 latest_step=616050 target_step=616173
+[poll] 2026-03-13 16:33:32 latest_step=616076 target_step=616173
+[poll] 2026-03-13 16:34:33 latest_step=616102 target_step=616173
+[poll] 2026-03-13 16:35:34 latest_step=616129 target_step=616173
+[poll] 2026-03-13 16:36:35 latest_step=616155 target_step=616173
+[poll] 2026-03-13 16:37:36 latest_step=616181 target_step=616173
+[done] 2026-03-13 16:37:36 decision file: /home/sun0115/nanochat-learn/notes/d24_r32_gate_decision_2026-03-13_163736.md
+[done] latest pointer: /home/sun0115/nanochat-learn/notes/d24_r32_gate_latest.md

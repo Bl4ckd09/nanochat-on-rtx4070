@@ -1,0 +1,9 @@
+2026-02-06 19:14:53,039 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-06 19:14:53,039 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18 with step 500
+2026-02-06 19:14:53,940 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-02-06 19:14:54,077 - datasets.load - [33m[1mWARNING[0m - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /home/sun0115/.cache/huggingface/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Wed Feb  4 12:49:19 2026).
+2026-02-06 19:14:54,077 - datasets.packaged_modules.cache.cache - [33m[1mWARNING[0m - Found the latest cached dataset configuration 'all' at /home/sun0115/.cache/huggingface/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Wed Feb  4 12:49:19 2026).
+Final: 3239/14042 (23.07%)
+MMLU accuracy: 23.07%

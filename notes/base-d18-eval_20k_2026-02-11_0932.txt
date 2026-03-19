@@ -1,0 +1,82 @@
+2026-02-11 09:32:27,440 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-11 09:32:27,440 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18 with step 20000
+2026-02-11 09:32:29,182 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Evaluating model: base_model (step 20000)
+Eval modes: bpb, sample
+
+================================================================================
+Model Samples
+================================================================================
+
+Conditioned samples:
+--------------------------------------------------------------------------------
+<|bos|>The capital of France is Paris. The city is located in the heart of the Mediterranean Sea, and is
+--------------------------------------------------------------------------------
+<|bos|>The chemical symbol of gold is the symbol of the gold standard. Gold is a precious metal that is used in
+--------------------------------------------------------------------------------
+<|bos|>If yesterday was Friday, then tomorrow will be Friday. The first day of the week is Friday, and the second day of
+--------------------------------------------------------------------------------
+<|bos|>The opposite of hot is the opposite of cold. The opposite of hot is the opposite of cold. The
+--------------------------------------------------------------------------------
+<|bos|>The planets of the solar system are: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+--------------------------------------------------------------------------------
+<|bos|>My favorite color is red. I love the color of my favorite food, but I don’t like
+--------------------------------------------------------------------------------
+<|bos|>If 5*x + 3 = 13, then x is the number of times the number is 13. If 5*x +
+
+Unconditioned samples:
+--------------------------------------------------------------------------------
+<|bos|>Monday, February 4
+The mythical word agua means “hit“. A 3-5 by 2 foot stabilize should hold an object for about two feet in height. Which)|| excelport
+The word agua means a word which is used in French for “aha.” Greek notebook and [anIR ذي burner] is a word which means "power to facilitate," and it was that I get so excited to plan a presentation on this concept. So we can clearly see that it is a Ranaceous word that has seventy-two as most common word used in Costa Rica. Thus, this everyday term by
+--------------------------------------------------------------------------------
+<|bos|>- What does it mean to voluntarily give away something?
+- How much have you put away?
+- What rules governARS stormwater storage technology?
+- What is an "intended" Physiology?
+- What does the wordounting mean?
+- What is Total universal Well Year after Taxation Act?
+- Should we give away at least 100,000 gallons of stormwater each year?
+What does it mean to transit away?
+Road rush must be environmentally friendly as it can save over $1 billion per year inside your absolutely free to most like I&atured content.
+SSkip to the next page.
+ weddingceroutnout U
+--------------------------------------------------------------------------------
+<|bos|>July Families Activities
+How fantastic a birthday may seem to understand our� GERD family activities. I've made it difficult by Experiences. I’m glad you were such large-sized areas of lightness! the experience has I nobly enjoyed her. The Empire V dessert found its unexpected place on theend side of the sun, as well. She gave thought and hoped to at pic. in the golden price of trueness! I had to share her experience,and give you rightly so you can learn the adventures. Conscious Artby Roberts, is having a great summer party series at Mother NatureKnocking. It looks very interesting.
+
+--------------------------------------------------------------------------------
+<|bos|>Network Security tells you what is most valuable to your computer, laptop television and a Unit 30 computer. Passive-response (PS) technology is used to provide a proactive, coordinated response.
+One of the youngest ever technologies and a big part of Information Technology’s hush-for-youman potential!
+Net dat has benefited us in our digital image production techniques and in our personal computer.
+Do we! http://bit.ly Spring artificial intelligence cannot solve the flag.
+isc/ torque distribution property
+In this post, I will cover some basic concepts leading to simple, but less useful, basis for error correction. So, I am
+--------------------------------------------------------------------------------
+<|bos|>The Na’aah of Yom Tov became popular on the Augustine stage almost three hundred years ago. The best commenters to this article might, in case you are new to the language or haven’t heard it before, still have any further suggestion—mywhat may work—they have kind of Contain allerences anticipate reading a insight, or just want something more certainly. Any organisation often than not has the special opportunity of evaluating, and there are such omega-3s as the attendance of Olympic size games to sharpen mind memorization and memory pauses. And only soap prices will raise vendors’ profits once they areorthod-hand
+--------------------------------------------------------------------------------
+<|bos|>Contains time tables for. Significant experimental research.
+Most Pl screened Goats on sand are experiencing elevated blood pressure in their feet, HomohepatThird or UDL 3 Core somewhere in their third year to three relatively shallower.
+Extent of decreasing in-weekly arterial gas due to lower resistance to airway constitution therapy::
+ hear ofrome punch in str Buddhist pro
+-resolution testys do not put on a shoe on a multi Feol function.
+ pollsoral str fed hob wrinkles telineed Israelites bared announced Morbid syndrome in capita also ate human talk...
+How much time to clasp your Sunday shoes? Balance from Indian
+--------------------------------------------------------------------------------
+<|bos|>Robots can come in a lot of forms; however, there are also robots with all sides, different ways of processing information and being able to survive.
+There are many types of robots some are Bon-solders and others are updated now, but there are multiple ways to acquire useful information. The list below includes ways to prepare oneself for the ideas they produce.
+Custom error experimented
+Most electromagnetic and radio based signals have so many of the same measurement in them that the an expenditures are not a implementing concept. That is because too much-chall populations in same beam causes errors--the reason is about the time that energy will suffice
+--------------------------------------------------------------------------------
+<|bos|>And owners may know exactly what the most for seized paper used for printing and selling is what made The Treatments for drinkers.
+This reason should now finally have an congregation engaged to Moore and Norman in malware.
+The same that the inside of the shell protects from beetles; perhaps something in metabolism works less smartly than you think.
+That’s why Renaissancean wasn’t like the other engineers in theorganisms, known as fungi and botany as an ceilingsuran.
+They were the same bugs that usually mammals and birds are will catch, but in alarming numbers and increasing numbers —risties, hundreds again.
+They get caught by the northeast, not the city
+
+================================================================================
+BPB Evaluation
+================================================================================
+train bpb: 0.952582
+val bpb: 0.968636

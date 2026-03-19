@@ -1,0 +1,98 @@
+2026-02-18 19:04:36,032 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-18 19:04:36,033 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18_clean200k_safe_2026-02-13_1226 with step 200000
+2026-02-18 19:04:47,933 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Evaluating model: base_model (step 200000)
+Eval modes: bpb, core, sample
+
+================================================================================
+Model Samples
+================================================================================
+
+Conditioned samples:
+--------------------------------------------------------------------------------
+<|bos|>The capital of France is Paris. It is located in the south of France. It is the largest city
+--------------------------------------------------------------------------------
+<|bos|>The chemical symbol of gold is 6. The symbol of gold is 6. The symbol of gold is
+--------------------------------------------------------------------------------
+<|bos|>If yesterday was Friday, then tomorrow will be Saturday. That’s the way it goes with the weather. But it’s not
+--------------------------------------------------------------------------------
+<|bos|>The opposite of hot is cold. The opposite of cold is hot. The opposite of hot is hot.
+--------------------------------------------------------------------------------
+<|bos|>The planets of the solar system are: Jupiter, Saturn, Uranus, Neptune, and Pluto. The planets are named
+--------------------------------------------------------------------------------
+<|bos|>My favorite color is blue. I love it because it’s so beautiful. I love it because it
+--------------------------------------------------------------------------------
+<|bos|>If 5*x + 3 = 13, then x is the number of ways to add 5 to 13. If 5*
+
+Unconditioned samples:
+--------------------------------------------------------------------------------
+<|bos|>Monday, February 4
+The mythical word agua is translated as 'sunny day'. Commentary Wikipedia by Jaclyn Graves
+Allels in the Bible
+The Given Traits of)||faithfulness||admitiveness||demonjuising|
+Alice The corrected Bible lecture by notebook ShiffanIRD2such as 'How do exots take on the ‘l facilitate a neutral love basic that is not already one of planagnaive love.
+When you are able to please God, that is your relationship. 1 John 3:11Then Jesus said to them, Thusake ye everyday through your
+--------------------------------------------------------------------------------
+<|bos|>DNA does not exist in nature voluntarily, but is forced to participate in some natural processes through a process of 'crossARS stormwater storage'. This process is a process that happens each year in human bodies of water and administered by a pre-risker. Total universal Well Year 4's aim was to set up this water technology whereby a more perfect solution will be created for all locations in a community. These developed areas transit water from the natural sources that are far dependable within human awareness. This water collection has entered the lives of Goodyear visitors.
+The firstatured community location is Bellabene, in the Orange Country.
+|Received U
+--------------------------------------------------------------------------------
+<|bos|>July Families Activities
+How fantastic a moment is that a family is together on a holiday. I've had my own family on the stroll together through the country since 1970. I pondered the experience, thought of my own family. The Empire V dessert found its place place on the stroll and as I pondered about my family's thought and wishes on the picnic in the fields, I made another comment I had read, "Your son will be playing with you, who knows if he's a good peer. Also, you want him to know that you love him." And once again, on the train, I
+--------------------------------------------------------------------------------
+<|bos|>Network Security tells you what is today considered a secure network, how you can protect it, and what security measures are needed. Security from fraud and attack will vary from network to network, but here is a good general overview of what you need to do:
+- Beyond securing your network and software applications for codes, dat� mined assets, and files, cellular networks and bandwidthAs we know, there is no complete Internet without a good set of networks. So, flagging a security Wallace to our network may be an fewer security measure. Now it's also important to know how to protect a relatively small set of networks that we use regularly
+--------------------------------------------------------------------------------
+<|bos|>The Na’ath Elah, a series of mythological stories, has been passed down from generation to generation. The story is also a well known one, referring to a man named Omer who was the son of Ham. The expository writing statements make it clear how this may work. More kind words, allerences should suit a reader better.
+Here is the rule of writing an essay, write your essay the way you like and soak up all the information to get your point across. At an age of 18 lessons about traditional memorizationfrom outline ppt and spaghetti willetting on paper, professionally its youorth Ahl
+--------------------------------------------------------------------------------
+<|bos|>Contains time tables for. Significant experimental and devotional content screened to students on sand wheels and rollers, funnels and t HomoherosThird Day of the 3 Core somewhere ineven third grade to three semesters Note: Two times a month this month. Tracks designed for different ways of viewing. radially:
+Containsrome punch in one of the
+c reimagined logo projects madrid adapt it to multiused lesson plans.
+Contains Nowadays federtified wrinkles,elineed rubber bounces,and firef tag. There are also two middle school grade levels: Communications Medications, 2 Sunday School
+contains Indian
+--------------------------------------------------------------------------------
+<|bos|>Robots can come kids (and go)
+The emerging trends among robots in the workplace are telling us that innovation in automation and control is a prerequisite for continuous evolution -- for " clotting of some sort of crawl space in the future, updated by something else that comes as automation and digitalization temperatures rise." (1)
+What to prepare for? Measures to reduce your end-of- monthisations: Robots and their Studio
+Remote control of "CNC cavities" has the potential to reduce particularly hazardous implementing controls. (2)
+Intelligent corrosive populations in found beam systems could-- in theory -- maintain a steady abolished ascertainment intent.
+
+--------------------------------------------------------------------------------
+<|bos|>And then he let them hear the most forsake of them: and he put his ready hand to them and took one and affixed it to their congregation, saying: "Take all the plenty of money that I give you and give it to beetles; add up their metabolism[ed] to the coming nations, and take up their food." And they gave the money to beetles, saturation known to man and to men as an exporter.
+So Andrea restored their food, And told them to will their food, and said: "Take me up for nothing, for again this will get out of them." Verse 20
+
+================================================================================
+BPB Evaluation
+================================================================================
+train bpb: 0.847593
+val bpb: 0.903612
+
+================================================================================
+CORE Evaluation
+================================================================================
+Evaluating: hellaswag_zeroshot (0-shot, type: multiple_choice)... accuracy: 0.3489 | centered: 0.1319 | evaluated: 10042 | skipped: 0 | time: 152.80s
+Evaluating: jeopardy (10-shot, type: language_modeling)... accuracy: 0.0066 | centered: 0.0066 | evaluated: 2117 | skipped: 0 | time: 33.16s
+Evaluating: bigbench_qa_wikidata (10-shot, type: language_modeling)... accuracy: 0.3348 | centered: 0.3348 | evaluated: 20321 | skipped: 0 | time: 285.86s
+Evaluating: arc_easy (10-shot, type: multiple_choice)... accuracy: 0.5358 | centered: 0.3810 | evaluated: 2376 | skipped: 0 | time: 88.14s
+Evaluating: arc_challenge (10-shot, type: multiple_choice)... accuracy: 0.2756 | centered: 0.0341 | evaluated: 1172 | skipped: 0 | time: 62.62s
+Evaluating: copa (0-shot, type: multiple_choice)... accuracy: 0.6000 | centered: 0.2000 | evaluated: 100 | skipped: 0 | time: 1.50s
+Evaluating: commonsense_qa (10-shot, type: multiple_choice)... accuracy: 0.2785 | centered: 0.0981 | evaluated: 1221 | skipped: 0 | time: 58.05s
+Evaluating: piqa (10-shot, type: multiple_choice)... accuracy: 0.6300 | centered: 0.2601 | evaluated: 1838 | skipped: 0 | time: 41.91s
+Evaluating: openbook_qa (0-shot, type: multiple_choice)... accuracy: 0.3180 | centered: 0.0907 | evaluated: 500 | skipped: 0 | time: 6.43s
+Evaluating: lambada_openai (0-shot, type: language_modeling)... accuracy: 0.2798 | centered: 0.2798 | evaluated: 5153 | skipped: 0 | time: 67.02s
+Evaluating: hellaswag (10-shot, type: multiple_choice)... accuracy: 0.2920 | centered: 0.0560 | evaluated: 10042 | skipped: 0 | time: 3692.98s
+Evaluating: winograd (0-shot, type: schema)... accuracy: 0.6117 | centered: 0.2234 | evaluated: 273 | skipped: 0 | time: 3.94s
+Evaluating: winogrande (0-shot, type: schema)... accuracy: 0.5114 | centered: 0.0229 | evaluated: 1267 | skipped: 0 | time: 17.53s
+Evaluating: bigbench_dyck_languages (10-shot, type: language_modeling)... accuracy: 0.1030 | centered: 0.1030 | evaluated: 1000 | skipped: 0 | time: 23.39s
+Evaluating: agi_eval_lsat_ar (3-shot, type: multiple_choice)... accuracy: 0.2435 | centered: 0.0543 | evaluated: 230 | skipped: 0 | time: 81.58s
+Evaluating: bigbench_cs_algorithms (10-shot, type: language_modeling)... accuracy: 0.4106 | centered: 0.4106 | evaluated: 1320 | skipped: 0 | time: 25.86s
+Evaluating: bigbench_operators (10-shot, type: language_modeling)... accuracy: 0.1762 | centered: 0.1762 | evaluated: 210 | skipped: 0 | time: 3.63s
+Evaluating: bigbench_repeat_copy_logic (10-shot, type: language_modeling)... accuracy: 0.0312 | centered: 0.0312 | evaluated: 32 | skipped: 0 | time: 0.58s
+Evaluating: squad (10-shot, type: language_modeling)... accuracy: 0.0000 | centered: 0.0000 | evaluated: 10570 | skipped: 0 | time: 839.18s
+Evaluating: coqa (0-shot, type: language_modeling)... accuracy: 0.1145 | centered: 0.1145 | evaluated: 7983 | skipped: 0 | time: 155.74s
+Evaluating: boolq (10-shot, type: multiple_choice)... accuracy: 0.4602 | centered: -0.4204 | evaluated: 3270 | skipped: 0 | time: 1030.43s
+Evaluating: bigbench_language_identification (10-shot, type: multiple_choice)... accuracy: 0.2470 | centered: 0.1716 | evaluated: 9995 | skipped: 5 | time: 14021.02s
+
+Results written to: /home/sun0115/.cache/nanochat/base_eval/base_model_200000.csv
+CORE metric: 0.1255

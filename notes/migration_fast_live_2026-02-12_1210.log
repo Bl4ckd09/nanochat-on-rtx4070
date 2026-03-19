@@ -1,0 +1,7 @@
+[2026-02-12 12:10:10] Stage1 repo start (.venv excluded)
+[2026-02-12 12:10:15] Stage1 repo done
+[2026-02-12 12:10:15] Stage2 nanochat cache start
+[2026-02-12 12:16:35] Stage2 nanochat cache done
+[2026-02-12 12:16:35] Stage3 hf cache start
+[2026-02-12 12:16:55] Stage3 hf cache done
+[2026-02-12 12:16:55] Fast migration complete

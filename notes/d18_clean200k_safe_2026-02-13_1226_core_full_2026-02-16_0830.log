@@ -1,0 +1,64 @@
+2026-02-16 08:34:30,034 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-16 08:34:30,034 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18_clean200k_safe_2026-02-13_1226 with step 200000
+2026-02-16 08:34:31,764 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Evaluating model: base_model (step 200000)
+Eval modes: bpb, core
+
+================================================================================
+BPB Evaluation
+================================================================================
+train bpb: 0.847593
+val bpb: 0.903612
+
+================================================================================
+CORE Evaluation
+================================================================================
+Evaluating: hellaswag_zeroshot (0-shot, type: multiple_choice)... accuracy: 0.3489 | centered: 0.1319 | time: 154.77s
+Evaluating: jeopardy (10-shot, type: language_modeling)... accuracy: 0.0066 | centered: 0.0066 | time: 33.47s
+Evaluating: bigbench_qa_wikidata (10-shot, type: language_modeling)... accuracy: 0.3348 | centered: 0.3348 | time: 283.35s
+Evaluating: arc_easy (10-shot, type: multiple_choice)... accuracy: 0.5358 | centered: 0.3810 | time: 84.60s
+Evaluating: arc_challenge (10-shot, type: multiple_choice)... accuracy: 0.2756 | centered: 0.0341 | time: 48.86s
+Evaluating: copa (0-shot, type: multiple_choice)... accuracy: 0.6000 | centered: 0.2000 | time: 1.36s
+Evaluating: commonsense_qa (10-shot, type: multiple_choice)... accuracy: 0.2785 | centered: 0.0981 | time: 57.99s
+Evaluating: piqa (10-shot, type: multiple_choice)... accuracy: 0.6300 | centered: 0.2601 | time: 42.03s
+Evaluating: openbook_qa (0-shot, type: multiple_choice)... accuracy: 0.3180 | centered: 0.0907 | time: 7.10s
+Evaluating: lambada_openai (0-shot, type: language_modeling)... accuracy: 0.2798 | centered: 0.2798 | time: 72.36s
+Evaluating: hellaswag (10-shot, type: multiple_choice)... accuracy: 0.2920 | centered: 0.0560 | time: 3242.55s
+Evaluating: winograd (0-shot, type: schema)... accuracy: 0.6117 | centered: 0.2234 | time: 3.43s
+Evaluating: winogrande (0-shot, type: schema)... accuracy: 0.5114 | centered: 0.0229 | time: 16.54s
+Evaluating: bigbench_dyck_languages (10-shot, type: language_modeling)... accuracy: 0.1030 | centered: 0.1030 | time: 23.43s
+Evaluating: agi_eval_lsat_ar (3-shot, type: multiple_choice)... accuracy: 0.2435 | centered: 0.0543 | time: 68.78s
+Evaluating: bigbench_cs_algorithms (10-shot, type: language_modeling)... accuracy: 0.4106 | centered: 0.4106 | time: 26.47s
+Evaluating: bigbench_operators (10-shot, type: language_modeling)... accuracy: 0.1762 | centered: 0.1762 | time: 3.67s
+Evaluating: bigbench_repeat_copy_logic (10-shot, type: language_modeling)... accuracy: 0.0312 | centered: 0.0312 | time: 0.58s
+Evaluating: squad (10-shot, type: language_modeling)... accuracy: 0.0000 | centered: 0.0000 | time: 811.07s
+Evaluating: coqa (0-shot, type: language_modeling)... accuracy: 0.1145 | centered: 0.1145 | time: 155.60s
+Evaluating: boolq (10-shot, type: multiple_choice)... accuracy: 0.4602 | centered: -0.4204 | time: 936.39s
+Evaluating: bigbench_language_identification (10-shot, type: multiple_choice)... Traceback (most recent call last):
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/base_eval.py", line 331, in <module>
+    main()
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/base_eval.py", line 291, in main
+    core_results = evaluate_core(model, tokenizer, device, max_per_task=args.max_per_task)
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/base_eval.py", line 161, in evaluate_core
+    accuracy = evaluate_task(model, tokenizer, data, device, task_meta)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/core_eval.py", line 254, in evaluate_task
+    is_correct = evaluate_example(idx, model, tokenizer, data, device, task_meta)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/core_eval.py", line 221, in evaluate_example
+    losses, predictions = forward_model(model, input_ids)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/core_eval.py", line 151, in forward_model
+    outputs = model(input_ids)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/gpt.py", line 449, in forward
+    assert T <= self.cos.size(1), f"Sequence length grew beyond the rotary embeddings cache: {T} > {self.cos.size(1)}"
+AssertionError: Sequence length grew beyond the rotary embeddings cache: 5372 > 5120

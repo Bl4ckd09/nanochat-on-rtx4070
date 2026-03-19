@@ -1,0 +1,56 @@
+Autodetected device type: cuda
+2026-02-11 14:45:20,037 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-02-11 14:45:20,038 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18 with step 20000
+2026-02-11 14:45:21,710 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Tokens / micro-batch / rank: 4 x 2048 = 8,192
+Tokens / micro-batch: 8,192
+Total batch size 8,192 => gradient accumulation steps: 1
+Scaling the LR for the AdamW parameters ∝1/√(1152/768) = 0.816497
+Using AdamW-only mode for fine-tuning (no Muon)
+Step 00000 | Validation bpb: 1.0861
+step 00001 (0.33%) | loss: 1.832063 | lrm: 0.03 | dt: 5208.16ms | tok/sec: 1,572 | mfu: 0.33 | epoch: 1 | total time: 0.00m
+step 00002 (0.67%) | loss: 2.434805 | lrm: 0.07 | dt: 15493.53ms | tok/sec: 528 | mfu: 0.11 | epoch: 1 | total time: 0.00m
+step 00003 (1.00%) | loss: 2.667840 | lrm: 0.10 | dt: 15394.66ms | tok/sec: 532 | mfu: 0.11 | epoch: 1 | total time: 0.00m
+step 00004 (1.33%) | loss: 3.299430 | lrm: 0.13 | dt: 12592.72ms | tok/sec: 650 | mfu: 0.14 | epoch: 1 | total time: 0.00m
+step 00005 (1.67%) | loss: 3.565378 | lrm: 0.17 | dt: 15215.25ms | tok/sec: 538 | mfu: 0.11 | epoch: 1 | total time: 0.00m
+step 00006 (2.00%) | loss: 4.237435 | lrm: 0.20 | dt: 13321.43ms | tok/sec: 614 | mfu: 0.13 | epoch: 1 | total time: 0.00m
+step 00007 (2.33%) | loss: 4.277233 | lrm: 0.23 | dt: 12648.58ms | tok/sec: 647 | mfu: 0.14 | epoch: 1 | total time: 0.00m
+step 00008 (2.67%) | loss: 5.161584 | lrm: 0.27 | dt: 15467.42ms | tok/sec: 529 | mfu: 0.11 | epoch: 1 | total time: 0.00m
+step 00009 (3.00%) | loss: 5.128895 | lrm: 0.30 | dt: 12507.25ms | tok/sec: 654 | mfu: 0.14 | epoch: 1 | total time: 0.00m
+step 00010 (3.33%) | loss: 5.267595 | lrm: 0.33 | dt: 15489.04ms | tok/sec: 528 | mfu: 0.11 | epoch: 1 | total time: 0.00m
+step 00011 (3.67%) | loss: 5.502570 | lrm: 0.37 | dt: 13073.24ms | tok/sec: 626 | mfu: 0.13 | epoch: 1 | total time: 0.22m
+step 00012 (4.00%) | loss: 5.599736 | lrm: 0.40 | dt: 12575.25ms | tok/sec: 651 | mfu: 0.14 | epoch: 1 | total time: 0.43m
+step 00013 (4.33%) | loss: 5.992046 | lrm: 0.43 | dt: 15462.04ms | tok/sec: 529 | mfu: 0.11 | epoch: 1 | total time: 0.69m
+step 00014 (4.67%) | loss: 6.136640 | lrm: 0.47 | dt: 12467.80ms | tok/sec: 657 | mfu: 0.14 | epoch: 1 | total time: 0.89m
+step 00015 (5.00%) | loss: 6.096621 | lrm: 0.50 | dt: 15498.19ms | tok/sec: 528 | mfu: 0.11 | epoch: 1 | total time: 1.15m
+step 00016 (5.33%) | loss: 6.080863 | lrm: 0.53 | dt: 12893.22ms | tok/sec: 635 | mfu: 0.13 | epoch: 1 | total time: 1.37m
+step 00017 (5.67%) | loss: 6.093271 | lrm: 0.57 | dt: 12567.47ms | tok/sec: 651 | mfu: 0.14 | epoch: 1 | total time: 1.58m
+step 00018 (6.00%) | loss: 6.034860 | lrm: 0.60 | dt: 15630.61ms | tok/sec: 524 | mfu: 0.11 | epoch: 1 | total time: 1.84m
+step 00019 (6.33%) | loss: 5.996539 | lrm: 0.63 | dt: 12546.39ms | tok/sec: 652 | mfu: 0.14 | epoch: 1 | total time: 2.05m
+step 00020 (6.67%) | loss: 5.951969 | lrm: 0.67 | dt: 15357.71ms | tok/sec: 533 | mfu: 0.11 | epoch: 1 | total time: 2.30m
+step 00021 (7.00%) | loss: 5.936075 | lrm: 0.70 | dt: 12686.75ms | tok/sec: 645 | mfu: 0.14 | epoch: 1 | total time: 2.51m
+step 00022 (7.33%) | loss: 5.895892 | lrm: 0.73 | dt: 12616.70ms | tok/sec: 649 | mfu: 0.14 | epoch: 1 | total time: 2.72m
+step 00023 (7.67%) | loss: 5.839504 | lrm: 0.77 | dt: 15564.69ms | tok/sec: 526 | mfu: 0.11 | epoch: 1 | total time: 2.98m
+step 00024 (8.00%) | loss: 5.790801 | lrm: 0.80 | dt: 12398.89ms | tok/sec: 660 | mfu: 0.14 | epoch: 1 | total time: 3.19m
+step 00025 (8.33%) | loss: 5.782531 | lrm: 0.83 | dt: 15397.28ms | tok/sec: 532 | mfu: 0.11 | epoch: 1 | total time: 3.45m
+step 00026 (8.67%) | loss: 5.773016 | lrm: 0.87 | dt: 12904.78ms | tok/sec: 634 | mfu: 0.13 | epoch: 1 | total time: 3.66m
+step 00027 (9.00%) | loss: 5.771850 | lrm: 0.90 | dt: 12648.31ms | tok/sec: 647 | mfu: 0.14 | epoch: 1 | total time: 3.87m
+step 00028 (9.33%) | loss: 5.747483 | lrm: 0.93 | dt: 15632.49ms | tok/sec: 524 | mfu: 0.11 | epoch: 1 | total time: 4.13m
+step 00029 (9.67%) | loss: 5.727030 | lrm: 0.97 | dt: 12457.39ms | tok/sec: 657 | mfu: 0.14 | epoch: 1 | total time: 4.34m
+step 00030 (10.00%) | loss: 5.763320 | lrm: 1.00 | dt: 15476.21ms | tok/sec: 529 | mfu: 0.11 | epoch: 1 | total time: 4.60m
+step 00031 (10.33%) | loss: 5.769979 | lrm: 1.00 | dt: 12773.69ms | tok/sec: 641 | mfu: 0.13 | epoch: 1 | total time: 4.81m
+step 00032 (10.67%) | loss: 5.997819 | lrm: 1.00 | dt: 12690.85ms | tok/sec: 645 | mfu: 0.14 | epoch: 1 | total time: 5.02m
+step 00033 (11.00%) | loss: 6.124158 | lrm: 1.00 | dt: 15571.82ms | tok/sec: 526 | mfu: 0.11 | epoch: 1 | total time: 5.28m
+step 00034 (11.33%) | loss: 6.158355 | lrm: 1.00 | dt: 12908.26ms | tok/sec: 634 | mfu: 0.13 | epoch: 1 | total time: 5.50m
+step 00035 (11.67%) | loss: 6.320976 | lrm: 1.00 | dt: 15349.35ms | tok/sec: 533 | mfu: 0.11 | epoch: 1 | total time: 5.75m
+step 00036 (12.00%) | loss: 6.726004 | lrm: 1.00 | dt: 12965.24ms | tok/sec: 631 | mfu: 0.13 | epoch: 1 | total time: 5.97m
+step 00037 (12.33%) | loss: 6.691876 | lrm: 1.00 | dt: 12957.06ms | tok/sec: 632 | mfu: 0.13 | epoch: 1 | total time: 6.18m
+step 00038 (12.67%) | loss: 6.758732 | lrm: 1.00 | dt: 15171.65ms | tok/sec: 539 | mfu: 0.11 | epoch: 1 | total time: 6.44m
+step 00039 (13.00%) | loss: 6.808392 | lrm: 1.00 | dt: 12954.22ms | tok/sec: 632 | mfu: 0.13 | epoch: 1 | total time: 6.65m
+step 00040 (13.33%) | loss: 7.358160 | lrm: 1.00 | dt: 15164.30ms | tok/sec: 540 | mfu: 0.11 | epoch: 1 | total time: 6.91m
+step 00041 (13.67%) | loss: 7.286344 | lrm: 1.00 | dt: 12953.64ms | tok/sec: 632 | mfu: 0.13 | epoch: 1 | total time: 7.12m
+step 00042 (14.00%) | loss: 7.189849 | lrm: 1.00 | dt: 12892.53ms | tok/sec: 635 | mfu: 0.13 | epoch: 1 | total time: 7.34m
+step 00043 (14.33%) | loss: 7.036018 | lrm: 1.00 | dt: 15157.01ms | tok/sec: 540 | mfu: 0.11 | epoch: 1 | total time: 7.59m
+step 00044 (14.67%) | loss: 7.209254 | lrm: 1.00 | dt: 23840.03ms | tok/sec: 343 | mfu: 0.07 | epoch: 1 | total time: 7.99m
+step 00045 (15.00%) | loss: 7.665971 | lrm: 1.00 | dt: 34904.94ms | tok/sec: 234 | mfu: 0.05 | epoch: 1 | total time: 8.57m
+step 00046 (15.33%) | loss: 7.623782 | lrm: 1.00 | dt: 88557.03ms | tok/sec: 92 | mfu: 0.02 | epoch: 1 | total time: 10.04m

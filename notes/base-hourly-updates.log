@@ -1,0 +1,29 @@
+==== Hourly monitor started 2026-02-12 13:08:40 ====
+base_log=/home/sun0115/nanochat-learn/notes/base-d18_200k_35shards_live.txt interval=3600s
+==== Hourly monitor stopped 2026-02-12 13:08:40 (base_train not found) ====
+==== Hourly monitor started 2026-02-12 13:09:15 ====
+base_log=/home/sun0115/nanochat-learn/notes/base-d18_200k_35shards_live.txt interval=3600s
+[2026-02-12 13:09:15] status: base_train not running
+
+==== Hourly monitor started 2026-02-12 13:16:43 ====
+base_log=/home/sun0115/nanochat-learn/notes/base-d18_200k_35shards_live.txt interval=3600s
+==== Hourly monitor started 2026-02-12 13:17:22 ====
+base_log=/home/sun0115/nanochat-learn/notes/base-d18_200k_35shards_live.txt interval=3600s
+==== Hourly monitor started 2026-02-12 13:20:32 ====
+base_log=/home/sun0115/nanochat-learn/notes/base-d18_200k_35shards_live.txt interval=3600s
+[2026-02-12 13:20:32]
+status: base_train running
+step: step 20088/200000 (10.04%) | loss: 3.229222 | lrm: 0.20 | dt: 1186.86ms | tok/sec: 13,804 | mfu: 0.00 | epoch: 2 | total time: 754.47m | eta: 6760.6m
+val:  Step 20000 | Validation bpb: 0.968607
+core: Step 20000 | CORE metric: 0.0804
+eta:  step 20088/200000 (10.04%) | loss: 3.229222 | lrm: 0.20 | dt: 1186.86ms | tok/sec: 13,804 | mfu: 0.00 | epoch: 2 | total time: 754.47m | eta: 6760.6m
+gpu:  99 %, 10246 MiB, 12282 MiB
+
+[2026-02-12 14:20:32]
+status: base_train running
+step: step 23129/200000 (11.56%) | loss: 3.195979 | lrm: 0.23 | dt: 1170.08ms | tok/sec: 14,002 | mfu: 0.00 | epoch: 2 | total time: 814.32m | eta: 6229.9m
+val:  Step 22000 | Validation bpb: 0.971298
+core: Step 20000 | CORE metric: 0.0804
+eta:  step 23129/200000 (11.56%) | loss: 3.195979 | lrm: 0.23 | dt: 1170.08ms | tok/sec: 14,002 | mfu: 0.00 | epoch: 2 | total time: 814.32m | eta: 6229.9m
+gpu:  99 %, 10246 MiB, 12282 MiB
+

@@ -1,0 +1,1358 @@
+==== Hourly SFT monitor started 2026-02-17 11:34:52 ====
+log_glob=/home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_*_chain.log interval=3600s
+[2026-02-17 11:34:52]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-16_1748_chain.log
+step:   not yet
+val:    Step 00000 | Validation bpb: 1.6160
+best:   not yet
+warn:   [error] first LoRA run failed without OOM signature; check /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-16_1748_s2048.log
+gpu:    0 %, 70 MiB, 12282 MiB
+
+==== Hourly SFT monitor started 2026-02-17 11:35:27 ====
+log_glob=/home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_*_chain.log interval=3600s
+[2026-02-17 11:35:27]
+status: running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1135_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 70 MiB, 12282 MiB
+
+==== Hourly SFT monitor started 2026-02-17 11:37:41 ====
+log_glob=/home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_*_chain.log interval=3600s
+[2026-02-17 11:37:41]
+status: running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1137_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 70 MiB, 12282 MiB
+
+==== Hourly SFT monitor started 2026-02-17 11:39:15 ====
+log_glob=/home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_*_chain.log interval=3600s
+[2026-02-17 11:39:15]
+status: running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 70 MiB, 12282 MiB
+
+[2026-02-17 12:42:58]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    36 %, 5333 MiB, 12282 MiB
+
+[2026-02-17 13:46:40]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    57 %, 8187 MiB, 12282 MiB
+
+[2026-02-17 14:50:31]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 70 MiB, 12282 MiB
+
+[2026-02-17 15:54:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    51 %, 9663 MiB, 12282 MiB
+
+[2026-02-17 16:58:38]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    42 %, 10431 MiB, 12282 MiB
+
+[2026-02-17 18:03:04]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    45 %, 10431 MiB, 12282 MiB
+
+[2026-02-17 19:07:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    41 %, 9642 MiB, 12282 MiB
+
+[2026-02-17 20:12:31]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    57 %, 10410 MiB, 12282 MiB
+
+[2026-02-17 21:17:25]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 5312 MiB, 12282 MiB
+
+[2026-02-17 22:22:33]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-17 23:26:56]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 00:30:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 01:35:35]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 02:40:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 03:45:14]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 04:49:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 05:54:28]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 06:59:24]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 08:04:48]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 09:05:38]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 10:05:38]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 11:05:38]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 12:05:39]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 13:05:39]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-18 14:05:39]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    35 %, 11374 MiB, 12282 MiB
+
+[2026-02-18 15:05:39]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    98 %, 5892 MiB, 12282 MiB
+
+[2026-02-18 16:05:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    98 %, 11963 MiB, 12282 MiB
+
+[2026-02-18 17:06:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    98 %, 5873 MiB, 12282 MiB
+
+[2026-02-18 18:07:48]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 11983 MiB, 12282 MiB
+
+[2026-02-18 19:09:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 5873 MiB, 12282 MiB
+
+[2026-02-18 20:10:35]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    97 %, 11973 MiB, 12282 MiB
+
+[2026-02-18 21:12:12]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 11969 MiB, 12282 MiB
+
+[2026-02-18 22:14:02]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 11379 MiB, 12282 MiB
+
+[2026-02-18 23:16:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 11379 MiB, 12282 MiB
+
+[2026-02-19 00:18:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 11379 MiB, 12282 MiB
+
+[2026-02-19 01:20:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    18 %, 9997 MiB, 12282 MiB
+
+[2026-02-19 02:23:05]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    34 %, 9605 MiB, 12282 MiB
+
+[2026-02-19 03:25:24]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    42 %, 9605 MiB, 12282 MiB
+
+[2026-02-19 04:28:03]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    54 %, 9605 MiB, 12282 MiB
+
+[2026-02-19 05:30:55]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    42 %, 10373 MiB, 12282 MiB
+
+[2026-02-19 06:34:00]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    36 %, 5275 MiB, 12282 MiB
+
+[2026-02-19 07:37:11]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 08:40:02]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 09:43:32]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 10:46:51]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 11:50:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 12:53:31]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 13:57:26]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 15:01:25]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 16:05:24]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-19 17:09:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    Step 00050 | Validation bpb: 0.8919
+best:   Saved best checkpoint at step 50 (val_bpb=0.8919)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    100 %, 236 MiB, 12282 MiB
+
+[2026-02-19 18:14:14]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-19 19:19:00]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 51 MiB, 12282 MiB
+
+[2026-02-19 20:23:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 21:28:18]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 22:32:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-19 23:36:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 00:41:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 01:45:59]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 02:50:47]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 03:55:30]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 05:00:15]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 06:05:31]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 07:10:58]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 08:15:03]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 09:15:19]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 10:15:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 11:15:21]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 12:15:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 13:15:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 12 MiB, 12282 MiB
+
+[2026-02-20 14:15:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10957 MiB, 12282 MiB
+
+[2026-02-20 15:15:23]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 16:15:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 17:16:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 18:18:12]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 19:19:45]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    97 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 20:21:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 21:23:14]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 22:25:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-20 23:27:09]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 00:29:31]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 01:31:47]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 02:34:23]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 03:37:15]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 04:40:17]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 05:43:34]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 06:47:08]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 07:50:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    97 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 08:51:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    97 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 09:51:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    97 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 10:51:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 11:51:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 12:51:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 13:51:45]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 14:52:32]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 10996 MiB, 12282 MiB
+
+[2026-02-21 15:53:46]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 16:55:07]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 17:56:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 18:58:28]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 20:00:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 21:02:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 22:04:45]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 11015 MiB, 12282 MiB
+
+[2026-02-21 23:07:09]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 00:09:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 01:12:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 02:14:54]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 03:17:59]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 04:21:09]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 05:24:29]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 06:28:00]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 07:31:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 08:34:01]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 09:34:10]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 10:34:12]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 11:34:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 12:34:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 13:34:14]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 14:34:53]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 15:36:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 16:37:30]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    99 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 17:38:58]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    98 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 18:40:35]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    100 %, 11015 MiB, 12282 MiB
+
+[2026-02-22 19:42:12]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-22 20:44:10]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-22 21:46:12]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-22 22:48:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-22 23:51:03]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 00:53:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 01:56:37]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 02:59:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 04:02:53]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 05:06:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 06:09:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 07:13:08]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 08:16:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 09:16:26]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 10:16:26]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 11:16:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 12:16:28]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 13:16:29]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 14:16:40]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 15:17:48]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 16:19:00]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 17:20:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 18:21:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+[2026-02-23 19:23:33]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/sft_d18_clean200k_lora_sftmax_2026-02-17_1139_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+

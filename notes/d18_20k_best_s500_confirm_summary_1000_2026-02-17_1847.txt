@@ -1,0 +1,14 @@
+model_group=d18_20k/best
+step=500
+max_problems=1000
+timestamp=2026-02-17_1847
+logs:
+  pass1: /home/sun0115/nanochat-learn/notes/d18_20k_best_s500_gsm8k_pass1_1000_2026-02-17_1847.log
+  pass8: /home/sun0115/nanochat-learn/notes/d18_20k_best_s500_gsm8k_pass8_1000_2026-02-17_1847.log
+  mmlu: /home/sun0115/nanochat-learn/notes/d18_20k_best_s500_mmlu_1000_2026-02-17_1847.log
+  spellingbee: /home/sun0115/nanochat-learn/notes/d18_20k_best_s500_spellingbee_1000_2026-02-17_1847.log
+
+GSM8K pass@8: 14/1000 = 1.40% | Wilson95% [0.84%, 2.34%]
+MMLU: 234/1000 = 23.40% | Wilson95% [20.88%, 26.12%]
+SpellingBee: 71/256 = 27.73% | Wilson95% [22.61%, 33.52%]
+[done] confirmation eval complete

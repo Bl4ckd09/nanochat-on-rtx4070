@@ -1,0 +1,7 @@
+timestamp=2026-02-18T19:04:33+00:00
+reason=core_sequence_overflow
+fixed_policy=--core-overflow-policy skip --core-max-seq-len 5120
+trigger_log=/home/sun0115/nanochat-learn/notes/d18_clean200k_safe_2026-02-13_1226_s200000_base_eval_2026-02-18_1701.log
+model_tag=d18_clean200k_safe_2026-02-13_1226
+step=200000
+eval_modes=core,bpb,sample

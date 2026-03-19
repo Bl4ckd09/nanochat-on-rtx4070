@@ -1,0 +1,8 @@
+timestamp=2026-02-18_1741
+candidate_a=d18_clean200k_lora_prod_2026-02-17_1209_s1024/best step=1000 summary=[compare] reuse summary: /home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_confirm_summary_1000_2026-02-17_1515.txt
+/home/sun0115/nanochat-learn/notes/d18_clean200k_lora_prod_2026-02-17_1209_s1024_best_s1000_confirm_summary_1000_2026-02-17_1515.txt
+candidate_b=d18_20k/best step=500 summary=[compare] reuse summary: /home/sun0115/nanochat-learn/notes/d18_20k_best_s500_confirm_summary_1000_2026-02-17_1847.txt
+/home/sun0115/nanochat-learn/notes/d18_20k_best_s500_confirm_summary_1000_2026-02-17_1847.txt
+metrics:
+  A: MMLU=0% SpellingBee=0% GSM8K_pass8=0%
+  B: MMLU=0% SpellingBee=0% GSM8K_pass8=0%

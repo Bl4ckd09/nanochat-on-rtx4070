@@ -1,0 +1,29 @@
+Autodetected device type: cuda
+2026-02-11 14:55:43,958 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/sun0115/.netrc.
+wandb: Currently logged in as: sunshines (sunshines-gmail-com) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run jnf546h3
+wandb: Tracking run with wandb version 0.24.2
+wandb: Run data is saved locally in /home/sun0115/nanochat-learn/nanochat/wandb/run-20260211_145544-jnf546h3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sft_d18_20k_safe
+wandb: ⭐️ View project at https://wandb.ai/sunshines-gmail-com/nanochat-sft
+wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/jnf546h3
+2026-02-11 14:55:45,411 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d18 with step 20000
+2026-02-11 14:55:49,507 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 512, 'vocab_size': 32768, 'n_layer': 18, 'n_head': 18, 'n_kv_head': 18, 'n_embd': 1152, 'window_pattern': 'L'}
+Tokens / micro-batch / rank: 4 x 2048 = 8,192
+Tokens / micro-batch: 8,192
+Total batch size 8,192 => gradient accumulation steps: 1
+Scaling the LR for the AdamW parameters ∝1/√(1152/768) = 0.816497
+Using AdamW-only mode for fine-tuning (no Muon)
+Step 00000 | Validation bpb: 1.0861
+step 00001 (0.33%) | loss: 1.832063 | lrm: 0.03 | dt: 79142.94ms | tok/sec: 103 | mfu: 0.02 | epoch: 1 | total time: 0.00m
+step 00002 (0.67%) | loss: 2.434906 | lrm: 0.07 | dt: 141883.99ms | tok/sec: 57 | mfu: 0.01 | epoch: 1 | total time: 0.00m
+step 00003 (1.00%) | loss: 2.667946 | lrm: 0.10 | dt: 14271.98ms | tok/sec: 573 | mfu: 0.12 | epoch: 1 | total time: 0.00m
+step 00004 (1.33%) | loss: 3.299163 | lrm: 0.13 | dt: 17133.20ms | tok/sec: 478 | mfu: 0.10 | epoch: 1 | total time: 0.00m
+step 00005 (1.67%) | loss: 3.565011 | lrm: 0.17 | dt: 14560.78ms | tok/sec: 562 | mfu: 0.12 | epoch: 1 | total time: 0.00m
+step 00006 (2.00%) | loss: 4.236542 | lrm: 0.20 | dt: 16749.83ms | tok/sec: 489 | mfu: 0.10 | epoch: 1 | total time: 0.00m
+step 00007 (2.33%) | loss: 4.276271 | lrm: 0.23 | dt: 14468.61ms | tok/sec: 566 | mfu: 0.12 | epoch: 1 | total time: 0.00m
+step 00008 (2.67%) | loss: 5.161316 | lrm: 0.27 | dt: 16525.01ms | tok/sec: 495 | mfu: 0.10 | epoch: 1 | total time: 0.00m
+step 00009 (3.00%) | loss: 5.128931 | lrm: 0.30 | dt: 14252.03ms | tok/sec: 574 | mfu: 0.12 | epoch: 1 | total time: 0.00m
+step 00010 (3.33%) | loss: 5.270117 | lrm: 0.33 | dt: 14643.56ms | tok/sec: 559 | mfu: 0.12 | epoch: 1 | total time: 0.00m
