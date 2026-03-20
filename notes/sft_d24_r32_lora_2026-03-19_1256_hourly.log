@@ -1,0 +1,11 @@
+==== Hourly SFT monitor started 2026-03-19 12:56:07 ====
+log_glob=/home/sun0115/nanochat-learn/notes/sft_d24_r32_lora_2026-03-19_1256.log interval=3600s
+[2026-03-19 12:56:07]
+status: running
+log:    /home/sun0115/nanochat-learn/notes/sft_d24_r32_lora_2026-03-19_1256.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 0 MiB, 12282 MiB
+
