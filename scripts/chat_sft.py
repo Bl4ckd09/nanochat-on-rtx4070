@@ -104,8 +104,15 @@ def maybe_compile(model_module):
     return torch.compile(model_module, dynamic=False)
 
 # wandb logging init
+wandb_project = os.environ.get("WANDB_PROJECT", "nanochat-sft")
+wandb_entity = os.environ.get("WANDB_ENTITY") or None
 use_dummy_wandb = args.run == "dummy" or not master_process
-wandb_run = DummyWandb() if use_dummy_wandb else wandb.init(project="nanochat-sft", name=args.run, config=user_config)
+wandb_run = DummyWandb() if use_dummy_wandb else wandb.init(
+    project=wandb_project,
+    entity=wandb_entity,
+    name=args.run,
+    config=user_config,
+)
 
 # Load the model and tokenizer
 model, tokenizer, meta = load_model("base", device, phase="train", model_tag=args.model_tag, step=args.model_step)

@@ -1,0 +1,32 @@
+2026-03-27 18:41:45,994 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/sun0115/.netrc.
+wandb: Currently logged in as: sunshines (sunshines-gmail-com) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run kwbmug4k
+wandb: Tracking run with wandb version 0.24.2
+wandb: Run data is saved locally in /home/sun0115/nanochat-learn/nanochat/wandb/run-20260327_184146-kwbmug4k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_confirm_1000_2026-03-27_1841_mmlu
+wandb: ⭐️ View project at https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/kwbmug4k
+2026-03-27 18:41:48,454 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/chatsft_checkpoints/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc/best with step 1000
+2026-03-27 18:41:50,193 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 1536, 'vocab_size': 32768, 'n_layer': 24, 'n_head': 9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+wandb: uploading console lines 0-1; updating run metadata
+wandb: uploading console lines 0-1
+wandb: uploading history steps 0-1, summary, console lines 2-3
+wandb:
+wandb: Run history:
+wandb:  eval/mmlu_accuracy ▁
+wandb: final/mmlu_accuracy ▁
+wandb:          task_index ▁
+wandb:
+wandb: Run summary:
+wandb:  eval/mmlu_accuracy 0.214
+wandb: final/mmlu_accuracy 0.214
+wandb:          task_index 1
+wandb:
+wandb: 🚀 View run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_confirm_1000_2026-03-27_1841_mmlu at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/kwbmug4k
+wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260327_184146-kwbmug4k/logs
+Final: 214/1000 (21.40%)
+MMLU accuracy: 21.40%

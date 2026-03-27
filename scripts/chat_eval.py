@@ -9,13 +9,15 @@ torchrun --nproc_per_node=8 -m scripts.chat_eval -- -a ARC-Easy
 """
 
 import argparse
+import os
 from functools import partial
 from contextlib import nullcontext
 
 import torch
 import torch.distributed as dist
+import wandb
 
-from nanochat.common import compute_init, compute_cleanup, get_dist_info, print0, autodetect_device_type
+from nanochat.common import compute_init, compute_cleanup, get_dist_info, print0, autodetect_device_type, DummyWandb
 from nanochat.checkpoint_manager import load_model
 from nanochat.engine import Engine
 
@@ -28,6 +30,7 @@ from tasks.spellingbee import SpellingBee
 # -----------------------------------------------------------------------------
 # Generative evaluation loop (we go one problem at a time, sample, evaluate)
 
+@torch.inference_mode()
 def run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_new_tokens, temperature, top_k, max_problems=None):
 
     ddp, ddp_rank, ddp_local_rank, ddp_world_size = get_dist_info()
@@ -87,6 +90,7 @@ def run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_
 # A lot easier because we don't have to sample. Therefore, we can actually go
 # batches at a time and just check the logits for correct answer choices.
 
+@torch.inference_mode()
 def run_categorical_eval(task_object, tokenizer, model, batch_size, max_problems=None):
 
     ddp, ddp_rank, ddp_local_rank, ddp_world_size = get_dist_info()
@@ -114,7 +118,7 @@ def run_categorical_eval(task_object, tokenizer, model, batch_size, max_problems
 
         # Get the logits for the whole batch of conversations in parallel (efficiency win here)
         with torch.no_grad():
-            logits = model(prompt_ids) # (B, T, V)
+            logits = model(prompt_ids, logits_positions=answer_time_positions) # (B, V)
 
         # Focus on the available answer on just the letters corresponding to choices
         # Note that this helps the evaluation a lot because it specifically narrows the focus to only the available letters
@@ -132,7 +136,7 @@ def run_categorical_eval(task_object, tokenizer, model, batch_size, max_problems
                 letter_ids.append(letter_to_id_cache[letter])
             # focus logits just down to the answer position and the available letters of the answer
             answer_pos = answer_time_positions[idx]
-            focus_logits = logits[idx, answer_pos, letter_ids]
+            focus_logits = logits[idx, letter_ids]
             # get the argmax letter (the predicted answer)
             argmax_letter_id = focus_logits.argmax(dim=-1).item()
             predicted_letter = letters[argmax_letter_id]
@@ -195,12 +199,24 @@ if __name__ == "__main__":
     parser.add_argument('-s', '--step', type=int, default=None, help='Step to load')
     parser.add_argument('-x', '--max-problems', type=int, default=None, help='Max problems to evaluate')
     parser.add_argument('--device-type', type=str, default='', choices=['cuda', 'cpu', 'mps'], help='Device type for evaluation: cuda|cpu|mps. empty => autodetect')
+    parser.add_argument('--run', type=str, default="dummy", help="wandb run name ('dummy' disables wandb logging)")
     args = parser.parse_args()
 
     device_type = autodetect_device_type() if args.device_type == "" else args.device_type
     ddp, ddp_rank, ddp_local_rank, ddp_world_size, device = compute_init(device_type)
+    master_process = ddp_rank == 0
     ptdtype = torch.float32 if args.dtype == 'float32' else torch.bfloat16
     autocast_ctx = torch.amp.autocast(device_type=device_type, dtype=ptdtype) if device_type == "cuda" else nullcontext()
+
+    wandb_project = os.environ.get("WANDB_PROJECT", "nanochat-eval")
+    wandb_entity = os.environ.get("WANDB_ENTITY") or None
+    use_dummy_wandb = args.run == "dummy" or not master_process
+    wandb_run = DummyWandb() if use_dummy_wandb else wandb.init(
+        project=wandb_project,
+        entity=wandb_entity,
+        name=args.run,
+        config=vars(args),
+    )
 
     model, tokenizer, meta = load_model(args.source, device, phase="eval", model_tag=args.model_tag, step=args.step)
     engine = Engine(model, tokenizer)
@@ -219,7 +235,7 @@ if __name__ == "__main__":
 
     # Run all the task evaluations sequentially
     results = {}
-    for task_name in task_names:
+    for task_idx, task_name in enumerate(task_names, start=1):
         with autocast_ctx:
             acc = run_chat_eval(
                 task_name,
@@ -233,6 +249,11 @@ if __name__ == "__main__":
             )
             results[task_name] = acc
             print0(f"{task_name} accuracy: {100 * acc:.2f}%")
+            safe_task_name = task_name.lower().replace("-", "_")
+            wandb_run.log({
+                "task_index": task_idx,
+                f"eval/{safe_task_name}_accuracy": acc,
+            })
 
     # Log to report
     from nanochat.report import get_report
@@ -248,10 +269,16 @@ if __name__ == "__main__":
             centered_mean += centered_acc
         chatcore_metric = centered_mean / len(results)
         chatcore_metric_dict = {"ChatCORE metric": chatcore_metric}
+    if results:
+        final_log = {f"final/{task_name.lower().replace('-', '_')}_accuracy": acc for task_name, acc in results.items()}
+        if chatcore_metric_dict:
+            final_log["final/chatcore_metric"] = chatcore_metric_dict["ChatCORE metric"]
+        wandb_run.log(final_log)
     get_report().log(section="Chat evaluation " + args.source, data=[
         vars(args), # CLI args
         results,
         chatcore_metric_dict,
     ])
 
+    wandb_run.finish()
     compute_cleanup()

@@ -1,0 +1,20 @@
+model_group=d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc/best
+step=1000
+max_problems=1000
+timestamp=2026-03-27_1841
+eval_wandb_project=nanochat-eval
+eval_wandb_run_prefix=d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_confirm_1000_2026-03-27_1841
+skip_pass1=0
+skip_pass8=1
+skip_mmlu=0
+skip_spelling=0
+logs:
+  pass1: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_gsm8k_pass1_1000_2026-03-27_1841.log
+  pass8: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_gsm8k_pass8_1000_2026-03-27_1841.log
+  mmlu: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_mmlu_1000_2026-03-27_1841.log
+  spellingbee: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_spellingbee_1000_2026-03-27_1841.log
+
+GSM8K pass@8: SKIPPED by SKIP_PASS8=1
+MMLU: 214/1000 = 21.40% | Wilson95% [18.97%, 24.05%]
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete

@@ -442,7 +442,7 @@ class GPT(nn.Module):
             group["initial_lr"] = group["lr"]
         return optimizer
 
-    def forward(self, idx, targets=None, kv_cache=None, loss_reduction='mean'):
+    def forward(self, idx, targets=None, kv_cache=None, loss_reduction='mean', logits_positions=None):
         B, T = idx.size()
 
         # Grab the rotary embeddings for the current sequence length (they are of shape (1, seq_len, 1, head_dim/2))
@@ -482,8 +482,17 @@ class GPT(nn.Module):
                 loss = loss.view(B, T)  # reshape back to (B, T) for callers expecting 2D
             return loss
         else:
-            # Inference: compute full logits
+            # Inference: optionally compute logits only at selected positions to reduce memory.
             softcap = 15
+            if logits_positions is not None:
+                if not torch.is_tensor(logits_positions):
+                    logits_positions = torch.tensor(logits_positions, device=x.device, dtype=torch.long)
+                else:
+                    logits_positions = logits_positions.to(device=x.device, dtype=torch.long)
+                if logits_positions.ndim == 0:
+                    logits_positions = logits_positions.expand(B)
+                assert logits_positions.shape == (B,), f"Expected logits_positions shape {(B,)}, got {tuple(logits_positions.shape)}"
+                x = x[torch.arange(B, device=x.device), logits_positions]
             logits = self.lm_head(x)
             logits = logits[..., :self.config.vocab_size]
             logits = logits.float()
@@ -506,8 +515,7 @@ class GPT(nn.Module):
             rng.manual_seed(seed)
         ids = torch.tensor([tokens], dtype=torch.long, device=device) # add batch dim
         for _ in range(max_tokens):
-            logits = self.forward(ids) # (B, T, vocab_size)
-            logits = logits[:, -1, :] # (B, vocab_size)
+            logits = self.forward(ids, logits_positions=-1) # (B, vocab_size)
             if top_k is not None and top_k > 0:
                 v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
                 logits[logits < v[:, [-1]]] = -float('Inf')
