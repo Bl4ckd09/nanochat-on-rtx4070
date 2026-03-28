@@ -1,0 +1,22 @@
+2026-03-20 13:17:51,718 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-03-20 13:17:51,718 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/chatsft_checkpoints/d24_sft_recovery_2026-03-20_1216_s1536gc_lr3e5/best with step 300
+2026-03-20 13:17:53,530 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 1536, 'vocab_size': 32768, 'n_layer': 24, 'n_head': 9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+Traceback (most recent call last):
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/sun0115/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/chat_eval.py", line 224, in <module>
+    acc = run_chat_eval(
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/chat_eval.py", line 176, in run_chat_eval
+    acc = run_categorical_eval(task_object, tokenizer, model, batch_size, max_problems=max_problems)
+  File "/home/sun0115/nanochat-learn/nanochat/scripts/chat_eval.py", line 117, in run_categorical_eval
+    logits = model(prompt_ids) # (B, T, V)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/sun0115/nanochat-learn/nanochat/nanochat/gpt.py", line 489, in forward
+    logits = logits.float()
+RuntimeError: CUDA driver error: out of memory
+[W320 13:17:56.313296210 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

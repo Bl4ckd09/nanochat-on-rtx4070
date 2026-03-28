@@ -18,17 +18,17 @@ wandb: updating run metadata
 wandb: uploading history steps 0-1, summary, console lines 2-5; uploading output.log; uploading wandb-summary.json; uploading config.yaml
 wandb: uploading history steps 0-1, summary, console lines 2-5
 wandb: uploading data
-wandb:
+wandb: 
 wandb: Run history:
 wandb:  eval/gsm8k_accuracy ▁
 wandb: final/gsm8k_accuracy ▁
 wandb:           task_index ▁
-wandb:
+wandb: 
 wandb: Run summary:
 wandb:  eval/gsm8k_accuracy 0.002
 wandb: final/gsm8k_accuracy 0.002
 wandb:           task_index 1
-wandb:
+wandb: 
 wandb: 🚀 View run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_confirm_s1000_gsm8k_pass8 at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/wrq1sht5
 wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)

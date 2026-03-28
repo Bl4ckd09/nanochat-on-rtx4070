@@ -1221,3 +1221,125 @@ gpu:  99 %, 10945 MiB, 12282 MiB
 
 [2026-03-20 10:58:11] status: base_train not running
 
+[2026-03-20 11:58:11] status: base_train not running
+
+[2026-03-20 12:58:11] status: base_train not running
+
+[2026-03-20 13:58:11] status: base_train not running
+
+[2026-03-20 14:58:11] status: base_train not running
+
+[2026-03-20 15:58:50] status: base_train not running
+
+[2026-03-20 16:59:48] status: base_train not running
+
+[2026-03-20 18:01:01] status: base_train not running
+
+[2026-03-20 19:02:31] status: base_train not running
+
+[2026-03-20 20:04:18] status: base_train not running
+
+[2026-03-20 21:06:12] status: base_train not running
+
+[2026-03-20 22:08:13] status: base_train not running
+
+[2026-03-20 23:10:16] status: base_train not running
+
+[2026-03-21 00:12:41] status: base_train not running
+
+[2026-03-21 01:15:11] status: base_train not running
+
+[2026-03-21 02:17:55] status: base_train not running
+
+[2026-03-21 03:20:35] status: base_train not running
+
+[2026-03-21 04:23:20]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:26:29]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 06:29:48]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:33:24]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:35:13]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:35:14]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:35:14]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  87 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:35:14]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:35:14]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  100 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:35:17]
+status: base_train running
+step: step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+val:  Step 820230 | Validation bpb: 0.913318
+core: not yet
+eta:  step 820229/820230 (100.00%) | loss: 2.528142 | lrm: 0.00 | dt: 2213.05ms | tok/sec: 7,403 | mfu: 0.00 | epoch: 10 | total time: 31886.74m | eta: 0.0m
+wandb:wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat
+gpu:  99 %, 10945 MiB, 12282 MiB
+

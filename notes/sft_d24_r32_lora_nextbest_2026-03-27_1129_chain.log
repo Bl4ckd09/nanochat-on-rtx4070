@@ -1132,7 +1132,7 @@ Minimum validation bpb: 0.6151
 wandb: updating run metadata
 wandb: uploading history steps 120-120, summary, console lines 1105-1116; uploading config.yaml; uploading output.log; uploading wandb-summary.json
 wandb: uploading output.log
-wandb:
+wandb: 
 wandb: Run history:
 wandb:                 step ▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇█
 wandb: total_training_flops ▁▁▁▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇█
@@ -1144,7 +1144,7 @@ wandb:            train/lrm ▁▂▃▃▄▅▆▆▇▇███████�
 wandb:            train/mfu ▄▄▄▄▄█▄▁▄▂▄▄▄▂▂▂▁▄▄▄▂▁▄▂▂▂▂▄▄▅▇▃▄▂▄▂▂▄▄▄
 wandb:    train/tok_per_sec ▄▄▄▂▄█▁▄▄▂▂▂▂▄▄▄▂▄▄▂▂▂▃▄▄▅▁▇▁▂▄▂▄▄▄▄▂▄▄▃
 wandb:              val/bpb █▆▄▄▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
-wandb:
+wandb: 
 wandb: Run summary:
 wandb:                 step 1000
 wandb: total_training_flops 25630041047040000
@@ -1156,7 +1156,7 @@ wandb:            train/lrm 0
 wandb:            train/mfu 2.70947
 wandb:    train/tok_per_sec 8029
 wandb:              val/bpb 0.61508
-wandb:
+wandb: 
 wandb: 🚀 View run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc at: https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/kdsrbko5
 wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-sft
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
@@ -1196,17 +1196,17 @@ wandb: updating run metadata
 wandb: uploading history steps 0-1, summary, console lines 2-5; uploading output.log; uploading wandb-summary.json; uploading config.yaml
 wandb: uploading history steps 0-1, summary, console lines 2-5
 wandb: uploading data
-wandb:
+wandb: 
 wandb: Run history:
 wandb:  eval/gsm8k_accuracy ▁
 wandb: final/gsm8k_accuracy ▁
 wandb:           task_index ▁
-wandb:
+wandb: 
 wandb: Run summary:
 wandb:  eval/gsm8k_accuracy 0.002
 wandb: final/gsm8k_accuracy 0.002
 wandb:           task_index 1
-wandb:
+wandb: 
 wandb: 🚀 View run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_confirm_s1000_gsm8k_pass8 at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/wrq1sht5
 wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
@@ -1243,7 +1243,7 @@ Traceback (most recent call last):
   File "/home/sun0115/nanochat-learn/nanochat/nanochat/gpt.py", line 490, in forward
     logits = softcap * torch.tanh(logits / softcap)
 RuntimeError: CUDA driver error: out of memory
-[1;34mwandb[0m:
+[1;34mwandb[0m: 
 [1;34mwandb[0m: 🚀 View run [33md24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_confirm_s1000_mmlu[0m at: [34mhttps://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/jdbjo46p[0m
 [1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260327_161009-jdbjo46p/logs[0m
 [W327 16:10:21.914212957 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

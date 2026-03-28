@@ -1,0 +1,14 @@
+model_group=d24_sft_recovery_2026-03-20_1216_s1536gc_lr3e5/best
+step=300
+max_problems=1000
+timestamp=2026-03-20_2023
+logs:
+  pass1: /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_s1536gc_lr3e5_best_s300_gsm8k_pass1_1000_2026-03-20_2023.log
+  pass8: /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_s1536gc_lr3e5_best_s300_gsm8k_pass8_1000_2026-03-20_2023.log
+  mmlu: /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_s1536gc_lr3e5_best_s300_mmlu_1000_2026-03-20_2023.log
+  spellingbee: /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_s1536gc_lr3e5_best_s300_spellingbee_1000_2026-03-20_2023.log
+
+GSM8K pass@8: 0/1000 = 0.00% | Wilson95% [0.00%, 0.38%]
+MMLU: 215/1000 = 21.50% | Wilson95% [19.07%, 24.15%]
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete

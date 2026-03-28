@@ -1,0 +1,40 @@
+2026-03-27 04:59:41,860 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+2026-03-27 04:59:41,860 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/base_checkpoints/d24_asp48_track with step 1025288
+2026-03-27 04:59:44,589 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 2048, 'vocab_size': 32768, 'n_layer': 24, 'n_head': 9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+Evaluating model: base_model (step 1025288)
+Eval modes: bpb, core
+
+================================================================================
+BPB Evaluation
+================================================================================
+train bpb: 0.784647
+val bpb: 0.924377
+
+================================================================================
+CORE Evaluation
+================================================================================
+Evaluating: hellaswag_zeroshot (0-shot, type: multiple_choice)... accuracy: 0.3787 | centered: 0.1716 | evaluated: 10042 | skipped: 0 | time: 178.62s
+Evaluating: jeopardy (10-shot, type: language_modeling)... accuracy: 0.0425 | centered: 0.0425 | evaluated: 2117 | skipped: 0 | time: 37.10s
+Evaluating: bigbench_qa_wikidata (10-shot, type: language_modeling)... accuracy: 0.3168 | centered: 0.3168 | evaluated: 20321 | skipped: 0 | time: 362.79s
+Evaluating: arc_easy (10-shot, type: multiple_choice)... accuracy: 0.5370 | centered: 0.3827 | evaluated: 2376 | skipped: 0 | time: 100.73s
+Evaluating: arc_challenge (10-shot, type: multiple_choice)... accuracy: 0.2773 | centered: 0.0364 | evaluated: 1172 | skipped: 0 | time: 57.98s
+Evaluating: copa (0-shot, type: multiple_choice)... accuracy: 0.5700 | centered: 0.1400 | evaluated: 100 | skipped: 0 | time: 1.55s
+Evaluating: commonsense_qa (10-shot, type: multiple_choice)... accuracy: 0.3129 | centered: 0.1411 | evaluated: 1221 | skipped: 0 | time: 70.28s
+Evaluating: piqa (10-shot, type: multiple_choice)... accuracy: 0.6328 | centered: 0.2655 | evaluated: 1838 | skipped: 0 | time: 52.60s
+Evaluating: openbook_qa (0-shot, type: multiple_choice)... accuracy: 0.3080 | centered: 0.0773 | evaluated: 500 | skipped: 0 | time: 7.14s
+Evaluating: lambada_openai (0-shot, type: language_modeling)... accuracy: 0.2730 | centered: 0.2730 | evaluated: 5153 | skipped: 0 | time: 82.87s
+Evaluating: hellaswag (10-shot, type: multiple_choice)... accuracy: 0.3796 | centered: 0.1728 | evaluated: 10042 | skipped: 0 | time: 1064.96s
+Evaluating: winograd (0-shot, type: schema)... accuracy: 0.5348 | centered: 0.0696 | evaluated: 273 | skipped: 0 | time: 3.90s
+Evaluating: winogrande (0-shot, type: schema)... accuracy: 0.4815 | centered: -0.0371 | evaluated: 1267 | skipped: 0 | time: 26.61s
+Evaluating: bigbench_dyck_languages (10-shot, type: language_modeling)... accuracy: 0.0700 | centered: 0.0700 | evaluated: 1000 | skipped: 0 | time: 24.01s
+Evaluating: agi_eval_lsat_ar (3-shot, type: multiple_choice)... accuracy: 0.2696 | centered: 0.0870 | evaluated: 230 | skipped: 0 | time: 24.24s
+Evaluating: bigbench_cs_algorithms (10-shot, type: language_modeling)... accuracy: 0.4068 | centered: 0.4068 | evaluated: 1320 | skipped: 0 | time: 29.15s
+Evaluating: bigbench_operators (10-shot, type: language_modeling)... accuracy: 0.1476 | centered: 0.1476 | evaluated: 210 | skipped: 0 | time: 3.40s
+Evaluating: bigbench_repeat_copy_logic (10-shot, type: language_modeling)... accuracy: 0.0000 | centered: 0.0000 | evaluated: 32 | skipped: 0 | time: 0.54s
+Evaluating: squad (10-shot, type: language_modeling)... accuracy: 0.1407 | centered: 0.1407 | evaluated: 10570 | skipped: 0 | time: 711.97s
+Evaluating: coqa (0-shot, type: language_modeling)... accuracy: 0.1439 | centered: 0.1439 | evaluated: 7983 | skipped: 0 | time: 166.49s
+Evaluating: boolq (10-shot, type: multiple_choice)... accuracy: 0.5982 | centered: -0.0575 | evaluated: 3270 | skipped: 0 | time: 328.30s
+Evaluating: bigbench_language_identification (10-shot, type: multiple_choice)... accuracy: 0.2510 | centered: 0.1760 | evaluated: 9995 | skipped: 5 | time: 6103.26s
+
+Results written to: /home/sun0115/.cache/nanochat/base_eval/base_model_1025288.csv
+CORE metric: 0.1440

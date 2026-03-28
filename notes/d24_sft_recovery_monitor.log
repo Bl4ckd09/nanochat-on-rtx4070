@@ -1,0 +1,1379 @@
+==== Hourly SFT monitor started 2026-03-20 12:16:42 ====
+log_glob=/home/sun0115/nanochat-learn/notes/d24_sft_recovery_*_chain.log interval=600s
+[2026-03-20 12:16:42]
+status: running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    not yet
+best:   not yet
+warn:   none
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 12:26:42]
+status: running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00250 | Validation bpb: 0.6581
+best:   Saved best checkpoint at step 250 (val_bpb=0.6581)
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    97 %, 8409 MiB, 12282 MiB
+
+[2026-03-20 12:36:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    45 %, 8079 MiB, 12282 MiB
+
+[2026-03-20 12:46:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    26 %, 8079 MiB, 12282 MiB
+
+[2026-03-20 12:56:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    53 %, 8079 MiB, 12282 MiB
+
+[2026-03-20 13:06:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 8099 MiB, 12282 MiB
+
+[2026-03-20 13:16:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    30 %, 8099 MiB, 12282 MiB
+
+[2026-03-20 13:26:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 13:36:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 13:46:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 13:56:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 14:06:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 14:16:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 14:26:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 14:36:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 14:46:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 14:56:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 15:06:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 15:16:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 15:26:52]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-20 15:37:01]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    45 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 15:47:11]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    19 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 15:57:21]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    41 %, 11535 MiB, 12282 MiB
+
+[2026-03-20 16:07:32]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 16:17:43]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    46 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 16:27:55]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    35 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 16:38:04]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    35 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 16:48:08]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    51 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 16:58:19]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    45 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 17:08:29]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    44 %, 11535 MiB, 12282 MiB
+
+[2026-03-20 17:18:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    38 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 17:28:53]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    40 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 17:39:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    35 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 17:49:19]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    36 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 17:59:32]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    50 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 18:09:45]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    36 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 18:19:59]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    38 %, 11535 MiB, 12282 MiB
+
+[2026-03-20 18:30:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    43 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 18:40:29]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    54 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 18:50:45]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    33 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 19:01:01]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    34 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 19:11:18]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    43 %, 9583 MiB, 12282 MiB
+
+[2026-03-20 19:21:35]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    45 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 19:31:53]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    40 %, 11535 MiB, 12282 MiB
+
+[2026-03-20 19:42:12]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    49 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 19:52:30]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    42 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 20:02:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    33 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 20:13:07]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    32 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 20:23:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    34 %, 6757 MiB, 12282 MiB
+
+[2026-03-20 20:33:46]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    50 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 20:44:05]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 10555 MiB, 12282 MiB
+
+[2026-03-20 20:54:23]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    53 %, 11535 MiB, 12282 MiB
+
+[2026-03-20 21:04:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    45 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 21:15:03]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 21:25:23]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 21:35:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    44 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 21:46:03]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    38 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 21:56:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    36 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 22:06:44]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    46 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 22:17:04]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    39 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 22:27:24]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    55 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 22:37:46]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    50 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 22:48:07]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    43 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 22:58:28]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    34 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 23:08:48]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    43 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 23:19:09]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    44 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 23:29:33]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    44 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 23:39:58]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    41 %, 11983 MiB, 12282 MiB
+
+[2026-03-20 23:50:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    49 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 00:00:47]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    44 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 00:11:11]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    35 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 00:21:35]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    37 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 00:32:00]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    43 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 00:42:24]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    33 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 00:52:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    51 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 01:03:14]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_2026-03-20_1216_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6563
+best:   Rotated old best checkpoint: step 000050
+warn:   RuntimeError: CUDA driver error: out of memory
+gpu:    37 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 01:13:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    39 %, 8615 MiB, 12282 MiB
+
+[2026-03-21 01:24:07]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    43 %, 10555 MiB, 12282 MiB
+
+[2026-03-21 01:34:34]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    41 %, 10555 MiB, 12282 MiB
+
+[2026-03-21 01:45:01]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    53 %, 11535 MiB, 12282 MiB
+
+[2026-03-21 01:55:29]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    46 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 02:05:58]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    31 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 02:16:25]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    21 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 02:26:54]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6553
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    35 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 02:37:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    49 %, 8615 MiB, 12282 MiB
+
+[2026-03-21 02:47:51]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    48 %, 10555 MiB, 12282 MiB
+
+[2026-03-21 02:58:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    24 %, 11535 MiB, 12282 MiB
+
+[2026-03-21 03:08:47]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    46 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 03:19:09]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    41 %, 11983 MiB, 12282 MiB
+
+[2026-03-21 03:29:28]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    35 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 03:39:55]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    36 %, 6757 MiB, 12282 MiB
+
+[2026-03-21 03:50:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    0 %, 0 MiB, 12282 MiB
+
+[2026-03-21 04:00:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 04:11:19]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 04:21:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 04:32:22]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 04:42:53]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 04:53:27]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:03:58]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:14:28]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:25:01]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:35:32]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:46:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 05:56:38]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 06:07:13]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 06:17:46]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 06:28:18]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 06:38:53]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 06:49:25]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:00:04]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:10:42]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:21:18]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:31:55]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:42:30]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 07:53:06]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:03:41]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:13:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:23:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:33:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:43:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 08:53:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:03:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:13:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:23:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:33:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:43:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 09:53:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    96 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:03:49]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:13:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:23:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:33:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:43:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 10:53:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:03:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:13:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    93 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:23:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:33:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:43:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 11:53:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:03:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:13:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    97 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:23:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:33:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:43:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 12:53:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:03:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    97 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:13:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:23:50]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:33:52]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    98 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:44:01]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 13:54:10]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    93 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 14:04:20]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    100 %, 10945 MiB, 12282 MiB
+
+[2026-03-21 14:14:30]
+status: not running
+log:    /home/sun0115/nanochat-learn/notes/d24_sft_recovery_v2_2026-03-21_0105_chain.log
+step:   not yet
+val:    Step 00300 | Validation bpb: 0.6639
+best:   Rotated old best checkpoint: step 000050
+warn:   none
+gpu:    99 %, 10945 MiB, 12282 MiB
+

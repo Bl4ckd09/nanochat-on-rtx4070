@@ -13,17 +13,17 @@ wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/
 wandb: uploading console lines 0-1; updating run metadata
 wandb: uploading console lines 0-1
 wandb: uploading history steps 0-1, summary, console lines 2-3
-wandb:
+wandb: 
 wandb: Run history:
 wandb:  eval/mmlu_accuracy ▁
 wandb: final/mmlu_accuracy ▁
 wandb:          task_index ▁
-wandb:
+wandb: 
 wandb: Run summary:
 wandb:  eval/mmlu_accuracy 0.214
 wandb: final/mmlu_accuracy 0.214
 wandb:          task_index 1
-wandb:
+wandb: 
 wandb: 🚀 View run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_confirm_1000_2026-03-27_1841_mmlu at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/kwbmug4k
 wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)

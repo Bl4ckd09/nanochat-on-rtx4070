@@ -1,0 +1,13 @@
+model_group=d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc/best
+step=1000
+max_problems=1000
+timestamp=2026-03-27_1154
+eval_wandb_project=nanochat-eval
+eval_wandb_run_prefix=d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_confirm_s1000
+logs:
+  pass1: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_gsm8k_pass1_1000_2026-03-27_1154.log
+  pass8: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_gsm8k_pass8_1000_2026-03-27_1154.log
+  mmlu: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_mmlu_1000_2026-03-27_1154.log
+  spellingbee: /home/sun0115/nanochat-learn/notes/d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc_best_s1000_spellingbee_1000_2026-03-27_1154.log
+
+GSM8K pass@8: 2/1000 = 0.20% | Wilson95% [0.05%, 0.73%]

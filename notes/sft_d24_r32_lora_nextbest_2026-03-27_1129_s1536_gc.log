@@ -1128,7 +1128,7 @@ Minimum validation bpb: 0.6151
 wandb: updating run metadata
 wandb: uploading history steps 120-120, summary, console lines 1105-1116; uploading config.yaml; uploading output.log; uploading wandb-summary.json
 wandb: uploading output.log
-wandb:
+wandb: 
 wandb: Run history:
 wandb:                 step ▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇█
 wandb: total_training_flops ▁▁▁▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇█
@@ -1140,7 +1140,7 @@ wandb:            train/lrm ▁▂▃▃▄▅▆▆▇▇███████�
 wandb:            train/mfu ▄▄▄▄▄█▄▁▄▂▄▄▄▂▂▂▁▄▄▄▂▁▄▂▂▂▂▄▄▅▇▃▄▂▄▂▂▄▄▄
 wandb:    train/tok_per_sec ▄▄▄▂▄█▁▄▄▂▂▂▂▄▄▄▂▄▄▂▂▂▃▄▄▅▁▇▁▂▄▂▄▄▄▄▂▄▄▃
 wandb:              val/bpb █▆▄▄▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
-wandb:
+wandb: 
 wandb: Run summary:
 wandb:                 step 1000
 wandb: total_training_flops 25630041047040000
@@ -1152,7 +1152,7 @@ wandb:            train/lrm 0
 wandb:            train/mfu 2.70947
 wandb:    train/tok_per_sec 8029
 wandb:              val/bpb 0.61508
-wandb:
+wandb: 
 wandb: 🚀 View run d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc at: https://wandb.ai/sunshines-gmail-com/nanochat-sft/runs/kdsrbko5
 wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-sft
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
