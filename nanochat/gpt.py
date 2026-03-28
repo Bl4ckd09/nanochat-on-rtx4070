@@ -392,49 +392,69 @@ class GPT(nn.Module):
             'total': total,
         }
 
-    def setup_optimizer(self, unembedding_lr=0.004, embedding_lr=0.2, matrix_lr=0.02, weight_decay=0.0, adam_betas=(0.8, 0.95), scalar_lr=0.5, adamw_only=False):
+    def build_optimizer_param_groups(self, unembedding_lr=0.004, embedding_lr=0.2, matrix_lr=0.02, weight_decay=0.0, adam_betas=(0.8, 0.95), scalar_lr=0.5, adamw_only=False):
         model_dim = self.config.n_embd
-        ddp, rank, local_rank, world_size = get_dist_info()
 
         # Separate out all parameters into groups
-        matrix_params = list(self.transformer.h.parameters())
-        value_embeds_params = list(self.value_embeds.parameters())
-        embedding_params = list(self.transformer.wte.parameters())
-        lm_head_params = list(self.lm_head.parameters())
-        resid_params = [self.resid_lambdas]
-        x0_params = [self.x0_lambdas]
-        assert len(list(self.parameters())) == len(matrix_params) + len(embedding_params) + len(lm_head_params) + len(value_embeds_params) + len(resid_params) + len(x0_params)
+        matrix_params = [p for p in self.transformer.h.parameters() if p.requires_grad]
+        value_embeds_params = [p for p in self.value_embeds.parameters() if p.requires_grad]
+        embedding_params = [p for p in self.transformer.wte.parameters() if p.requires_grad]
+        lm_head_params = [p for p in self.lm_head.parameters() if p.requires_grad]
+        resid_params = [self.resid_lambdas] if self.resid_lambdas.requires_grad else []
+        x0_params = [self.x0_lambdas] if self.x0_lambdas.requires_grad else []
+        grouped_params = matrix_params + embedding_params + lm_head_params + value_embeds_params + resid_params + x0_params
+        trainable_params = [p for p in self.parameters() if p.requires_grad]
+        assert len(grouped_params) == len(trainable_params), f"Optimizer grouping mismatch: {len(grouped_params)} grouped vs {len(trainable_params)} trainable params"
+        if not grouped_params:
+            raise ValueError("No trainable parameters found when building optimizer groups")
 
         # Scale the LR for the AdamW parameters by ∝1/√dmodel (tuned for 768 dim model)
         dmodel_lr_scale = (model_dim / 768) ** -0.5
         print0(f"Scaling the LR for the AdamW parameters ∝1/√({model_dim}/768) = {dmodel_lr_scale:.6f}")
 
         # Build param_groups with all required fields explicit
-        param_groups = [
-            # AdamW groups (embeddings, lm_head, scalars)
-            dict(kind='adamw', params=lm_head_params, lr=unembedding_lr * dmodel_lr_scale, betas=adam_betas, eps=1e-10, weight_decay=0.0),
-            dict(kind='adamw', params=embedding_params, lr=embedding_lr * dmodel_lr_scale, betas=adam_betas, eps=1e-10, weight_decay=0.0),
-            dict(kind='adamw', params=value_embeds_params, lr=embedding_lr * dmodel_lr_scale, betas=adam_betas, eps=1e-10, weight_decay=0.0),
-            dict(kind='adamw', params=resid_params, lr=scalar_lr * 0.01, betas=adam_betas, eps=1e-10, weight_decay=0.0),
-            dict(kind='adamw', params=x0_params, lr=scalar_lr, betas=(0.96, 0.95), eps=1e-10, weight_decay=0.0),  # higher beta1 for x0
-        ]
+        param_groups = []
+        def add_group(kind, params, **kwargs):
+            if params:
+                param_groups.append(dict(kind=kind, params=params, **kwargs))
+
+        # AdamW groups (embeddings, lm_head, scalars)
+        add_group('adamw', lm_head_params, lr=unembedding_lr * dmodel_lr_scale, betas=adam_betas, eps=1e-10, weight_decay=0.0)
+        add_group('adamw', embedding_params, lr=embedding_lr * dmodel_lr_scale, betas=adam_betas, eps=1e-10, weight_decay=0.0)
+        add_group('adamw', value_embeds_params, lr=embedding_lr * dmodel_lr_scale, betas=adam_betas, eps=1e-10, weight_decay=0.0)
+        add_group('adamw', resid_params, lr=scalar_lr * 0.01, betas=adam_betas, eps=1e-10, weight_decay=0.0)
+        add_group('adamw', x0_params, lr=scalar_lr, betas=(0.96, 0.95), eps=1e-10, weight_decay=0.0)  # higher beta1 for x0
         # Matrix params: Muon (default) or AdamW (for fine-tuning)
         if not adamw_only:
             # Muon groups (matrix params, grouped by shape for stacking)
             for shape in sorted({p.shape for p in matrix_params}):
                 group_params = [p for p in matrix_params if p.shape == shape]
-                param_groups.append(dict(
-                    kind='muon', params=group_params, lr=matrix_lr,
+                add_group(
+                    'muon', group_params, lr=matrix_lr,
                     momentum=0.95, ns_steps=5, beta2=0.95, weight_decay=weight_decay,
-                ))
+                )
         else:
             # AdamW for all matrix params (better for fine-tuning)
             print0(f"Using AdamW-only mode for fine-tuning (no Muon)")
-            param_groups.append(dict(
-                kind='adamw', params=matrix_params,
+            add_group(
+                'adamw', matrix_params,
                 lr=matrix_lr * dmodel_lr_scale,
                 betas=adam_betas, eps=1e-10, weight_decay=weight_decay
-            ))
+            )
+
+        return param_groups
+
+    def setup_optimizer(self, unembedding_lr=0.004, embedding_lr=0.2, matrix_lr=0.02, weight_decay=0.0, adam_betas=(0.8, 0.95), scalar_lr=0.5, adamw_only=False):
+        ddp, rank, local_rank, world_size = get_dist_info()
+        param_groups = self.build_optimizer_param_groups(
+            unembedding_lr=unembedding_lr,
+            embedding_lr=embedding_lr,
+            matrix_lr=matrix_lr,
+            weight_decay=weight_decay,
+            adam_betas=adam_betas,
+            scalar_lr=scalar_lr,
+            adamw_only=adamw_only,
+        )
 
         Factory = DistMuonAdamW if ddp else MuonAdamW
         optimizer = Factory(param_groups)

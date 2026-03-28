@@ -63,6 +63,9 @@ parser.add_argument("--warmdown-ratio", type=float, default=0.2, help="fraction 
 parser.add_argument("--adamw-only", action="store_true", help="Use AdamW for all params instead of Muon+AdamW (recommended for SFT)")
 parser.add_argument("--freeze-layers", type=int, default=0,
                     help="Freeze first N transformer layers (0 = no freezing)")
+parser.add_argument("--freeze-embeddings", action="store_true", help="Freeze token/value embeddings during fine-tuning")
+parser.add_argument("--freeze-scalars", action="store_true", help="Freeze residual scaling parameters during fine-tuning")
+parser.add_argument("--optimizer", type=str, default="default", choices=["default", "adam8bit", "paged_adamw8bit"], help="optimizer backend for Adam-family fine-tuning")
 # LoRA (Low-Rank Adaptation)
 parser.add_argument("--lora", action="store_true", help="Enable LoRA fine-tuning (freezes base model)")
 parser.add_argument("--lora-rank", type=int, default=8, help="LoRA rank (default 8)")
@@ -80,6 +83,7 @@ parser.add_argument("--no-save-optimizer", action="store_true", help="Skip savin
 # Gradient clipping
 parser.add_argument("--max-grad-norm", type=float, default=0.0, help="Max gradient norm for clipping (0 = disable)")
 parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
+parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning"], help="training dataset mixture preset")
 args = parser.parse_args()
 assert args.keep_best_k >= 1, f"--keep-best-k must be >= 1, got {args.keep_best_k}"
 user_config = vars(args).copy()
@@ -102,6 +106,49 @@ def maybe_compile(model_module):
         print0("TORCH_COMPILE_DISABLE=1, skipping torch.compile")
         return model_module
     return torch.compile(model_module, dynamic=False)
+
+def build_bnb_optimizer(param_groups, paged=False):
+    try:
+        import bitsandbytes as bnb
+    except ImportError as exc:
+        raise ImportError(
+            "bitsandbytes is not installed. Install it in the nanochat virtualenv to use --optimizer adam8bit/paged_adamw8bit."
+        ) from exc
+    factory = bnb.optim.PagedAdamW8bit if paged else bnb.optim.Adam8bit
+    return factory(param_groups)
+
+def build_train_dataset(base_dir, preset):
+    identity_conversations_filepath = os.path.join(base_dir, "identity_conversations.jsonl")
+    if preset == "default":
+        return TaskMixture([
+            SmolTalk(split="train"), # 460K rows of general conversations
+            MMLU(subset="auxiliary_train", split="train"), # 100K rows of multiple choice problems drawn from ARC, MC_TEST, OBQA, RACE
+            GSM8K(subset="main", split="train"), # 8K rows teaching simple math and (calculator) tool use
+            GSM8K(subset="main", split="train"), # 2x GSM8K
+            GSM8K(subset="main", split="train"), # 3x GSM8K
+            GSM8K(subset="main", split="train"), # 4x GSM8K
+            GSM8K(subset="main", split="train"), # 5x GSM8K
+            GSM8K(subset="main", split="train"), # 6x GSM8K
+            CustomJSON(filepath=identity_conversations_filepath), # 1000 rows of synthetic identity conversations
+            CustomJSON(filepath=identity_conversations_filepath), # let's do 2 epochs of these
+            SimpleSpelling(size=200000, split="train"), # 200K rows of Simple Spelling (e.g. spell the word 'apple')
+            SpellingBee(size=80000, split="train"), # 80K rows of Spelling Bee (e.g. how many 'r' are in 'strawberry'?)
+        ])
+    if preset == "general_chat_reasoning":
+        return TaskMixture([
+            SmolTalk(split="train", stop=200000),
+            MMLU(subset="auxiliary_train", split="train", stop=50000),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    raise ValueError(f"Unknown dataset preset: {preset}")
+
+def build_val_dataset():
+    return TaskMixture([
+        SmolTalk(split="test"), # 24K rows in test set
+        MMLU(subset="all", split="test", stop=5200), # 14K rows in test set, use only 5.2K to match the train ratios
+        GSM8K(subset="main", split="test", stop=420), # 1.32K rows in test set, use only 420 to match the train ratios
+    ])
 
 # wandb logging init
 wandb_project = os.environ.get("WANDB_PROJECT", "nanochat-sft")
@@ -134,6 +181,16 @@ if args.freeze_layers > 0 and not args.lora:
         for param in orig_model.transformer.h[i].parameters():
             param.requires_grad = False
     print0(f"Froze first {freeze_count} of {depth} transformer layers")
+if args.freeze_embeddings and not args.lora:
+    for param in orig_model.transformer.wte.parameters():
+        param.requires_grad = False
+    for param in orig_model.value_embeds.parameters():
+        param.requires_grad = False
+    print0("Froze token and value embeddings")
+if args.freeze_scalars and not args.lora:
+    orig_model.resid_lambdas.requires_grad = False
+    orig_model.x0_lambdas.requires_grad = False
+    print0("Froze residual scaling parameters")
 
 # Apply LoRA if requested (freezes all base params, only trains LoRA adapters)
 lora_params = None
@@ -152,6 +209,11 @@ if args.lora:
     print0(f"Trainable params: {trainable_params:,} / {total_params:,} ({100*trainable_params/total_params:.2f}%)")
     model = maybe_compile(orig_model)
 
+trainable_params = [p for p in orig_model.parameters() if p.requires_grad]
+trainable_param_count = sum(p.numel() for p in trainable_params)
+total_param_count = sum(p.numel() for p in orig_model.parameters())
+print0(f"Trainable params after freezing/adaptation: {trainable_param_count:,} / {total_param_count:,} ({100*trainable_param_count/total_param_count:.2f}%)")
+
 num_flops_per_token = model.estimate_flops()
 tokens_per_fwdbwd = args.device_batch_size * args.max_seq_len # tokens per iteration for a single rank
 world_tokens_per_fwdbwd = tokens_per_fwdbwd * ddp_world_size # total tokens per iteration for all ranks
@@ -164,42 +226,48 @@ token_bytes = get_token_bytes(device=device)
 
 # Initialize the Optimizer
 if args.lora:
-    # LoRA mode: simple AdamW for LoRA params only (all base params are frozen)
-    print0(f"Using AdamW optimizer for LoRA params with lr={args.lora_lr}")
-    optimizer = torch.optim.AdamW(lora_params, lr=args.lora_lr * args.init_lr_frac, weight_decay=args.weight_decay)
+    # LoRA mode: Adam-family optimizer for LoRA params only (all base params are frozen)
+    lora_param_groups = [dict(kind='adamw', params=lora_params, lr=args.lora_lr * args.init_lr_frac, betas=(0.9, 0.999), eps=1e-8, weight_decay=args.weight_decay)]
+    if args.optimizer == "default":
+        print0(f"Using AdamW optimizer for LoRA params with lr={args.lora_lr}")
+        optimizer = torch.optim.AdamW(lora_param_groups)
+    else:
+        paged = args.optimizer == "paged_adamw8bit"
+        print0(f"Using {args.optimizer} optimizer for LoRA params with lr={args.lora_lr}")
+        optimizer = build_bnb_optimizer(lora_param_groups, paged=paged)
     for group in optimizer.param_groups:
         group["kind"] = "adamw"  # for compatibility with LR scheduler
         group["initial_lr"] = group["lr"]
 else:
     # Standard mode: Muon+AdamW or AdamW-only
-    optimizer = model.setup_optimizer(unembedding_lr=args.unembedding_lr, embedding_lr=args.embedding_lr, matrix_lr=args.matrix_lr, weight_decay=args.weight_decay, adamw_only=args.adamw_only)
+    if args.optimizer == "default":
+        optimizer = orig_model.setup_optimizer(unembedding_lr=args.unembedding_lr, embedding_lr=args.embedding_lr, matrix_lr=args.matrix_lr, weight_decay=args.weight_decay, adamw_only=args.adamw_only)
+    else:
+        if not args.adamw_only:
+            raise ValueError(f"--optimizer {args.optimizer} currently requires --adamw-only in non-LoRA mode")
+        param_groups = orig_model.build_optimizer_param_groups(
+            unembedding_lr=args.unembedding_lr,
+            embedding_lr=args.embedding_lr,
+            matrix_lr=args.matrix_lr,
+            weight_decay=args.weight_decay,
+            adamw_only=True,
+        )
+        paged = args.optimizer == "paged_adamw8bit"
+        print0(f"Using {args.optimizer} for trainable params")
+        optimizer = build_bnb_optimizer(param_groups, paged=paged)
     # Override the initial learning rate as a fraction of the base learning rate
     for group in optimizer.param_groups:
         group["lr"] = group["lr"] * args.init_lr_frac
         group["initial_lr"] = group["lr"]
+        group.setdefault("kind", "adamw")
 
 # SFT data mixture and DataLoader
 base_dir = get_base_dir()
-identity_conversations_filepath = os.path.join(base_dir, "identity_conversations.jsonl")
-train_dataset = TaskMixture([
-    SmolTalk(split="train"), # 460K rows of general conversations
-    MMLU(subset="auxiliary_train", split="train"), # 100K rows of multiple choice problems drawn from ARC, MC_TEST, OBQA, RACE
-    GSM8K(subset="main", split="train"), # 8K rows teaching simple math and (calculator) tool use
-    GSM8K(subset="main", split="train"), # 2x GSM8K
-    GSM8K(subset="main", split="train"), # 3x GSM8K
-    GSM8K(subset="main", split="train"), # 4x GSM8K
-    GSM8K(subset="main", split="train"), # 5x GSM8K
-    GSM8K(subset="main", split="train"), # 6x GSM8K
-    CustomJSON(filepath=identity_conversations_filepath), # 1000 rows of synthetic identity conversations
-    CustomJSON(filepath=identity_conversations_filepath), # let's do 2 epochs of these
-    SimpleSpelling(size=200000, split="train"), # 200K rows of Simple Spelling (e.g. spell the word 'apple')
-    SpellingBee(size=80000, split="train"), # 80K rows of Spelling Bee (e.g. how many 'r' are in 'strawberry'?)
-]) # total: 460K + 100K + 48K + 2K + 200K + 80K = 890K rows
-val_dataset = TaskMixture([
-    SmolTalk(split="test"), # 24K rows in test set
-    MMLU(subset="all", split="test", stop=5200), # 14K rows in test set, use only 5.2K to match the train ratios
-    GSM8K(subset="main", split="test", stop=420), # 1.32K rows in test set, use only 420 to match the train ratios
-]) # total: 24K + 14K + 1.32K ~= 39K rows
+train_dataset = build_train_dataset(base_dir, args.dataset_preset)
+val_dataset = build_val_dataset()
+print0(f"Using dataset preset: {args.dataset_preset}")
+print0(f"Train dataset conversations: {len(train_dataset):,}")
+print0(f"Val dataset conversations: {len(val_dataset):,}")
 # DataLoader is defined here, it emits inputs, targets : 2D tensors of shape (device_batch_size, max_seq_len)
 # A big problem is that we don't know the final num_iterations in advance. So we create
 # these two global variables and update them from within the data generator.
@@ -501,7 +569,7 @@ while True:
     if did_backward:
         # gradient clipping (on orig_model, not the compiled wrapper)
         if args.max_grad_norm > 0:
-            torch.nn.utils.clip_grad_norm_(orig_model.parameters(), args.max_grad_norm)
+            torch.nn.utils.clip_grad_norm_(trainable_params, args.max_grad_norm)
         optimizer.step()
     else:
         print0(f"Warning: step {step + 1} had no valid targets; skipping optimizer.step()")
