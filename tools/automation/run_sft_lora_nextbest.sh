@@ -3,7 +3,14 @@ set -euo pipefail
 
 BASE_MODEL_TAG="${1:-d24_asp48_track}"
 BASE_MODEL_STEP="${2:-820230}"
-NUM_ITERATIONS="${3:-1000}"
+NUM_ITERATIONS="${3:-500}"
+LORA_LR="${LORA_LR:-3e-5}"
+LORA_RANK="${LORA_RANK:-64}"
+LORA_ALPHA="${LORA_ALPHA:-128}"
+LORA_DROPOUT="${LORA_DROPOUT:-0.0}"
+RUN_BASE_PREFIX="${RUN_BASE_PREFIX:-d24_r32_lora_maxoom}"
+EVAL_EVERY="${EVAL_EVERY:-50}"
+KEEP_BEST_K="${KEEP_BEST_K:-5}"
 
 REPO_DIR="${HOME}/nanochat-learn/nanochat"
 NOTES_DIR="${HOME}/nanochat-learn/notes"
@@ -13,7 +20,7 @@ cd "${REPO_DIR}"
 source .venv/bin/activate
 
 TS="$(date +%F_%H%M)"
-RUN_BASE="d24_r32_lora_nextbest_${TS}"
+RUN_BASE="${RUN_BASE_PREFIX}_${TS}"
 OUT_BASE="${RUN_BASE}"
 MASTER_LOG="${NOTES_DIR}/sft_${RUN_BASE}_chain.log"
 META_FILE="${NOTES_DIR}/sft_${RUN_BASE}_meta.env"
@@ -34,11 +41,19 @@ export RUN_PASS1="${RUN_PASS1:-0}"
   echo "BASE_MODEL_TAG=${BASE_MODEL_TAG}"
   echo "BASE_MODEL_STEP=${BASE_MODEL_STEP}"
   echo "NUM_ITERATIONS=${NUM_ITERATIONS}"
+  echo "LORA_LR=${LORA_LR}"
+  echo "LORA_RANK=${LORA_RANK}"
+  echo "LORA_ALPHA=${LORA_ALPHA}"
+  echo "LORA_DROPOUT=${LORA_DROPOUT}"
+  echo "RUN_BASE_PREFIX=${RUN_BASE_PREFIX}"
+  echo "EVAL_EVERY=${EVAL_EVERY}"
+  echo "KEEP_BEST_K=${KEEP_BEST_K}"
   echo "MASTER_LOG=${MASTER_LOG}"
   echo "WANDB_PROJECT=${WANDB_PROJECT}"
   echo "EVAL_WANDB_PROJECT=${EVAL_WANDB_PROJECT}"
   echo "CAT_BATCH_SIZE=${CAT_BATCH_SIZE}"
   echo "EVAL_MAX_PROBLEMS=${EVAL_MAX_PROBLEMS}"
+  echo "ATTEMPT_ORDER=s2048_gc:2048:8192:1,s1536_gc:1536:7680:1,s1280_gc:1280:7680:1,s1024_gc:1024:8192:1"
 } > "${META_FILE}"
 
 echo "[info] meta: ${META_FILE}" | tee -a "${MASTER_LOG}"
@@ -168,14 +183,14 @@ run_attempt() {
     --model-tag "${BASE_MODEL_TAG}" --model-step "${BASE_MODEL_STEP}"
     --output-tag "${output_tag}" --run "${run_name}"
     --device-type cuda --dtype bfloat16
-    --lora --lora-rank 64 --lora-alpha 128 --lora-dropout 0.0 --lora-lr 1e-4
+    --lora --lora-rank "${LORA_RANK}" --lora-alpha "${LORA_ALPHA}" --lora-dropout "${LORA_DROPOUT}" --lora-lr "${LORA_LR}"
     --weight-decay 0.0
     --init-lr-frac 0.25 --warmup-ratio 0.2 --warmdown-ratio 0.3
     --max-seq-len "${max_seq_len}" --device-batch-size 1 --total-batch-size "${total_batch_size}"
     --num-iterations "${NUM_ITERATIONS}"
-    --eval-every 50 --eval-tokens 524288
+    --eval-every "${EVAL_EVERY}" --eval-tokens 524288
     --max-grad-norm 1.0
-    --keep-best-k 5 --no-save-optimizer
+    --keep-best-k "${KEEP_BEST_K}" --no-save-optimizer
   )
 
   if [ "${use_gc}" = "1" ]; then
@@ -205,10 +220,21 @@ run_attempt() {
   return 1
 }
 
-# Promoted r32 SFT progression:
-# 1) 1536 with gradient checkpointing
-# 2) 1280 with gradient checkpointing
-# 3) 1024 with gradient checkpointing
+# Max-first SFT progression for 12 GB cards:
+# 1) 2048 with gradient checkpointing
+# 2) 1536 with gradient checkpointing
+# 3) 1280 with gradient checkpointing
+# 4) 1024 with gradient checkpointing
+if run_attempt "s2048_gc" 2048 8192 1; then
+  echo "[done] completed at s2048_gc" | tee -a "${MASTER_LOG}"
+  exit 0
+else
+  rc=$?
+  if [ "$rc" -eq 1 ]; then
+    exit 1
+  fi
+fi
+
 if run_attempt "s1536_gc" 1536 7680 1; then
   echo "[done] completed at s1536_gc" | tee -a "${MASTER_LOG}"
   exit 0
