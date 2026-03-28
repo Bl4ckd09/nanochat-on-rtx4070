@@ -1,0 +1,21 @@
+model_group=d24_r32_adamw_partial_lr005_2026-03-28_1545_s1024_gc/best
+step=300
+max_problems=250
+timestamp=2026-03-28_1552
+eval_wandb_project=nanochat-eval
+eval_wandb_run_prefix=d24_r32_adamw_partial_lr005_2026-03-28_1545_s1024_gc_confirm_s300
+skip_pass1=0
+skip_pass8=1
+skip_mmlu=0
+skip_spelling=1
+logs:
+  pass1: /home/sun0115/nanochat-learn/notes/d24_r32_adamw_partial_lr005_2026-03-28_1545_s1024_gc_best_s300_gsm8k_pass1_250_2026-03-28_1552.log
+  pass8: /home/sun0115/nanochat-learn/notes/d24_r32_adamw_partial_lr005_2026-03-28_1545_s1024_gc_best_s300_gsm8k_pass8_250_2026-03-28_1552.log
+  mmlu: /home/sun0115/nanochat-learn/notes/d24_r32_adamw_partial_lr005_2026-03-28_1545_s1024_gc_best_s300_mmlu_250_2026-03-28_1552.log
+  spellingbee: /home/sun0115/nanochat-learn/notes/d24_r32_adamw_partial_lr005_2026-03-28_1545_s1024_gc_best_s300_spellingbee_250_2026-03-28_1552.log
+
+GSM8K pass@1: 0/250 = 0.00% | Wilson95% [0.00%, 1.51%]
+GSM8K pass@8: SKIPPED by SKIP_PASS8=1
+MMLU: 68/250 = 27.20% | Wilson95% [22.06%, 33.03%]
+SpellingBee: SKIPPED by SKIP_SPELLING=1
+[done] confirmation eval complete

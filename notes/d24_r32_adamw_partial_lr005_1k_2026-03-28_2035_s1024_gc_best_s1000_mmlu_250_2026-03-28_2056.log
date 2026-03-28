@@ -1,0 +1,32 @@
+2026-03-28 21:35:50,842 - nanochat.common - [32m[1mINFO[0m - Distributed world size: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/sun0115/.netrc.
+wandb: Currently logged in as: sunshines (sunshines-gmail-com) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run izkc7m21
+wandb: Tracking run with wandb version 0.24.2
+wandb: Run data is saved locally in /home/sun0115/nanochat-learn/nanochat/wandb/run-20260328_213551-izkc7m21
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run d24_r32_adamw_partial_lr005_1k_2026-03-28_2035_s1024_gc_confirm_s1000_mmlu
+wandb: ⭐️ View project at https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: 🚀 View run at https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/izkc7m21
+2026-03-28 21:35:52,591 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /home/sun0115/.cache/nanochat/chatsft_checkpoints/d24_r32_adamw_partial_lr005_1k_2026-03-28_2035_s1024_gc/best with step 1000
+2026-03-28 21:35:53,564 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 1024, 'vocab_size': 32768, 'n_layer': 24, 'n_head': 9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+Final: 58/250 (23.20%)
+MMLU accuracy: 23.20%
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:  eval/mmlu_accuracy ▁
+wandb: final/mmlu_accuracy ▁
+wandb:          task_index ▁
+wandb: 
+wandb: Run summary:
+wandb:  eval/mmlu_accuracy 0.232
+wandb: final/mmlu_accuracy 0.232
+wandb:          task_index 1
+wandb: 
+wandb: 🚀 View run d24_r32_adamw_partial_lr005_1k_2026-03-28_2035_s1024_gc_confirm_s1000_mmlu at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/izkc7m21
+wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260328_213551-izkc7m21/logs
+[W328 21:36:10.919005124 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
