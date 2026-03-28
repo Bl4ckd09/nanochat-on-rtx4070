@@ -13598,3 +13598,207 @@ sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
 [gpu]
 NVIDIA GeForce RTX 4070, 0 %, 0 MiB, 12282 MiB
 
+=== 2026-03-28 14:07:27 ===
+[chain]
+f5qp3w
+2026-03-28 00:36:15,236 - nanochat.checkpoint_manager - INFO - Loading model fro
+m /home/sun0115/.cache/nanochat/chatsft_checkpoints/d24_r32_lora_maxoom_2026-03-
+27_2007_s2048_gc/best with step 500
+2026-03-28 00:36:16,102 - nanochat.checkpoint_manager - INFO - Building model wi
+th config: {'sequence_len': 2048, 'vocab_size': 32768, 'n_layer': 24, 'n_head':
+9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+Rank 0 | 0/256 (0.00%)
+==================================================
+Final: 0/256 (0.00%)
+SpellingBee accuracy: 0.00%
+wandb: updating run metadata
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: uploading history steps 0-1, summary, console lines 2-5
+wandb:
+wandb: Run history:
+wandb:  eval/spellingbee_accuracy ▁
+wandb: final/spellingbee_accuracy ▁
+wandb:                 task_index ▁
+wandb:
+wandb: Run summary:
+wandb:  eval/spellingbee_accuracy 0
+wandb: final/spellingbee_accuracy 0
+wandb:                 task_index 1
+wandb:
+wandb: 🚀 View run d24_r32_lora_maxoom_2026-03-27_2007_s2048_gc_confirm_s500_spe
+llingbee at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/hhf5qp3w
+wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other fil
+e(s)
+wandb: Find logs at: ./wandb/run-20260328_003614-hhf5qp3w/logs
+[W328 01:07:31.189425989 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CON
+F is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete
+summary=/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_2026-03-27_2007_s
+2048_gc_best_s500_confirm_summary_1000_2026-03-27_2020.txt
+[done] confirm eval finished for d24_r32_lora_maxoom_2026-03-27_2007_s2048_gc
+[done] completed at s2048_gc
+sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
+
+[autopilot]
+e(s)
+wandb: Find logs at: ./wandb/run-20260328_053323-50wywf0f/logs
+[W328 06:04:45.347347321 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CON
+F is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete
+summary=/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_lr5e5_2026-03-28_
+0107_s2048_gc_best_s500_confirm_summary_1000_2026-03-28_0120.txt
+[done] confirm eval finished for d24_r32_lora_maxoom_lr5e5_2026-03-28_0107_s2048
+_gc
+[done] completed at s2048_gc
+/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_lr5e5_2026-03-28_0107_s20
+48_gc_best_s500_confirm_summary_1000_2026-03-28_0120.txt: Filename too long (os
+error 36)
+[2026-03-28 06:04:45] Could not parse follow-up summary metrics
+[2026-03-28 06:04:45] Wrote decision note: /home/sun0115/nanochat-learn/notes/au
+to_continue_r32_sft_ablation_2026-03-27_2059_decision.md
+[2026-03-28 06:04:45] Autopilot finished. Final action=hold_recipe_change, best_
+label=d24_r32_lora_maxoom_2026-03-27_2007, best_score=21.6000
+sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
+
+[gpu]
+NVIDIA GeForce RTX 4070, 0 %, 0 MiB, 12282 MiB
+
+=== 2026-03-28 14:12:27 ===
+[chain]
+f5qp3w
+2026-03-28 00:36:15,236 - nanochat.checkpoint_manager - INFO - Loading model fro
+m /home/sun0115/.cache/nanochat/chatsft_checkpoints/d24_r32_lora_maxoom_2026-03-
+27_2007_s2048_gc/best with step 500
+2026-03-28 00:36:16,102 - nanochat.checkpoint_manager - INFO - Building model wi
+th config: {'sequence_len': 2048, 'vocab_size': 32768, 'n_layer': 24, 'n_head':
+9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+Rank 0 | 0/256 (0.00%)
+==================================================
+Final: 0/256 (0.00%)
+SpellingBee accuracy: 0.00%
+wandb: updating run metadata
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: uploading history steps 0-1, summary, console lines 2-5
+wandb:
+wandb: Run history:
+wandb:  eval/spellingbee_accuracy ▁
+wandb: final/spellingbee_accuracy ▁
+wandb:                 task_index ▁
+wandb:
+wandb: Run summary:
+wandb:  eval/spellingbee_accuracy 0
+wandb: final/spellingbee_accuracy 0
+wandb:                 task_index 1
+wandb:
+wandb: 🚀 View run d24_r32_lora_maxoom_2026-03-27_2007_s2048_gc_confirm_s500_spe
+llingbee at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/hhf5qp3w
+wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other fil
+e(s)
+wandb: Find logs at: ./wandb/run-20260328_003614-hhf5qp3w/logs
+[W328 01:07:31.189425989 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CON
+F is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete
+summary=/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_2026-03-27_2007_s
+2048_gc_best_s500_confirm_summary_1000_2026-03-27_2020.txt
+[done] confirm eval finished for d24_r32_lora_maxoom_2026-03-27_2007_s2048_gc
+[done] completed at s2048_gc
+sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
+
+[autopilot]
+e(s)
+wandb: Find logs at: ./wandb/run-20260328_053323-50wywf0f/logs
+[W328 06:04:45.347347321 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CON
+F is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete
+summary=/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_lr5e5_2026-03-28_
+0107_s2048_gc_best_s500_confirm_summary_1000_2026-03-28_0120.txt
+[done] confirm eval finished for d24_r32_lora_maxoom_lr5e5_2026-03-28_0107_s2048
+_gc
+[done] completed at s2048_gc
+/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_lr5e5_2026-03-28_0107_s20
+48_gc_best_s500_confirm_summary_1000_2026-03-28_0120.txt: Filename too long (os
+error 36)
+[2026-03-28 06:04:45] Could not parse follow-up summary metrics
+[2026-03-28 06:04:45] Wrote decision note: /home/sun0115/nanochat-learn/notes/au
+to_continue_r32_sft_ablation_2026-03-27_2059_decision.md
+[2026-03-28 06:04:45] Autopilot finished. Final action=hold_recipe_change, best_
+label=d24_r32_lora_maxoom_2026-03-27_2007, best_score=21.6000
+sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
+
+[gpu]
+NVIDIA GeForce RTX 4070, 0 %, 0 MiB, 12282 MiB
+
+=== 2026-03-28 14:17:27 ===
+[chain]
+f5qp3w
+2026-03-28 00:36:15,236 - nanochat.checkpoint_manager - INFO - Loading model fro
+m /home/sun0115/.cache/nanochat/chatsft_checkpoints/d24_r32_lora_maxoom_2026-03-
+27_2007_s2048_gc/best with step 500
+2026-03-28 00:36:16,102 - nanochat.checkpoint_manager - INFO - Building model wi
+th config: {'sequence_len': 2048, 'vocab_size': 32768, 'n_layer': 24, 'n_head':
+9, 'n_kv_head': 9, 'n_embd': 1152, 'window_pattern': 'L'}
+Rank 0 | 0/256 (0.00%)
+==================================================
+Final: 0/256 (0.00%)
+SpellingBee accuracy: 0.00%
+wandb: updating run metadata
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: uploading history steps 0-1, summary, console lines 2-5
+wandb:
+wandb: Run history:
+wandb:  eval/spellingbee_accuracy ▁
+wandb: final/spellingbee_accuracy ▁
+wandb:                 task_index ▁
+wandb:
+wandb: Run summary:
+wandb:  eval/spellingbee_accuracy 0
+wandb: final/spellingbee_accuracy 0
+wandb:                 task_index 1
+wandb:
+wandb: 🚀 View run d24_r32_lora_maxoom_2026-03-27_2007_s2048_gc_confirm_s500_spe
+llingbee at: https://wandb.ai/sunshines-gmail-com/nanochat-eval/runs/hhf5qp3w
+wandb: ⭐️ View project at: https://wandb.ai/sunshines-gmail-com/nanochat-eval
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other fil
+e(s)
+wandb: Find logs at: ./wandb/run-20260328_003614-hhf5qp3w/logs
+[W328 01:07:31.189425989 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CON
+F is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete
+summary=/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_2026-03-27_2007_s
+2048_gc_best_s500_confirm_summary_1000_2026-03-27_2020.txt
+[done] confirm eval finished for d24_r32_lora_maxoom_2026-03-27_2007_s2048_gc
+[done] completed at s2048_gc
+sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
+
+[autopilot]
+e(s)
+wandb: Find logs at: ./wandb/run-20260328_053323-50wywf0f/logs
+[W328 06:04:45.347347321 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CON
+F is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+SpellingBee: 0/256 = 0.00% | Wilson95% [0.00%, 1.48%]
+[done] confirmation eval complete
+summary=/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_lr5e5_2026-03-28_
+0107_s2048_gc_best_s500_confirm_summary_1000_2026-03-28_0120.txt
+[done] confirm eval finished for d24_r32_lora_maxoom_lr5e5_2026-03-28_0107_s2048
+_gc
+[done] completed at s2048_gc
+/home/sun0115/nanochat-learn/notes/d24_r32_lora_maxoom_lr5e5_2026-03-28_0107_s20
+48_gc_best_s500_confirm_summary_1000_2026-03-28_0120.txt: Filename too long (os
+error 36)
+[2026-03-28 06:04:45] Could not parse follow-up summary metrics
+[2026-03-28 06:04:45] Wrote decision note: /home/sun0115/nanochat-learn/notes/au
+to_continue_r32_sft_ablation_2026-03-27_2059_decision.md
+[2026-03-28 06:04:45] Autopilot finished. Final action=hold_recipe_change, best_
+label=d24_r32_lora_maxoom_2026-03-27_2007, best_score=21.6000
+sun0115@DESKTOP-L4C74MD:~/nanochat-learn/nanochat$
+
+[gpu]
+NVIDIA GeForce RTX 4070, 0 %, 0 MiB, 12282 MiB
+
