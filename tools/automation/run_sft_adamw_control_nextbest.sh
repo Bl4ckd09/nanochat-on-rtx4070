@@ -18,6 +18,9 @@ INIT_LR_FRAC="${INIT_LR_FRAC:-0.25}"
 WARMUP_RATIO="${WARMUP_RATIO:-0.2}"
 WARMDOWN_RATIO="${WARMDOWN_RATIO:-0.3}"
 VAL_BPB_GATE_MAX="${VAL_BPB_GATE_MAX:-1.20}"
+QUICK_GATE_MMLU_MIN="${QUICK_GATE_MMLU_MIN:-27.0}"
+QUICK_GATE_REQUIRE_PASS1_NONZERO="${QUICK_GATE_REQUIRE_PASS1_NONZERO:-0}"
+FULL_CONFIRM_MAX_PROBLEMS="${FULL_CONFIRM_MAX_PROBLEMS:-1000}"
 
 REPO_DIR="${HOME}/nanochat-learn/nanochat"
 NOTES_DIR="${HOME}/nanochat-learn/notes"
@@ -42,7 +45,9 @@ export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:T
 export CAT_BATCH_SIZE="${CAT_BATCH_SIZE:-1}"
 export EVAL_MAX_PROBLEMS="${EVAL_MAX_PROBLEMS:-250}"
 export RUN_PASS1="${RUN_PASS1:-1}"
+export SKIP_PASS1="${SKIP_PASS1:-0}"
 export SKIP_PASS8="${SKIP_PASS8:-1}"
+export SKIP_MMLU="${SKIP_MMLU:-0}"
 export SKIP_SPELLING="${SKIP_SPELLING:-1}"
 
 ATTEMPT_ORDER="${ATTEMPT_ORDER:-s1024_gc:1024:8192,s768_gc:768:7680,s640_gc:640:7680,s512_gc:512:8192,s384_gc:384:7680}"
@@ -67,11 +72,16 @@ OOM_RE='out of memory|cuda out of memory|CUDNN_STATUS_ALLOC_FAILED|CUDA error: o
   echo "WARMUP_RATIO=${WARMUP_RATIO}"
   echo "WARMDOWN_RATIO=${WARMDOWN_RATIO}"
   echo "VAL_BPB_GATE_MAX=${VAL_BPB_GATE_MAX}"
+  echo "QUICK_GATE_MMLU_MIN=${QUICK_GATE_MMLU_MIN}"
+  echo "QUICK_GATE_REQUIRE_PASS1_NONZERO=${QUICK_GATE_REQUIRE_PASS1_NONZERO}"
+  echo "FULL_CONFIRM_MAX_PROBLEMS=${FULL_CONFIRM_MAX_PROBLEMS}"
   echo "MASTER_LOG=${MASTER_LOG}"
   echo "WANDB_PROJECT=${WANDB_PROJECT}"
   echo "EVAL_WANDB_PROJECT=${EVAL_WANDB_PROJECT}"
   echo "CAT_BATCH_SIZE=${CAT_BATCH_SIZE}"
   echo "EVAL_MAX_PROBLEMS=${EVAL_MAX_PROBLEMS}"
+  echo "RUN_PASS1=${RUN_PASS1}"
+  echo "SKIP_PASS1=${SKIP_PASS1}"
   echo "ATTEMPT_ORDER=${ATTEMPT_ORDER}"
 } > "${META_FILE}"
 
@@ -156,11 +166,73 @@ print(min(records))
 PY
 }
 
+extract_summary_path() {
+  local eval_log="$1"
+  rg '^summary=' "${eval_log}" | tail -n 1 | sed 's/^summary=//'
+}
+
+read_eval_gate_metrics() {
+  local summary_file="$1"
+  python3 - "${summary_file}" <<'PY'
+import math
+import re
+import sys
+from pathlib import Path
+
+text = Path(sys.argv[1]).read_text()
+
+def extract(label):
+    m = re.search(rf"{re.escape(label)}:\s+\d+/\d+\s+=\s+([0-9.]+)%", text)
+    return float(m.group(1)) if m else math.nan
+
+print(extract("GSM8K pass@1"), extract("MMLU"))
+PY
+}
+
+quick_gate_passes() {
+  local summary_file="$1"
+  python3 - "${summary_file}" "${QUICK_GATE_MMLU_MIN}" "${QUICK_GATE_REQUIRE_PASS1_NONZERO}" <<'PY'
+import math
+import re
+import sys
+from pathlib import Path
+
+summary_file = Path(sys.argv[1])
+mmlu_min = float(sys.argv[2])
+require_pass1 = sys.argv[3] == "1"
+text = summary_file.read_text()
+
+def extract(label):
+    m = re.search(rf"{re.escape(label)}:\s+\d+/\d+\s+=\s+([0-9.]+)%", text)
+    return float(m.group(1)) if m else math.nan
+
+pass1 = extract("GSM8K pass@1")
+mmlu = extract("MMLU")
+
+if math.isnan(mmlu):
+    raise SystemExit(1)
+if mmlu < mmlu_min:
+    raise SystemExit(1)
+if require_pass1 and (math.isnan(pass1) or pass1 <= 0.0):
+    raise SystemExit(1)
+raise SystemExit(0)
+PY
+}
+
+LAST_SUMMARY_PATH=""
+
 run_confirm_eval() {
-  local label="$1"
-  local output_tag="$2"
-  local run_name="$3"
-  local eval_log="${NOTES_DIR}/eval_${run_name}_confirm.log"
+  local profile="$1"
+  local label="$2"
+  local output_tag="$3"
+  local run_name="$4"
+  local max_problems="$5"
+  local run_pass1="$6"
+  local skip_pass1="$7"
+  local skip_pass8="$8"
+  local skip_mmlu="$9"
+  local skip_spelling="${10}"
+  local eval_log="${NOTES_DIR}/eval_${run_name}_${profile}.log"
   local resolved
   if ! resolved="$(resolve_eval_checkpoint "${output_tag}")"; then
     echo "[error] unable to resolve checkpoint for eval: ${output_tag}" | tee -a "${MASTER_LOG}"
@@ -176,17 +248,21 @@ run_confirm_eval() {
   fi
 
   {
-    echo "[eval] label=${label} model_group=${model_group} step=${best_step} val_bpb=${best_val} max_problems=${EVAL_MAX_PROBLEMS} cat_batch=${CAT_BATCH_SIZE}"
+    echo "[eval] profile=${profile} label=${label} model_group=${model_group} step=${best_step} val_bpb=${best_val} max_problems=${max_problems} cat_batch=${CAT_BATCH_SIZE}"
     echo "[eval_log] ${eval_log}"
   } | tee -a "${MASTER_LOG}"
 
   set +e
   EVAL_WANDB_PROJECT="${EVAL_WANDB_PROJECT}" \
   WANDB_ENTITY="${WANDB_ENTITY}" \
-  EVAL_WANDB_RUN_PREFIX="${run_name}_confirm_s${best_step}" \
+  EVAL_WANDB_RUN_PREFIX="${run_name}_${profile}_confirm_s${best_step}" \
   CAT_BATCH_SIZE="${CAT_BATCH_SIZE}" \
-  RUN_PASS1="${RUN_PASS1}" \
-  "${HOME}/nanochat-learn/scripts/run_chat_eval_confirm_1k.sh" "${model_group}" "${best_step}" "${EVAL_MAX_PROBLEMS}" \
+  RUN_PASS1="${run_pass1}" \
+  SKIP_PASS1="${skip_pass1}" \
+  SKIP_PASS8="${skip_pass8}" \
+  SKIP_MMLU="${skip_mmlu}" \
+  SKIP_SPELLING="${skip_spelling}" \
+  "${HOME}/nanochat-learn/scripts/run_chat_eval_confirm_1k.sh" "${model_group}" "${best_step}" "${max_problems}" \
     |& tee "${eval_log}" | tee -a "${MASTER_LOG}"
   local rc=${PIPESTATUS[0]}
   set -e
@@ -196,6 +272,13 @@ run_confirm_eval() {
     return "${rc}"
   fi
 
+  LAST_SUMMARY_PATH="$(extract_summary_path "${eval_log}")"
+  if [[ -z "${LAST_SUMMARY_PATH}" ]]; then
+    echo "[error] could not locate summary path in ${eval_log}" | tee -a "${MASTER_LOG}"
+    return 1
+  fi
+
+  echo "[summary] ${LAST_SUMMARY_PATH}" | tee -a "${MASTER_LOG}"
   echo "[done] confirm eval finished for ${run_name}" | tee -a "${MASTER_LOG}"
   return 0
 }
@@ -259,7 +342,21 @@ PY
         return 1
       fi
     fi
-    if run_confirm_eval "${label}" "${output_tag}" "${run_name}"; then
+    if ! run_confirm_eval quick "${label}" "${output_tag}" "${run_name}" "${EVAL_MAX_PROBLEMS}" "${RUN_PASS1}" "${SKIP_PASS1}" "${SKIP_PASS8}" "0" "${SKIP_SPELLING}"; then
+      return 1
+    fi
+
+    local pass1_pct mmlu_pct
+    read -r pass1_pct mmlu_pct <<< "$(read_eval_gate_metrics "${LAST_SUMMARY_PATH}")"
+    echo "[gate] quick metrics for ${run_name}: gsm8k_pass1=${pass1_pct}% mmlu=${mmlu_pct}% thresholds: mmlu>=${QUICK_GATE_MMLU_MIN}% pass1_nonzero_required=${QUICK_GATE_REQUIRE_PASS1_NONZERO}" | tee -a "${MASTER_LOG}"
+
+    if ! quick_gate_passes "${LAST_SUMMARY_PATH}"; then
+      echo "[gate] quick gate failed for ${run_name}; skipping full confirm" | tee -a "${MASTER_LOG}"
+      return 1
+    fi
+
+    echo "[gate] quick gate passed for ${run_name}; launching full confirm" | tee -a "${MASTER_LOG}"
+    if run_confirm_eval full "${label}" "${output_tag}" "${run_name}" "${FULL_CONFIRM_MAX_PROBLEMS}" "0" "1" "0" "0" "0"; then
       return 0
     fi
     return 1

@@ -83,7 +83,7 @@ parser.add_argument("--no-save-optimizer", action="store_true", help="Skip savin
 # Gradient clipping
 parser.add_argument("--max-grad-norm", type=float, default=0.0, help="Max gradient norm for clipping (0 = disable)")
 parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
-parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning"], help="training dataset mixture preset")
+parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1"], help="training dataset mixture preset")
 args = parser.parse_args()
 assert args.keep_best_k >= 1, f"--keep-best-k must be >= 1, got {args.keep_best_k}"
 user_config = vars(args).copy()
@@ -138,6 +138,15 @@ def build_train_dataset(base_dir, preset):
         return TaskMixture([
             SmolTalk(split="train", stop=200000),
             MMLU(subset="auxiliary_train", split="train", stop=50000),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    if preset == "reasoning_focus_v1":
+        return TaskMixture([
+            SmolTalk(split="train", stop=120000),
+            MMLU(subset="auxiliary_train", split="train", stop=50000),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
             GSM8K(subset="main", split="train"),
             GSM8K(subset="main", split="train"),
         ])
