@@ -87,6 +87,35 @@ On this hardware, the SFT training probe itself is cheap; the expensive part is 
 - The latest `d24` LoRA recipe improved SFT validation loss but not downstream capability, so the next stage should be a recipe/data change, not a longer rerun of the same LR sweep.
 - All current training/eval automation is connected to W&B and uses lower-memory eval or OOM fallback paths so that the single-4070 setup can resume and recover cleanly.
 
+## Current Exported Artifacts
+
+The project currently keeps two separate exported winners because they serve different roles:
+
+- Base champion: `d24_asp48_track @ 820230`
+- Chat champion: `d24_r32_adamw_partial_fr20_mixv2_2026-03-29_1040_s768_gc @ step 300`
+
+Repo-side state notes:
+- [`notes/final_export_state_2026-03-31.md`](notes/final_export_state_2026-03-31.md)
+- [`notes/base_champion_release_prep_2026-03-31.md`](notes/base_champion_release_prep_2026-03-31.md)
+- [`notes/champion_release_prep_2026-03-31.md`](notes/champion_release_prep_2026-03-31.md)
+
+GitHub releases:
+- Base champion release: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/base-champion-d24_asp48_track-r32-s820230-2026-03-31`
+- Chat champion release: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
+
+Reconstruct the split archives after download:
+
+```bash
+# Base champion
+cat base_champion_r32_820230_full_2026-03-31.tar.gz.part-* > base_champion_r32_820230_full_2026-03-31.tar.gz
+cat base_champion_r32_820230_weights_only_2026-03-31.tar.gz.part-* > base_champion_r32_820230_weights_only_2026-03-31.tar.gz
+
+# Chat champion
+cat d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948.tar.gz.part-* > d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948.tar.gz
+```
+
+Use the base champion when you need a stable reusable foundation. Use the chat champion when you need the current best end-user checkpoint; it remains provisional because later replication did not hold.
+
 ## Leaderboard
 
 | # | time | val_bpb | CORE | Description | Date | Commit | Contributors |
