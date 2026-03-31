@@ -4,6 +4,7 @@ set -euo pipefail
 BASE_MODEL_TAG="${1:-d24_asp48_track}"
 BASE_MODEL_STEP="${2:-820230}"
 NUM_ITERATIONS="${3:-300}"
+MODEL_SOURCE="${MODEL_SOURCE:-base}"
 WEIGHT_DECAY="${WEIGHT_DECAY:-0.1}"
 RUN_BASE_PREFIX="${RUN_BASE_PREFIX:-d24_r32_adamw_control}"
 EVAL_EVERY="${EVAL_EVERY:-25}"
@@ -21,6 +22,9 @@ VAL_BPB_GATE_MAX="${VAL_BPB_GATE_MAX:-1.20}"
 QUICK_GATE_MMLU_MIN="${QUICK_GATE_MMLU_MIN:-27.0}"
 QUICK_GATE_REQUIRE_PASS1_NONZERO="${QUICK_GATE_REQUIRE_PASS1_NONZERO:-0}"
 FULL_CONFIRM_MAX_PROBLEMS="${FULL_CONFIRM_MAX_PROBLEMS:-1000}"
+SEED="${SEED:-42}"
+EVAL_SEED="${EVAL_SEED:-42}"
+DETERMINISTIC="${DETERMINISTIC:-0}"
 
 REPO_DIR="${HOME}/nanochat-learn/nanochat"
 NOTES_DIR="${HOME}/nanochat-learn/notes"
@@ -57,6 +61,7 @@ OOM_RE='out of memory|cuda out of memory|CUDNN_STATUS_ALLOC_FAILED|CUDA error: o
   echo "RUN_BASE=${RUN_BASE}"
   echo "BASE_MODEL_TAG=${BASE_MODEL_TAG}"
   echo "BASE_MODEL_STEP=${BASE_MODEL_STEP}"
+  echo "MODEL_SOURCE=${MODEL_SOURCE}"
   echo "NUM_ITERATIONS=${NUM_ITERATIONS}"
   echo "WEIGHT_DECAY=${WEIGHT_DECAY}"
   echo "RUN_BASE_PREFIX=${RUN_BASE_PREFIX}"
@@ -75,6 +80,9 @@ OOM_RE='out of memory|cuda out of memory|CUDNN_STATUS_ALLOC_FAILED|CUDA error: o
   echo "QUICK_GATE_MMLU_MIN=${QUICK_GATE_MMLU_MIN}"
   echo "QUICK_GATE_REQUIRE_PASS1_NONZERO=${QUICK_GATE_REQUIRE_PASS1_NONZERO}"
   echo "FULL_CONFIRM_MAX_PROBLEMS=${FULL_CONFIRM_MAX_PROBLEMS}"
+  echo "SEED=${SEED}"
+  echo "EVAL_SEED=${EVAL_SEED}"
+  echo "DETERMINISTIC=${DETERMINISTIC}"
   echo "MASTER_LOG=${MASTER_LOG}"
   echo "WANDB_PROJECT=${WANDB_PROJECT}"
   echo "EVAL_WANDB_PROJECT=${EVAL_WANDB_PROJECT}"
@@ -86,7 +94,7 @@ OOM_RE='out of memory|cuda out of memory|CUDNN_STATUS_ALLOC_FAILED|CUDA error: o
 } > "${META_FILE}"
 
 echo "[info] meta: ${META_FILE}" | tee -a "${MASTER_LOG}"
-echo "[info] base: ${BASE_MODEL_TAG} step=${BASE_MODEL_STEP}" | tee -a "${MASTER_LOG}"
+echo "[info] source: ${MODEL_SOURCE} tag=${BASE_MODEL_TAG} step=${BASE_MODEL_STEP}" | tee -a "${MASTER_LOG}"
 echo "[plan] partial full-tune control with ${OPTIMIZER}, freeze_layers=${FREEZE_LAYERS}, preset=${DATASET_PRESET}, OOM ladder: ${ATTEMPT_ORDER}" | tee -a "${MASTER_LOG}"
 
 resolve_eval_checkpoint() {
@@ -255,6 +263,8 @@ run_confirm_eval() {
   set +e
   EVAL_WANDB_PROJECT="${EVAL_WANDB_PROJECT}" \
   WANDB_ENTITY="${WANDB_ENTITY}" \
+  EVAL_SEED="${EVAL_SEED}" \
+  DETERMINISTIC="${DETERMINISTIC}" \
   EVAL_WANDB_RUN_PREFIX="${run_name}_${profile}_confirm_s${best_step}" \
   CAT_BATCH_SIZE="${CAT_BATCH_SIZE}" \
   RUN_PASS1="${run_pass1}" \
@@ -305,9 +315,11 @@ run_attempt() {
 
   local cmd=(
     .venv/bin/python -u -m scripts.chat_sft
+    --model-source "${MODEL_SOURCE}"
     --model-tag "${BASE_MODEL_TAG}" --model-step "${BASE_MODEL_STEP}"
     --output-tag "${output_tag}" --run "${run_name}"
     --device-type cuda --dtype bfloat16
+    --seed "${SEED}"
     --adamw-only --optimizer "${OPTIMIZER}" --weight-decay "${WEIGHT_DECAY}"
     --embedding-lr "${EMBEDDING_LR}" --unembedding-lr "${UNEMBEDDING_LR}" --matrix-lr "${MATRIX_LR}"
     --init-lr-frac "${INIT_LR_FRAC}" --warmup-ratio "${WARMUP_RATIO}" --warmdown-ratio "${WARMDOWN_RATIO}"
@@ -319,6 +331,9 @@ run_attempt() {
     --gradient-checkpoint --max-grad-norm 1.0
     --keep-best-k "${KEEP_BEST_K}" --no-save-optimizer
   )
+  if [[ "${DETERMINISTIC}" == "1" ]]; then
+    cmd+=(--deterministic)
+  fi
 
   set +e
   "${cmd[@]}" |& tee "${log_file}" | tee -a "${MASTER_LOG}"
@@ -384,5 +399,5 @@ for spec in "${attempts[@]}"; do
   fi
 done
 
-echo "[fail] all partial full-tune attempts OOMed: ${ATTEMPT_ORDER}" | tee -a "${MASTER_LOG}"
+echo "[fail] all partial full-tune attempts exhausted without a promotable result: ${ATTEMPT_ORDER}" | tee -a "${MASTER_LOG}"
 exit 2

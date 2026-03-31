@@ -31,7 +31,7 @@ from tasks.spellingbee import SpellingBee
 # Generative evaluation loop (we go one problem at a time, sample, evaluate)
 
 @torch.inference_mode()
-def run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_new_tokens, temperature, top_k, max_problems=None):
+def run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_new_tokens, temperature, top_k, max_problems=None, seed=42):
 
     ddp, ddp_rank, ddp_local_rank, ddp_world_size = get_dist_info()
     device = model.get_device()
@@ -52,6 +52,7 @@ def run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_
             max_tokens=max_new_tokens,
             temperature=temperature,
             top_k=top_k,
+            seed=seed + i,
         )
         # Decode the completions as text
         prefix_length = len(encoded_prompt)
@@ -162,7 +163,7 @@ def run_categorical_eval(task_object, tokenizer, model, batch_size, max_problems
 
 def run_chat_eval(task_name, model, tokenizer, engine,
                    batch_size=1, num_samples=1, max_new_tokens=512, temperature=0.0, top_k=50,
-                   max_problems=None):
+                   max_problems=None, seed=42):
     # Create the evaluation object
     task_module = {
         'HumanEval': HumanEval,
@@ -175,7 +176,7 @@ def run_chat_eval(task_name, model, tokenizer, engine,
     task_object = task_module()
     # Run the evaluation
     if task_object.eval_type == 'generative':
-        acc = run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_new_tokens, temperature, top_k, max_problems=max_problems)
+        acc = run_generative_eval(task_object, tokenizer, model, engine, num_samples, max_new_tokens, temperature, top_k, max_problems=max_problems, seed=seed)
     elif task_object.eval_type == 'categorical':
         acc = run_categorical_eval(task_object, tokenizer, model, batch_size, max_problems=max_problems)
     else:
@@ -200,10 +201,12 @@ if __name__ == "__main__":
     parser.add_argument('-x', '--max-problems', type=int, default=None, help='Max problems to evaluate')
     parser.add_argument('--device-type', type=str, default='', choices=['cuda', 'cpu', 'mps'], help='Device type for evaluation: cuda|cpu|mps. empty => autodetect')
     parser.add_argument('--run', type=str, default="dummy", help="wandb run name ('dummy' disables wandb logging)")
+    parser.add_argument('--seed', type=int, default=42, help='seed for evaluation and generative sampling')
+    parser.add_argument('--deterministic', action='store_true', help='request deterministic kernels where possible')
     args = parser.parse_args()
 
     device_type = autodetect_device_type() if args.device_type == "" else args.device_type
-    ddp, ddp_rank, ddp_local_rank, ddp_world_size, device = compute_init(device_type)
+    ddp, ddp_rank, ddp_local_rank, ddp_world_size, device = compute_init(device_type, seed=args.seed, deterministic=args.deterministic)
     master_process = ddp_rank == 0
     ptdtype = torch.float32 if args.dtype == 'float32' else torch.bfloat16
     autocast_ctx = torch.amp.autocast(device_type=device_type, dtype=ptdtype) if device_type == "cuda" else nullcontext()
@@ -246,6 +249,7 @@ if __name__ == "__main__":
                 temperature=args.temperature,
                 top_k=args.top_k,
                 max_problems=args.max_problems,
+                seed=args.seed,
             )
             results[task_name] = acc
             print0(f"{task_name} accuracy: {100 * acc:.2f}%")

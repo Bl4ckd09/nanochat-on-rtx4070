@@ -41,7 +41,10 @@ parser.add_argument("--run", type=str, default="dummy", help="wandb run name ('d
 # Runtime
 parser.add_argument("--device-type", type=str, default="", help="cuda|cpu|mps (empty = autodetect)")
 parser.add_argument("--dtype", type=str, default="bfloat16", help="float32|bfloat16")
+parser.add_argument("--seed", type=int, default=42, help="global random seed")
+parser.add_argument("--deterministic", action="store_true", help="request deterministic kernels where possible")
 # Model loading
+parser.add_argument("--model-source", type=str, default="base", choices=["base", "sft"], help="checkpoint source to load from")
 parser.add_argument("--model-tag", type=str, default=None, help="model tag to load from")
 parser.add_argument("--model-step", type=int, default=None, help="model step to load from")
 # Output model tag (checkpoint directory name)
@@ -83,7 +86,7 @@ parser.add_argument("--no-save-optimizer", action="store_true", help="Skip savin
 # Gradient clipping
 parser.add_argument("--max-grad-norm", type=float, default=0.0, help="Max gradient norm for clipping (0 = disable)")
 parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
-parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1"], help="training dataset mixture preset")
+parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1", "reasoning_focus_v2", "reasoning_focus_v3", "reasoning_focus_v4", "reasoning_curated_v1", "curriculum_boost_v1", "curriculum_boost_v2"], help="training dataset mixture preset")
 args = parser.parse_args()
 assert args.keep_best_k >= 1, f"--keep-best-k must be >= 1, got {args.keep_best_k}"
 user_config = vars(args).copy()
@@ -91,7 +94,7 @@ user_config = vars(args).copy()
 
 # Compute init
 device_type = autodetect_device_type() if args.device_type == "" else args.device_type
-ddp, ddp_rank, ddp_local_rank, ddp_world_size, device = compute_init(device_type)
+ddp, ddp_rank, ddp_local_rank, ddp_world_size, device = compute_init(device_type, seed=args.seed, deterministic=args.deterministic)
 master_process = ddp_rank == 0
 ptdtype = torch.float32 if args.dtype == 'float32' else torch.bfloat16
 autocast_ctx = torch.amp.autocast(device_type=device_type, dtype=ptdtype) if device_type == "cuda" else nullcontext()
@@ -150,6 +153,58 @@ def build_train_dataset(base_dir, preset):
             GSM8K(subset="main", split="train"),
             GSM8K(subset="main", split="train"),
         ])
+    if preset == "reasoning_focus_v2":
+        return TaskMixture([
+            SmolTalk(split="train", stop=120000),
+            # Use the full auxiliary split; hard-coding 100000 exceeded the current dataset size.
+            MMLU(subset="auxiliary_train", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    if preset == "reasoning_focus_v3":
+        return TaskMixture([
+            SmolTalk(split="train", stop=160000),
+            MMLU(subset="auxiliary_train", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    if preset == "reasoning_focus_v4":
+        return TaskMixture([
+            SmolTalk(split="train", stop=200000),
+            MMLU(subset="auxiliary_train", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    if preset == "reasoning_curated_v1":
+        return TaskMixture([
+            # Smaller, cleaner general-chat anchor while keeping strong reasoning pressure.
+            SmolTalk(split="train", stop=60000),
+            MMLU(subset="auxiliary_train", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    if preset == "curriculum_boost_v1":
+        return TaskMixture([
+            SmolTalk(split="train", stop=80000),
+            MMLU(subset="auxiliary_train", split="train", stop=50000),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
+    if preset == "curriculum_boost_v2":
+        return TaskMixture([
+            SmolTalk(split="train", stop=120000),
+            MMLU(subset="auxiliary_train", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+        ])
     raise ValueError(f"Unknown dataset preset: {preset}")
 
 def build_val_dataset():
@@ -171,9 +226,9 @@ wandb_run = DummyWandb() if use_dummy_wandb else wandb.init(
 )
 
 # Load the model and tokenizer
-model, tokenizer, meta = load_model("base", device, phase="train", model_tag=args.model_tag, step=args.model_step)
+model, tokenizer, meta = load_model(args.model_source, device, phase="train", model_tag=args.model_tag, step=args.model_step)
 pretrain_batch_size = meta.get("device_batch_size", None)
-if pretrain_batch_size is not None and args.device_batch_size > pretrain_batch_size:
+if args.model_source == "base" and pretrain_batch_size is not None and args.device_batch_size > pretrain_batch_size:
     print0(f"FOOTGUN WARNING: base model training used device_batch_size {pretrain_batch_size}, did you pass in a good --device-batch-size to this script?")
 orig_model = model
 if args.gradient_checkpoint:
