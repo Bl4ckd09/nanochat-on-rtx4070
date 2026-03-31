@@ -12,6 +12,7 @@ KEEP_BEST_K="${KEEP_BEST_K:-1}"
 FREEZE_LAYERS="${FREEZE_LAYERS:-18}"
 OPTIMIZER="${OPTIMIZER:-paged_adamw8bit}"
 DATASET_PRESET="${DATASET_PRESET:-general_chat_reasoning}"
+MANUAL_REASONING_JSONL="${MANUAL_REASONING_JSONL:-}"
 EMBEDDING_LR="${EMBEDDING_LR:-0.3}"
 UNEMBEDDING_LR="${UNEMBEDDING_LR:-0.004}"
 MATRIX_LR="${MATRIX_LR:-0.02}"
@@ -70,6 +71,7 @@ OOM_RE='out of memory|cuda out of memory|CUDNN_STATUS_ALLOC_FAILED|CUDA error: o
   echo "FREEZE_LAYERS=${FREEZE_LAYERS}"
   echo "OPTIMIZER=${OPTIMIZER}"
   echo "DATASET_PRESET=${DATASET_PRESET}"
+  echo "MANUAL_REASONING_JSONL=${MANUAL_REASONING_JSONL}"
   echo "EMBEDDING_LR=${EMBEDDING_LR}"
   echo "UNEMBEDDING_LR=${UNEMBEDDING_LR}"
   echo "MATRIX_LR=${MATRIX_LR}"
@@ -96,6 +98,9 @@ OOM_RE='out of memory|cuda out of memory|CUDNN_STATUS_ALLOC_FAILED|CUDA error: o
 echo "[info] meta: ${META_FILE}" | tee -a "${MASTER_LOG}"
 echo "[info] source: ${MODEL_SOURCE} tag=${BASE_MODEL_TAG} step=${BASE_MODEL_STEP}" | tee -a "${MASTER_LOG}"
 echo "[plan] partial full-tune control with ${OPTIMIZER}, freeze_layers=${FREEZE_LAYERS}, preset=${DATASET_PRESET}, OOM ladder: ${ATTEMPT_ORDER}" | tee -a "${MASTER_LOG}"
+if [[ -n "${MANUAL_REASONING_JSONL}" ]]; then
+  echo "[info] manual_reasoning_jsonl=${MANUAL_REASONING_JSONL}" | tee -a "${MASTER_LOG}"
+fi
 
 resolve_eval_checkpoint() {
   local output_tag="$1"
@@ -331,6 +336,9 @@ run_attempt() {
     --gradient-checkpoint --max-grad-norm 1.0
     --keep-best-k "${KEEP_BEST_K}" --no-save-optimizer
   )
+  if [[ -n "${MANUAL_REASONING_JSONL}" ]]; then
+    cmd+=(--manual-reasoning-jsonl "${MANUAL_REASONING_JSONL}")
+  fi
   if [[ "${DETERMINISTIC}" == "1" ]]; then
     cmd+=(--deterministic)
   fi

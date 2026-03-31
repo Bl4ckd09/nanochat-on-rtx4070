@@ -39,6 +39,9 @@ If your layout differs, update these path variables inside each script before ru
 - `run_additional_eval_suite.sh`  
   Runs ARC/ChatCORE/HumanEval plus resilient base-side eval in one script.
 
+- `run_reasoning_manual_v1.sh`
+  Validates the manually curated reasoning JSONL and launches the final high-ROI single-4070 experiment only after the curated file is large enough to be meaningful.
+
 ## Notes
 
 - These scripts are intentionally shell-first and ops-focused.
