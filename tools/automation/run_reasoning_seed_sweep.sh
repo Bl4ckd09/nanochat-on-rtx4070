@@ -40,7 +40,7 @@ log() {
 
 extract_last_summary() {
   local chain_log="$1"
-  rg '^\[summary\]\s+' "${chain_log}" | tail -n 1 | sed 's/^\[summary\]\s\+//'
+  rg '^\[summary\]\s+' "${chain_log}" 2>/dev/null | tail -n 1 | sed 's/^\[summary\]\s\+//' || true
 }
 
 read_metrics() {
