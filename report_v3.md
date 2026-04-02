@@ -29,6 +29,13 @@ Current chat-side champion as of `2026-03-30`:
 - confirm summary: `/home/sun0115/nanochat-learn/notes/d24_r32_adamw_partial_fr20_mixv2_2026-03-29_1040_s768_gc_best_s300_confirm_summary_1000_2026-03-29_1200.txt`
 - status: strongest single confirmed run on the `d24/r32` chat branch, but still **provisional** because later direct replication and seed sweeps did not reproduce it reliably
 
+Best observed unstable manual-data result as of `2026-04-02`:
+
+- `reasoning_manual_v1_seed42_2026-04-01_1315_s768_gc` at step `300`
+- full confirm: `GSM8K pass@8 6.70%`, `MMLU 27.60%`, `SpellingBee 0.00%`
+- confirm summary: `/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_seed42_2026-04-01_1315_s768_gc_best_s300_confirm_summary_1000_2026-04-01_1428.txt`
+- status: strongest single reasoning run observed so far, but **not promoted** because the paired seed in the same sweep failed the promotion rule
+
 | Date (local) | Run Tag | Base Checkpoint | Config | Best Step | Best Val bpb | GSM8K pass@8 | MMLU | SpellingBee | Status | Notes |
 |---|---|---|---|---:|---:|---:|---:|---:|---|---|
 | 2026-03-27 11:29 / 18:41 | `d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc` | `d24_asp48_track @ 820230` | LoRA `r64`, `alpha=128`, `lr=1e-4`, `seq=1536`, `gc=on`, `iters=1000` | 1000 | 0.6151 | 0.20% (`2/1000`) | 21.40% (`214/1000`) | 0.00% (`0/256`) | completed | Training stayed stable and improved SFT val bpb monotonically, but external capability eval stayed weak; MMLU confirm needed the selected-position logits eval fix to avoid CUDA OOM |
@@ -37,6 +44,8 @@ Current chat-side champion as of `2026-03-30`:
 | 2026-03-28 21:49 / 23:03 | `d24_r32_adamw_partial_fr20_2026-03-28_2149_s1024_gc` | `d24_asp48_track @ 820230` | Partial FT, `freeze_layers=20`, freeze embeddings/scalars, `paged_adamw8bit`, `seq=1024`, `tb=8192`, `iters=300`, `general_chat_reasoning` | 300 | 0.6610 | 1.20% (`12/1000`) | 27.40% (`274/1000`) | 0.00% (`0/256`) | completed | More conservative freeze boundary improved GSM8K and MMLU over the `freeze_layers=18` control, but spelling dropped to zero |
 | 2026-03-29 05:18 / 06:07 | `d24_r32_adamw_partial_fr20_mixv1_2026-03-29_0518_s1024_gc` | `d24_asp48_track @ 820230` | Same partial FT backbone, `reasoning_focus_v1`, `seq=1024`, `iters=300` | 300 | 0.6670 | 3.80% (`38/1000`) | 26.60% (`266/1000`) | 0.00% (`0/256`) | completed | First clear data-mix win for GSM8K, but MMLU fell relative to the `fr20` balanced run |
 | 2026-03-29 10:40 / 12:00 | `d24_r32_adamw_partial_fr20_mixv2_2026-03-29_1040_s768_gc` | `d24_asp48_track @ 820230` | Same partial FT backbone, `reasoning_focus_v2`, `seq=768`, `tb=7680`, `iters=300` | 300 | 0.6981 | 4.60% (`46/1000`) | 27.40% (`274/1000`) | 0.39% (`1/256`) | completed, provisional champion | Strongest single confirmed run on this branch; beat `mixv1` on all three confirmed metrics, but exact replication and later seed sweep did not hold |
+| 2026-04-01 13:15 / 14:28 | `reasoning_manual_v1_seed42_2026-04-01_1315_s768_gc` | `d24_asp48_track @ 820230` | Same partial FT backbone, `reasoning_manual_v1`, `seq=768`, `tb=7680`, `iters=300`, manual curated JSONL mixed with GSM8K/MMLU/SmolTalk | 300 | 0.8081 | 6.70% (`67/1000`) | 27.60% (`276/1000`) | 0.00% (`0/256`) | completed, best observed but unstable | Strongest single-run reasoning result so far, but the companion seed in the same sweep failed quick gate, so the recipe did not satisfy the promotion rule |
+| 2026-04-01 22:16 / 23:22 | `reasoning_manual_v1_fixeds768_seed44_2026-04-01_2216_s768_gc` | `d24_asp48_track @ 820230` | Fixed-geometry replication of `reasoning_manual_v1` on direct `s768` only | 300 | 0.8056 | 6.20% (`62/1000`) | 26.30% (`263/1000`) | 0.00% (`0/256`) | completed, replication miss | Replication preserved high GSM8K but lost too much MMLU to clear the promotion band; second seed in the sweep also failed quick gate |
 
 Supporting logs:
 
@@ -62,6 +71,8 @@ Supporting logs:
 - `curriculum_v1` failed the stage-B quick gate: `/home/sun0115/nanochat-learn/notes/d24_r32_adamw_curriculum_v1_2026-03-30_0635_decision.md`
 - Stage-B-only softer boosters also failed to beat `mixv2`: `/home/sun0115/nanochat-learn/notes/d24_r32_adamw_stageb_booster_v2_2026-03-30_0909_decision.md`
 - `reasoning_curated_v1` failed both seeds at the tighter `500`-problem quick gate: `/home/sun0115/nanochat-learn/notes/reasoning_curated_v1_2026-03-30_1542_decision.md`
+- `reasoning_manual_v1` produced the best observed single reasoning run (`6.70%` GSM8K pass@8, `27.60%` MMLU), but the sweep still ended `hold_provisional`: `/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_2026-04-01_1315_decision.md`
+- Fixed-`s768` replication of `reasoning_manual_v1` also ended `hold_provisional`: `/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_fixeds768_2026-04-01_2216_decision.md`
 
 Interpretation:
 
@@ -73,6 +84,7 @@ Interpretation:
 - Extending the same partial FT recipe to `1000` steps improved SFT val bpb further (`0.6563 -> 0.5975`) but regressed the quick external gate (`MMLU 27.2% @ 250` on the 300-step checkpoint's quick gate vs `23.2% @ 250` at 1k). For this recipe on this hardware, longer is not better by default.
 - The best observed reasoning/chat checkpoint is now `mixv2_s768_300`, not the earlier `s1024` controls. The improvement came from changing both geometry and data mix, not from training longer.
 - That best run remains provisional. Repeats, seed sweeps, later static mix variants, and two-stage booster follow-ups all failed to beat or stably reproduce it. The limitation is now recipe robustness and data quality, not raw VRAM fit.
+- The manual curated branch is the first post-`mixv2` path that clearly exceeded the champion on GSM8K in a single run, but it still did not replicate strongly enough to replace the provisional champion. The remaining bottleneck is stability under repeat runs, not GPU fit.
 
 ## Recommendation
 
@@ -81,6 +93,7 @@ Interpretation:
 3. Do not promote `d24_r32_lora_nextbest_2026-03-27_1129_s1536_gc` as the main chat model. The confirm suite is too weak despite the attractive SFT val bpb.
 4. Mark `d24_r32_adamw_partial_fr20_mixv2_2026-03-29_1040_s768_gc` at step `300` as the **current chat-side champion** for this project. It is the strongest single confirmed run so far on the consumer-GPU branch.
 5. Keep that champion labeled **provisional**, not fully promoted. It is the best observed run, but it did not replicate cleanly under direct repeat or seed sweep.
-6. Stop same-family `mixvN`, booster, and longer-duration sweeps on this exact backbone. The current bottleneck is no longer base capacity or raw memory fit; it is recipe robustness and data quality.
-7. Treat this `d24/r32` partial-FT recipe family as near-saturated on the current `RTX 4070` setup unless you introduce a materially different lever such as a genuinely better curated dataset, a separate specialist branch, or stronger hardware.
-8. Treat `r40` as an archive/ablation checkpoint, not the promotion branch. If you want another base-only attempt later, change the late-phase recipe first instead of extending ratio again as-is.
+6. Keep `reasoning_manual_v1_seed42_2026-04-01_1315_s768_gc` as a separate **best observed but unstable** artifact. It is worth preserving because it is the highest GSM8K result on this project so far, even though it did not earn promotion.
+7. Stop same-family `mixvN`, booster, and longer-duration sweeps on this exact backbone. The current bottleneck is no longer base capacity or raw memory fit; it is recipe robustness and data quality.
+8. Treat this `d24/r32` partial-FT recipe family as near-saturated on the current `RTX 4070` setup unless you introduce a materially different lever such as a genuinely better curated dataset, a separate specialist branch, or stronger hardware.
+9. Treat `r40` as an archive/ablation checkpoint, not the promotion branch. If you want another base-only attempt later, change the late-phase recipe first instead of extending ratio again as-is.

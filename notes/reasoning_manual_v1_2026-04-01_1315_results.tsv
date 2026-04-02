@@ -1,0 +1,3 @@
+seed	rc	status	run_base	chain_log	summary	gsm8k_pass1_pct	gsm8k_pass8_pct	mmlu_pct	spellingbee_pct
+42	0	full_confirm_complete	reasoning_manual_v1_seed42	/home/sun0115/nanochat-learn/notes/sft_reasoning_manual_v1_seed42_2026-04-01_1315_chain.log	/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_seed42_2026-04-01_1315_s768_gc_best_s300_confirm_summary_1000_2026-04-01_1428.txt	nan	6.70	27.60	0.00
+43	2	quick_gate_failed	reasoning_manual_v1_seed43	/home/sun0115/nanochat-learn/notes/sft_reasoning_manual_v1_seed43_2026-04-01_1817_chain.log	/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_seed43_2026-04-01_1817_s512_gc_best_s300_confirm_summary_500_2026-04-01_2012.txt	1.00	nan	25.80	nan
