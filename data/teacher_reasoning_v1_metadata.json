@@ -1,0 +1,40 @@
+{
+  "seed": 42,
+  "output": "/home/sun0115/nanochat-learn/nanochat/data/teacher_reasoning_v1.jsonl",
+  "rows": 600,
+  "source_counts": {
+    "magpie-ultra": 300,
+    "orca-math": 300
+  },
+  "category_counts": {
+    "reasoning": 110,
+    "data-analysis": 90,
+    "information-seeking": 50,
+    "math": 350
+  },
+  "magpie_stats": {
+    "reasoning": 1122,
+    "data-analysis": 2625,
+    "information-seeking": 795,
+    "math": 2081,
+    "scanned": 25001
+  },
+  "orca_stats": {
+    "accepted": 24069,
+    "scanned": 25001
+  },
+  "magpie_quotas": {
+    "reasoning": 110,
+    "data-analysis": 90,
+    "information-seeking": 50,
+    "math": 50
+  },
+  "orca_target": 300,
+  "magpie_source": {
+    "dataset": "argilla/magpie-ultra-v1.0",
+    "config": "top_300k_shorter_conversations"
+  },
+  "orca_source": {
+    "dataset": "microsoft/orca-math-word-problems-200k"
+  }
+}
