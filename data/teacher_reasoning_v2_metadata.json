@@ -1,0 +1,53 @@
+{
+  "seed": 42,
+  "output": "/home/sun0115/nanochat-learn/nanochat/data/teacher_reasoning_v2.jsonl",
+  "rows": 520,
+  "source_counts": {
+    "open-thoughts-114k": 220,
+    "open-r1-math-220k": 180,
+    "magpie-ultra": 120
+  },
+  "category_counts": {
+    "math": 260,
+    "science": 60,
+    "puzzle": 50,
+    "general-reasoning": 30,
+    "reasoning": 50,
+    "data-analysis": 40,
+    "information-seeking": 30
+  },
+  "openthoughts_stats": {
+    "math": 78560,
+    "science": 3491,
+    "puzzle": 2986,
+    "general-reasoning": 1649,
+    "scanned": 113957
+  },
+  "openr1_stats": {
+    "accepted": 22168,
+    "scanned": 25001
+  },
+  "magpie_stats": {
+    "reasoning": 1804,
+    "data-analysis": 3505,
+    "information-seeking": 1016,
+    "scanned": 25001
+  },
+  "openthoughts_quotas": {
+    "math": 80,
+    "science": 60,
+    "puzzle": 50,
+    "general-reasoning": 30
+  },
+  "magpie_quotas": {
+    "reasoning": 50,
+    "data-analysis": 40,
+    "information-seeking": 30
+  },
+  "openr1_target": 180,
+  "sources": {
+    "open-thoughts-114k": "open-thoughts/OpenThoughts-114k",
+    "open-r1-math-220k": "open-r1/OpenR1-Math-220k",
+    "magpie-ultra": "argilla/magpie-ultra-v1.0 top_300k_shorter_conversations"
+  }
+}
