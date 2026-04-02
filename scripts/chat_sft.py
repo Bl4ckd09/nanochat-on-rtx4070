@@ -86,8 +86,8 @@ parser.add_argument("--no-save-optimizer", action="store_true", help="Skip savin
 # Gradient clipping
 parser.add_argument("--max-grad-norm", type=float, default=0.0, help="Max gradient norm for clipping (0 = disable)")
 parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
-parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1", "reasoning_focus_v2", "reasoning_focus_v3", "reasoning_focus_v4", "reasoning_curated_v1", "reasoning_manual_v1", "curriculum_boost_v1", "curriculum_boost_v2"], help="training dataset mixture preset")
-parser.add_argument("--manual-reasoning-jsonl", type=str, default=os.environ.get("MANUAL_REASONING_JSONL", ""), help="path to a manually curated reasoning/chat JSONL file used by reasoning_manual_v1")
+parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1", "reasoning_focus_v2", "reasoning_focus_v3", "reasoning_focus_v4", "reasoning_curated_v1", "reasoning_manual_v1", "reasoning_manual_v2", "curriculum_boost_v1", "curriculum_boost_v2"], help="training dataset mixture preset")
+parser.add_argument("--manual-reasoning-jsonl", type=str, default=os.environ.get("MANUAL_REASONING_JSONL", ""), help="path to a manually curated reasoning/chat JSONL file used by reasoning_manual_v1 or reasoning_manual_v2")
 args = parser.parse_args()
 assert args.keep_best_k >= 1, f"--keep-best-k must be >= 1, got {args.keep_best_k}"
 user_config = vars(args).copy()
@@ -201,6 +201,16 @@ def build_train_dataset(base_dir, preset):
             MMLU(subset="auxiliary_train", split="train"),
             # Keep only a small amount of generic chat glue.
             SmolTalk(split="train", stop=20000),
+        ])
+    if preset == "reasoning_manual_v2":
+        return TaskMixture([
+            # Broader curated data, lower oversampling pressure, and the same stable reasoning backbone.
+            CustomJSON(filepath=manual_reasoning_jsonl),
+            CustomJSON(filepath=manual_reasoning_jsonl),
+            GSM8K(subset="main", split="train"),
+            GSM8K(subset="main", split="train"),
+            MMLU(subset="auxiliary_train", split="train"),
+            SmolTalk(split="train", stop=10000),
         ])
     if preset == "curriculum_boost_v1":
         return TaskMixture([
