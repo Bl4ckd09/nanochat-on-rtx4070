@@ -15,19 +15,18 @@ from datasets import load_dataset
 DEFAULT_OUT = Path(__file__).with_name("teacher_reasoning_v1.jsonl")
 DEFAULT_META = Path(__file__).with_name("teacher_reasoning_v1_metadata.json")
 
-MAGPIE_QUOTAS = {
+DEFAULT_MAGPIE_QUOTAS = {
     "reasoning": 110,
     "data-analysis": 90,
     "information-seeking": 50,
     "math": 50,
 }
-ALLOWED_MAGPIE_CATEGORIES = set(MAGPIE_QUOTAS)
 MIN_USER_CHARS = 40
 MAX_USER_CHARS = 800
 MIN_ASSISTANT_CHARS = 40
 MAX_ASSISTANT_CHARS = 1600
 MIN_REWARD = 0.14
-ORCA_TARGET = 300
+DEFAULT_ORCA_TARGET = 300
 ORCA_SCAN_LIMIT = 25000
 MAGPIE_SCAN_LIMIT = 25000
 
@@ -100,24 +99,25 @@ def push_topk(heap: List[Tuple[int, Candidate]], k: int, score: int, cand: Candi
             heapq.heapreplace(heap, item)
 
 
-def collect_magpie(seed: int) -> Tuple[List[Candidate], Dict[str, int]]:
+def collect_magpie(seed: int, magpie_quotas: Dict[str, int]) -> Tuple[List[Candidate], Dict[str, int]]:
+    allowed_magpie_categories = set(magpie_quotas)
     ds = load_dataset(
         "argilla/magpie-ultra-v1.0",
         "top_300k_shorter_conversations",
         split="train",
         streaming=True,
     )
-    heaps: Dict[str, List[Tuple[int, Candidate]]] = {cat: [] for cat in MAGPIE_QUOTAS}
+    heaps: Dict[str, List[Tuple[int, Candidate]]] = {cat: [] for cat in magpie_quotas}
     seen = set()
     scanned = 0
-    accepted = {cat: 0 for cat in MAGPIE_QUOTAS}
+    accepted = {cat: 0 for cat in magpie_quotas}
 
     for ex in ds:
         scanned += 1
         if scanned > MAGPIE_SCAN_LIMIT:
             break
         category = ex.get("category")
-        if category not in ALLOWED_MAGPIE_CATEGORIES:
+        if category not in allowed_magpie_categories:
             continue
         reward = float(ex.get("reward_model_score") or 0.0)
         if reward < MIN_REWARD:
@@ -147,7 +147,7 @@ def collect_magpie(seed: int) -> Tuple[List[Candidate], Dict[str, int]]:
             ],
         )
         score = stable_score(seed, f"magpie:{category}:{user}")
-        push_topk(heaps[category], MAGPIE_QUOTAS[category], score, cand)
+        push_topk(heaps[category], magpie_quotas[category], score, cand)
 
     selected = []
     for _, heap in heaps.items():
@@ -156,7 +156,7 @@ def collect_magpie(seed: int) -> Tuple[List[Candidate], Dict[str, int]]:
     return selected, {**accepted, "scanned": scanned}
 
 
-def collect_orca(seed: int) -> Tuple[List[Candidate], Dict[str, int]]:
+def collect_orca(seed: int, orca_target: int) -> Tuple[List[Candidate], Dict[str, int]]:
     ds = load_dataset(
         "microsoft/orca-math-word-problems-200k",
         split="train",
@@ -190,7 +190,7 @@ def collect_orca(seed: int) -> Tuple[List[Candidate], Dict[str, int]]:
             ],
         )
         score = stable_score(seed, f"orca:{user}")
-        push_topk(heap, ORCA_TARGET, score, cand)
+        push_topk(heap, orca_target, score, cand)
 
     selected = [c for _, c in sorted(heap, key=lambda x: -x[0])]
     return selected, {"accepted": accepted, "scanned": scanned}
@@ -201,10 +201,22 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--metadata", type=Path, default=DEFAULT_META)
+    parser.add_argument("--magpie-reasoning", type=int, default=DEFAULT_MAGPIE_QUOTAS["reasoning"])
+    parser.add_argument("--magpie-data-analysis", type=int, default=DEFAULT_MAGPIE_QUOTAS["data-analysis"])
+    parser.add_argument("--magpie-information-seeking", type=int, default=DEFAULT_MAGPIE_QUOTAS["information-seeking"])
+    parser.add_argument("--magpie-math", type=int, default=DEFAULT_MAGPIE_QUOTAS["math"])
+    parser.add_argument("--orca-target", type=int, default=DEFAULT_ORCA_TARGET)
     args = parser.parse_args()
 
-    magpie, magpie_stats = collect_magpie(args.seed)
-    orca, orca_stats = collect_orca(args.seed)
+    magpie_quotas = {
+        "reasoning": args.magpie_reasoning,
+        "data-analysis": args.magpie_data_analysis,
+        "information-seeking": args.magpie_information_seeking,
+        "math": args.magpie_math,
+    }
+
+    magpie, magpie_stats = collect_magpie(args.seed, magpie_quotas)
+    orca, orca_stats = collect_orca(args.seed, args.orca_target)
 
     all_rows = []
     seen = set()
@@ -233,8 +245,8 @@ def main() -> int:
         "category_counts": category_counts,
         "magpie_stats": magpie_stats,
         "orca_stats": orca_stats,
-        "magpie_quotas": MAGPIE_QUOTAS,
-        "orca_target": ORCA_TARGET,
+        "magpie_quotas": magpie_quotas,
+        "orca_target": args.orca_target,
         "magpie_source": {
             "dataset": "argilla/magpie-ultra-v1.0",
             "config": "top_300k_shorter_conversations",

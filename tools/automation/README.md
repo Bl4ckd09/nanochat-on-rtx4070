@@ -23,20 +23,20 @@ If your layout differs, update these path variables inside each script before ru
 
 ## High-value scripts
 
-- `run_base_eval_core_resilient.sh`  
+- `run_base_eval_core_resilient.sh`
   Runs base eval, and if CORE crashes on long prompts, reruns with fixed overflow policy:
   `--core-overflow-policy skip --core-max-seq-len 5120`.
 
-- `auto_rerun_baseeval_on_fail.sh`  
+- `auto_rerun_baseeval_on_fail.sh`
   Watches a PID/log and triggers resilient base eval rerun when needed.
 
-- `run_chat_eval_confirm_1k.sh`  
+- `run_chat_eval_confirm_1k.sh`
   Runs 1k confirmation eval pack with Wilson CI summary output.
 
-- `run_post_base_next_steps.sh`  
+- `run_post_base_next_steps.sh`
   End-to-end post-base pipeline (compare candidates, optional gap fills, champion selection, optional phase 2).
 
-- `run_additional_eval_suite.sh`  
+- `run_additional_eval_suite.sh`
   Runs ARC/ChatCORE/HumanEval plus resilient base-side eval in one script.
 
 - `run_reasoning_manual_v1.sh`
@@ -44,6 +44,9 @@ If your layout differs, update these path variables inside each script before ru
 
 - `run_reasoning_manual_v2.sh`
   Runs the broader `manual_reasoning_v2` branch with fixed `s768`, deterministic mode, W&B online, and a 2-seed promotion rule against the current provisional champion.
+
+- `run_teacher_reasoning_v1b.sh`
+  Runs the first teacher-generated reasoning branch with fixed `s768`, deterministic mode, W&B online, a 2-seed promotion rule, and the rebalanced `teacher_reasoning_v1b` dataset.
 
 - `watch_reasoning_manual_v1_ready.sh`
   Waits until the curated manual JSONL reaches the required row count, then launches `reasoning_manual_v1` automatically with OOM-safe geometry fallbacks and writes a final chain decision.

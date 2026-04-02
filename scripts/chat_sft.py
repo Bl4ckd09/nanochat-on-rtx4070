@@ -86,8 +86,8 @@ parser.add_argument("--no-save-optimizer", action="store_true", help="Skip savin
 # Gradient clipping
 parser.add_argument("--max-grad-norm", type=float, default=0.0, help="Max gradient norm for clipping (0 = disable)")
 parser.add_argument("--gradient-checkpoint", action="store_true", help="Enable gradient checkpointing (recompute activations in backward to save VRAM)")
-parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1", "reasoning_focus_v2", "reasoning_focus_v3", "reasoning_focus_v4", "reasoning_curated_v1", "reasoning_manual_v1", "reasoning_manual_v2", "curriculum_boost_v1", "curriculum_boost_v2"], help="training dataset mixture preset")
-parser.add_argument("--manual-reasoning-jsonl", type=str, default=os.environ.get("MANUAL_REASONING_JSONL", ""), help="path to a manually curated reasoning/chat JSONL file used by reasoning_manual_v1 or reasoning_manual_v2")
+parser.add_argument("--dataset-preset", type=str, default="default", choices=["default", "general_chat_reasoning", "reasoning_focus_v1", "reasoning_focus_v2", "reasoning_focus_v3", "reasoning_focus_v4", "reasoning_curated_v1", "reasoning_manual_v1", "reasoning_manual_v2", "teacher_reasoning_v1b", "curriculum_boost_v1", "curriculum_boost_v2"], help="training dataset mixture preset")
+parser.add_argument("--manual-reasoning-jsonl", type=str, default=os.environ.get("MANUAL_REASONING_JSONL", ""), help="path to a curated or teacher-generated reasoning/chat JSONL file used by custom reasoning presets")
 args = parser.parse_args()
 assert args.keep_best_k >= 1, f"--keep-best-k must be >= 1, got {args.keep_best_k}"
 user_config = vars(args).copy()
@@ -123,7 +123,14 @@ def build_bnb_optimizer(param_groups, paged=False):
 
 def build_train_dataset(base_dir, preset):
     identity_conversations_filepath = os.path.join(base_dir, "identity_conversations.jsonl")
-    manual_reasoning_jsonl = args.manual_reasoning_jsonl or os.path.join(base_dir, "data", "manual_reasoning_chat_v1.jsonl")
+    if args.manual_reasoning_jsonl:
+        manual_reasoning_jsonl = args.manual_reasoning_jsonl
+    elif preset == "reasoning_manual_v2":
+        manual_reasoning_jsonl = os.path.join(base_dir, "data", "manual_reasoning_chat_v2.jsonl")
+    elif preset == "teacher_reasoning_v1b":
+        manual_reasoning_jsonl = os.path.join(base_dir, "data", "teacher_reasoning_v1b.jsonl")
+    else:
+        manual_reasoning_jsonl = os.path.join(base_dir, "data", "manual_reasoning_chat_v1.jsonl")
     if preset == "default":
         return TaskMixture([
             SmolTalk(split="train"), # 460K rows of general conversations
@@ -211,6 +218,15 @@ def build_train_dataset(base_dir, preset):
             GSM8K(subset="main", split="train"),
             MMLU(subset="auxiliary_train", split="train"),
             SmolTalk(split="train", stop=10000),
+        ])
+    if preset == "teacher_reasoning_v1b":
+        return TaskMixture([
+            # Teacher-generated reasoning data dominates this branch, with one GSM8K and one MMLU anchor.
+            CustomJSON(filepath=manual_reasoning_jsonl),
+            CustomJSON(filepath=manual_reasoning_jsonl),
+            GSM8K(subset="main", split="train"),
+            MMLU(subset="auxiliary_train", split="train"),
+            SmolTalk(split="train", stop=5000),
         ])
     if preset == "curriculum_boost_v1":
         return TaskMixture([
