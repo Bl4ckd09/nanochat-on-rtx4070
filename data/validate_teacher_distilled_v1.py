@@ -11,7 +11,10 @@ DEFAULT_RAW = Path(__file__).with_name("teacher_distilled_v1_raw.jsonl")
 ALLOWED_CATEGORIES = {
     "math",
     "science",
+    "puzzle",
     "logic",
+    "reasoning",
+    "general_reasoning",
     "grounded_qa",
     "comparison",
     "data_analysis",

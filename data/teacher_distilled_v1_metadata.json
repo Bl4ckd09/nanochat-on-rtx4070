@@ -1,29 +1,29 @@
 {
   "input": "/home/sun0115/nanochat-learn/nanochat/data/teacher_distilled_v1_raw.jsonl",
   "output": "/home/sun0115/nanochat-learn/nanochat/data/teacher_distilled_v1.jsonl",
-  "rows_in_raw": 12,
-  "rows_emitted": 12,
+  "rows_in_raw": 203,
+  "rows_emitted": 203,
   "rows_dropped": 0,
   "include_medium": false,
   "category_counts": {
-    "comparison": 1,
-    "data_analysis": 1,
-    "format_following": 1,
-    "grounded_qa": 1,
-    "information_seeking": 1,
-    "logic": 1,
-    "math": 2,
-    "planning": 1,
-    "safety": 1,
-    "science": 2
+    "grounded_qa": 20,
+    "logic": 30,
+    "math": 40,
+    "puzzle": 50,
+    "reasoning": 3,
+    "science": 60
   },
   "source_counts": {
-    "scaffold_seed": 12
+    "magpie-ultra": 3,
+    "open-r1-math-220k": 40,
+    "open-thoughts-114k": 160
   },
   "teacher_model_counts": {
-    "manual_seed": 12
+    "llama-3.1-405b-instruct": 3,
+    "open-r1-source": 40,
+    "open-thoughts-source": 160
   },
   "quality_counts": {
-    "high": 12
+    "high": 203
   }
 }
