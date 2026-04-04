@@ -1,0 +1,68 @@
+{
+  "seed": 42,
+  "output": "/home/sun0115/nanochat-learn/nanochat/data/teacher_distilled_v2_raw.jsonl",
+  "rows": 278,
+  "source_counts": {
+    "magpie-ultra": 100,
+    "manual_reasoning_v1": 13,
+    "open-r1-math-220k": 35,
+    "open-thoughts-114k": 130
+  },
+  "category_counts": {
+    "data_analysis": 30,
+    "grounded_qa": 18,
+    "information_seeking": 20,
+    "logic": 28,
+    "math": 39,
+    "puzzle": 40,
+    "reasoning": 51,
+    "science": 52
+  },
+  "openthoughts_stats": {
+    "science": 3011,
+    "puzzle": 1912,
+    "logic": 113,
+    "grounded_qa": 44065,
+    "scanned": 113957
+  },
+  "openr1_stats": {
+    "accepted": 33216,
+    "scanned": 50001
+  },
+  "magpie_stats": {
+    "reasoning": 1456,
+    "data-analysis": 3565,
+    "information-seeking": 565,
+    "scanned": 50001
+  },
+  "manual_stats": {
+    "math": 14,
+    "logic": 4,
+    "science": 2,
+    "grounded_qa": 58,
+    "information_seeking": 0,
+    "reasoning": 7,
+    "scanned": 104
+  },
+  "openthoughts_quotas": {
+    "science": 50,
+    "puzzle": 40,
+    "logic": 25,
+    "grounded_qa": 15
+  },
+  "magpie_quotas": {
+    "reasoning": 50,
+    "data-analysis": 30,
+    "information-seeking": 20
+  },
+  "openr1_target": 35,
+  "manual_target": 15,
+  "filters": {
+    "magpie_min_reward": 0.17,
+    "max_assistant_chars": 850,
+    "max_assistant_words": 130,
+    "mcq_filtered": true,
+    "short_answer_normalized": true,
+    "code_filtered": true
+  }
+}

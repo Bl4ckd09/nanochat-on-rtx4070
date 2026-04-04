@@ -57,6 +57,9 @@ If your layout differs, update these path variables inside each script before ru
 - `run_teacher_distilled_v1.sh`
   Validates a richer raw teacher-distilled JSONL, builds the flat training JSONL, enforces a minimum raw-row guard, and then launches the fixed-`s768`, deterministic, W&B-online 2-seed sweep against the current provisional champion.
 
+- `run_teacher_distilled_v2.sh`
+  Builds the broader `teacher_distilled_v2` raw pool, enforces source-balance launch criteria (`Magpie` minimum, math cap, category-share caps), builds the flat training JSONL, and launches the fixed-`s768`, deterministic, W&B-online 2-seed sweep.
+
 - `watch_reasoning_manual_v1_ready.sh`
   Waits until the curated manual JSONL reaches the required row count, then launches `reasoning_manual_v1` automatically with OOM-safe geometry fallbacks and writes a final chain decision.
 
