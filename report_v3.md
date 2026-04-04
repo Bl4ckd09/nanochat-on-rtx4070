@@ -47,6 +47,7 @@ Best observed unstable manual-data result as of `2026-04-02`:
 | 2026-04-01 13:15 / 14:28 | `reasoning_manual_v1_seed42_2026-04-01_1315_s768_gc` | `d24_asp48_track @ 820230` | Same partial FT backbone, `reasoning_manual_v1`, `seq=768`, `tb=7680`, `iters=300`, manual curated JSONL mixed with GSM8K/MMLU/SmolTalk | 300 | 0.8081 | 6.70% (`67/1000`) | 27.60% (`276/1000`) | 0.00% (`0/256`) | completed, best observed but unstable | Strongest single-run reasoning result so far, but the companion seed in the same sweep failed quick gate, so the recipe did not satisfy the promotion rule |
 | 2026-04-01 22:16 / 23:22 | `reasoning_manual_v1_fixeds768_seed44_2026-04-01_2216_s768_gc` | `d24_asp48_track @ 820230` | Fixed-geometry replication of `reasoning_manual_v1` on direct `s768` only | 300 | 0.8056 | 6.20% (`62/1000`) | 26.30% (`263/1000`) | 0.00% (`0/256`) | completed, replication miss | Replication preserved high GSM8K but lost too much MMLU to clear the promotion band; second seed in the sweep also failed quick gate |
 | 2026-04-02 06:44 / 09:01 | `reasoning_manual_v2` | `d24_asp48_track @ 820230` | Same partial FT backbone, fixed `s768`, `reasoning_manual_v2`, deterministic, `300` steps, broader manual set with lower manual oversampling | 300 | seed42 `0.8767`, seed43 `0.8626` | pass@8 skipped; pass@1 `0.40%` / `0.20%` | 25.40% / 23.00% | skipped | completed, quick-gate fail | Broader manual coverage plus reduced manual oversampling removed the earlier `manual_v1` spike behavior but did not preserve enough MMLU to reach full confirm on either seed |
+| 2026-04-02 18:11 / 20:01 | `teacher_reasoning_v2` | `d24_asp48_track @ 820230` | Same partial FT backbone, fixed `s768`, deterministic, teacher-selected mix from `OpenThoughts-114k`, `OpenR1-Math-220k`, and filtered `Magpie-Ultra`, `300` steps | 300 | seed42 `1.0136`, seed43 `1.0484` | pass@8 skipped; pass@1 `0.00%` / `0.40%` | 26.40% / 26.40% | skipped | completed, quick-gate fail | Infrastructure recovered after the initial disk-full crash, but the actual rerun still failed both quick gates; this teacher blend did not beat the champion band and is not the right data construction yet |
 
 Supporting logs:
 
@@ -75,6 +76,7 @@ Supporting logs:
 - `reasoning_manual_v1` produced the best observed single reasoning run (`6.70%` GSM8K pass@8, `27.60%` MMLU), but the sweep still ended `hold_provisional`: `/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_2026-04-01_1315_decision.md`
 - Fixed-`s768` replication of `reasoning_manual_v1` also ended `hold_provisional`: `/home/sun0115/nanochat-learn/notes/reasoning_manual_v1_fixeds768_2026-04-01_2216_decision.md`
 - `reasoning_manual_v2` failed both seeds at the `500`-problem quick gate and never reached full confirm: `/home/sun0115/nanochat-learn/notes/reasoning_manual_v2_2026-04-02_0644_decision.md`
+- `teacher_reasoning_v2` also failed both seeds at the `500`-problem quick gate after the disk-space issue was fixed and the branch reran cleanly: `/home/sun0115/nanochat-learn/notes/teacher_reasoning_v2_2026-04-02_1811_decision.md`
 
 Interpretation:
 
@@ -88,6 +90,7 @@ Interpretation:
 - That best run remains provisional. Repeats, seed sweeps, later static mix variants, and two-stage booster follow-ups all failed to beat or stably reproduce it. The limitation is now recipe robustness and data quality, not raw VRAM fit.
 - The manual curated branch is the first post-`mixv2` path that clearly exceeded the champion on GSM8K in a single run, but it still did not replicate strongly enough to replace the provisional champion. The remaining bottleneck is stability under repeat runs, not GPU fit.
 - `manual_reasoning_v2` suggests that simply broadening the manual set and reducing oversampling is not enough by itself. The strongest remaining lever is likely higher-quality selected or teacher-generated reasoning data rather than more local `mixvN`-style sweeps.
+- `teacher_reasoning_v2` is useful negative evidence: simply blending `OpenThoughts`, `OpenR1`, and `Magpie` is not enough. The next teacher branch needs stricter filtering, shorter-answer normalization, and tighter breadth/math quotas instead of another raw-source remix.
 
 ## Recommendation
 
@@ -100,4 +103,4 @@ Interpretation:
 7. Stop same-family `mixvN`, booster, and longer-duration sweeps on this exact backbone. The current bottleneck is no longer base capacity or raw memory fit; it is recipe robustness and data quality.
 8. Treat this `d24/r32` partial-FT recipe family as near-saturated on the current `RTX 4070` setup unless you introduce a materially different lever such as selected or teacher-generated reasoning data, a separate specialist branch, or stronger hardware.
 9. Treat `r40` as an archive/ablation checkpoint, not the promotion branch. If you want another base-only attempt later, change the late-phase recipe first instead of extending ratio again as-is.
-10. The next real improvement path is a teacher-synthetic reasoning branch, not another local manual-vN or static mix sweep. Build a larger reasoning set with stronger breadth and strategy diversity, then select/filter it before retraining the same stable `s768` backbone.
+10. The next real improvement path is `teacher_reasoning_v3`: a stricter teacher-synthetic reasoning branch with shorter answers, lower math dominance, and explicit filtering for concise final-answer style. Do not rerun `teacher_reasoning_v2` as-is.
