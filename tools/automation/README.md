@@ -51,6 +51,9 @@ If your layout differs, update these path variables inside each script before ru
 - `run_teacher_reasoning_v2.sh`
   Runs the next teacher-selected reasoning branch with fixed `s768`, deterministic mode, W&B online, a 2-seed promotion rule, and the `teacher_reasoning_v2` dataset built from `OpenThoughts-114k`, `OpenR1-Math-220k`, and filtered `Magpie-Ultra`.
 
+- `run_teacher_reasoning_v3.sh`
+  Runs the stricter teacher-selected reasoning branch with fixed `s768`, deterministic mode, W&B online, a 2-seed promotion rule, and the `teacher_reasoning_v3` dataset built with shorter-answer normalization and lower math dominance.
+
 - `watch_reasoning_manual_v1_ready.sh`
   Waits until the curated manual JSONL reaches the required row count, then launches `reasoning_manual_v1` automatically with OOM-safe geometry fallbacks and writes a final chain decision.
 

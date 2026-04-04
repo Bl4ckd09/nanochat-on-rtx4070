@@ -1,0 +1,60 @@
+{
+  "seed": 42,
+  "output": "/home/sun0115/nanochat-learn/nanochat/data/teacher_reasoning_v3.jsonl",
+  "rows": 420,
+  "source_counts": {
+    "open-thoughts-114k": 180,
+    "open-r1-math-220k": 120,
+    "magpie-ultra": 120
+  },
+  "category_counts": {
+    "math": 148,
+    "science": 60,
+    "puzzle": 50,
+    "general-reasoning": 42,
+    "reasoning": 45,
+    "data-analysis": 45,
+    "information-seeking": 30
+  },
+  "openthoughts_stats": {
+    "math": 35926,
+    "science": 3369,
+    "puzzle": 2508,
+    "general-reasoning": 34228,
+    "scanned": 113957
+  },
+  "openr1_stats": {
+    "accepted": 27242,
+    "scanned": 30001
+  },
+  "magpie_stats": {
+    "reasoning": 504,
+    "data-analysis": 945,
+    "information-seeking": 94,
+    "scanned": 30001
+  },
+  "openthoughts_quotas": {
+    "math": 28,
+    "science": 60,
+    "puzzle": 50,
+    "general-reasoning": 42
+  },
+  "magpie_quotas": {
+    "reasoning": 45,
+    "data-analysis": 45,
+    "information-seeking": 30
+  },
+  "openr1_target": 120,
+  "filters": {
+    "max_user_chars": 700,
+    "max_assistant_chars": 900,
+    "max_assistant_words": 220,
+    "min_reward": 0.18,
+    "style": "short-answer normalized"
+  },
+  "sources": {
+    "open-thoughts-114k": "open-thoughts/OpenThoughts-114k",
+    "open-r1-math-220k": "open-r1/OpenR1-Math-220k",
+    "magpie-ultra": "argilla/magpie-ultra-v1.0 top_300k_shorter_conversations"
+  }
+}
