@@ -10,3 +10,4 @@ eval_bundle/
 # Local setup
 CLAUDE.md
 wandb/
+notes/bookmark_index.json
