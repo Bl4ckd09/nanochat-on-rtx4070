@@ -5,6 +5,7 @@
 **What happens when you take an 8×H100 speedrun codebase and force it onto one 12 GB consumer GPU — for 530 GPU-hours.**
 
 [![Base model on HF](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-nanochat--d24--base--champion-yellow)](https://huggingface.co/Marcolini/nanochat-d24-base-champion)
+[![Chat model on HF](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-nanochat--d24--chat--champion-yellow)](https://huggingface.co/Marcolini/nanochat-d24-chat-champion)
 [![W&B](https://img.shields.io/badge/Weights%20%26%20Biases-183%20runs-FFBE00?logo=weightsandbiases&logoColor=black)](https://wandb.ai/sunshines-gmail-com/projects)
 [![Upstream](https://img.shields.io/badge/fork%20of-karpathy%2Fnanochat-black?logo=github)](https://github.com/karpathy/nanochat)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -22,13 +23,13 @@ The answer, after ~530 logged GPU-hours across 183 tracked runs:
 | | Result |
 |---|---|
 | **Best base model** | `d24_asp48_track` @ step 820,230 — **910.7 M params**, val bpb **0.9199**, CORE **0.1514** |
-| **Best chat model** | partial-FT `mixv2` @ step 300 — GSM8K pass@8 **4.60%**, MMLU **27.40%**, SpellingBee **0.39%** |
+| **Best chat model** | partial-FT `mixv2` @ step 300 — GSM8K pass@8 **4.60%**, MMLU **27.40%**, SpellingBee **0.39%** — **provisional** (replication failed, 3-seed sweep 0/3) |
 | **Peak memory headroom** | 910 M-param training fits in 12 GB via grad checkpointing + an automatic batch-size OOM ladder (4 → 2 → 1) |
 | **Honest ceiling** | CORE 0.1514 vs GPT-2's 0.2565. This does **not** beat GPT-2. It gets ~59% of the way there on 1/8th of one node. |
 
 The interesting output of this project is not a leaderboard entry — it is the **infrastructure and the negative results**: a resumable, OOM-resilient, W&B-instrumented training stack, plus 14 documented failed recipes that map the actual ceiling of this hardware.
 
-**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B report](https://wandb.ai/sunshines-gmail-com/nanochat/reports/910M-parameters-on-12GB:-what-530-GPU-hours-of-nanochat-on-an-RTX-4070-actually-buys--VmlldzoxNzg5NDA0Mg==) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
+**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [chat model (provisional)](https://huggingface.co/Marcolini/nanochat-d24-chat-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B report](https://wandb.ai/sunshines-gmail-com/nanochat/reports/910M-parameters-on-12GB:-what-530-GPU-hours-of-nanochat-on-an-RTX-4070-actually-buys--VmlldzoxNzg5NDA0Mg==) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
 
 ---
 
