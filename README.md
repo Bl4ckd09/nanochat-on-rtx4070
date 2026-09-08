@@ -28,7 +28,7 @@ The answer, after ~530 logged GPU-hours across 183 tracked runs:
 
 The interesting output of this project is not a leaderboard entry — it is the **infrastructure and the negative results**: a resumable, OOM-resilient, W&B-instrumented training stack, plus 14 documented failed recipes that map the actual ceiling of this hardware.
 
-**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
+**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B report](https://wandb.ai/sunshines-gmail-com/nanochat/reports/910M-parameters-on-12GB:-what-530-GPU-hours-of-nanochat-on-an-RTX-4070-actually-buys--VmlldzoxNzg5NDA0Mg==) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
 
 ---
 
@@ -247,13 +247,18 @@ If a run dies on VRAM, do not lower the batch size by hand — the automation sc
 
 ## Using the model
 
+The Hugging Face repo ships **weights only**. There is no `tokenizer.json`. `load_example.py` takes **no arguments** and reads `config.json` plus `model.safetensors` from the working directory.
+
 ```bash
-pip install torch safetensors tokenizers huggingface_hub
-huggingface-cli download Marcolini/nanochat-d24-base-champion --local-dir ./ckpt
-python load_example.py --ckpt ./ckpt
+git clone https://github.com/Bl4ckd09/nanochat-on-rtx4070
+cd nanochat-on-rtx4070
+pip install torch safetensors huggingface_hub
+
+python -c "from huggingface_hub import snapshot_download as d; d('Marcolini/nanochat-d24-base-champion', local_dir='ckpt')"
+cd ckpt && PYTHONPATH=.. python load_example.py
 ```
 
-This is **not** a stock `transformers` model: rotary embeddings, QK-norm, relu² MLP, untied embeddings, GQA, ResFormer value embeddings, and per-layer `resid_lambdas` / `x0_lambdas` scalars. Load it with the nanochat `GPT` class from this repo.
+This is **not** a stock `transformers` model: rotary embeddings, QK-norm, relu² MLP, untied embeddings, GQA, ResFormer value embeddings, and per-layer `resid_lambdas` / `x0_lambdas` scalars. Load it with the nanochat `GPT` class from this repo. The matching 32,768-vocab tokenizer lives in this repo, not in the Hub snapshot.
 
 ---
 
