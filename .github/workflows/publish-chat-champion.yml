@@ -44,7 +44,7 @@ jobs:
       - name: Install CPU torch
         run: |
           pip install --index-url https://download.pytorch.org/whl/cpu torch
-          pip install safetensors huggingface_hub
+          pip install numpy safetensors huggingface_hub
 
       - name: Convert and upload
         env:
