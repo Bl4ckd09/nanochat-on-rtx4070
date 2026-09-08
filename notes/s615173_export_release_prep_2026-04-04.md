@@ -6,9 +6,9 @@ Archived export:
 - local release prep dir: `/home/sun0115/nanochat-learn/exports/release_prep_d24_asp48_track_s615173_2026-04-04`
 
 Release target:
-- repo: `Bl4ckd09/nanochat-experiments`
+- repo: `Bl4ckd09/nanochat-on-rtx4070`
 - release tag: `archive-d24_asp48_track-s615173-2026-04-04`
-- release URL: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/archive-d24_asp48_track-s615173-2026-04-04`
+- release URL: `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/archive-d24_asp48_track-s615173-2026-04-04`
 
 Split assets:
 - `d24_asp48_track_s615173_2026-03-13_154421.tar.gz.part-00`

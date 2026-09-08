@@ -6,9 +6,9 @@ Current provisional champion export:
 - local release prep dir: `/home/sun0115/nanochat-learn/exports/release_prep_d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
 
 Release target:
-- repo: `Bl4ckd09/nanochat-experiments`
+- repo: `Bl4ckd09/nanochat-on-rtx4070`
 - release tag: `champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
-- release URL: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/untagged-3ca7e6148b0b37070403`
+- release URL: `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/untagged-3ca7e6148b0b37070403`
 
 Reason for split assets:
 - the full `.tar.gz` archive is larger than GitHub's per-asset `2 GiB` release limit

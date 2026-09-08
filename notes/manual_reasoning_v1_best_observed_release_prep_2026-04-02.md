@@ -1,9 +1,9 @@
 # Manual Reasoning v1 Best-Observed Release Prep 2026-04-02
 
 Release target:
-- repo: `Bl4ckd09/nanochat-experiments`
+- repo: `Bl4ckd09/nanochat-on-rtx4070`
 - release tag: `unstable-manual-reasoning-v1-seed42-2026-04-02`
-- release URL: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/unstable-manual-reasoning-v1-seed42-2026-04-02`
+- release URL: `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/unstable-manual-reasoning-v1-seed42-2026-04-02`
 
 Artifact:
 - local export dir: `/home/sun0115/nanochat-learn/exports/manual_reasoning_v1_seed42_best_observed_2026-04-02_0435`

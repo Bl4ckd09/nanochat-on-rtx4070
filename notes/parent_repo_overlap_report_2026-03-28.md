@@ -1,7 +1,7 @@
 # Parent vs Repo Overlap Report
 
 Generated: 2026-03-28 UTC
-Repo: `Bl4ckd09/nanochat-experiments`
+Repo: `Bl4ckd09/nanochat-on-rtx4070`
 Remote head checked: `5dbf896`
 
 ## Scope

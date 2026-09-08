@@ -43,7 +43,7 @@ Why provisional:
 - later `mixv3`, `mixv4`, curriculum, stage-B boosters, and curated-v1 failed to beat it
 
 Release:
-- `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
+- `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
 
 ## Export Rule
 

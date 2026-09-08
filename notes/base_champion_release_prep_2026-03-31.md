@@ -7,9 +7,9 @@ Base champion export:
 - local release prep dir: `/home/sun0115/nanochat-learn/exports/release_prep_base_champion_r32_820230_2026-03-31`
 
 Release target:
-- repo: `Bl4ckd09/nanochat-experiments`
+- repo: `Bl4ckd09/nanochat-on-rtx4070`
 - release tag: `base-champion-d24_asp48_track-r32-s820230-2026-03-31`
-- release URL: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/base-champion-d24_asp48_track-r32-s820230-2026-03-31`
+- release URL: `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/base-champion-d24_asp48_track-r32-s820230-2026-03-31`
 
 Reason for split assets:
 - the full archive and the weights-only archive both exceed GitHub's per-asset `2 GiB` release limit
