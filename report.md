@@ -1,6 +1,6 @@
 # Local Experiment Report (Bl4ckd09)
 
-This file summarizes local experiments run on top of `karpathy/nanochat` in this fork (`Bl4ckd09/nanochat-experiments`).
+This file summarizes local experiments run on top of `karpathy/nanochat` in this fork (`Bl4ckd09/nanochat-on-rtx4070`).
 
 ## 1) Lineage
 
