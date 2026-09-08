@@ -51,9 +51,10 @@ THEMES = {
 GPT2_CORE = 0.256525
 
 # --------------------------------------------------------------------------
-# Ground truth from the fixed skip5120 base-eval path and the 1000-problem
-# confirm packs. Used directly for the milestone charts, and as the fallback
-# when W&B is unreachable.
+# Ground truth from base_eval.py and the 1000-problem confirm packs. CORE via
+# the skip5120 path, bits-per-byte via --split-tokens at 20,971,520 per split.
+# Used directly for the milestone charts, and as the fallback when W&B is
+# unreachable.
 # --------------------------------------------------------------------------
 
 BASE_SEGMENTS = [
@@ -195,7 +196,7 @@ def chart_base_val_bpb(outdir, mode, series):
     fig, ax = new_fig(theme, (9.0, 5.2))
     titles(fig, theme,
            "Validation bits-per-byte across three base continuations",
-           "d24_asp48_track, 910.7M params, 1x RTX 4070 12GB · fixed skip5120 base-eval path · lower is better")
+           "d24_asp48_track, 910.7M params, 1x RTX 4070 12GB · base_eval.py --split-tokens · lower is better")
 
     if series:
         for i, (name, rows) in enumerate(series[:4]):
