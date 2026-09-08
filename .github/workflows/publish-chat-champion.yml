@@ -1,0 +1,57 @@
+# One-shot: convert the mixv2 step-300 GitHub release to safetensors and
+# publish Marcolini/nanochat-d24-chat-champion. Safe to delete after it succeeds.
+# Sparse-checkout of tools/reporting only — a full clone would pull artifacts/ (~2.3 GB).
+name: publish-chat-champion
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          sparse-checkout: |
+            tools/reporting
+          sparse-checkout-cone-mode: true
+
+      - name: Download champion release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/ckpt"
+          gh release download champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948 \
+            -R Bl4ckd09/nanochat-on-rtx4070 -D "$HOME/ckpt"
+          cd "$HOME/ckpt"
+          ls -lh
+          cat d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948.tar.gz.part-* > champ.tar.gz
+          rm -f d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948.tar.gz.part-*
+          tar -tzf champ.tar.gz | head -50
+          tar -xzf champ.tar.gz
+          rm -f champ.tar.gz
+          find . -type f | sort
+          df -h
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install CPU torch
+        run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install safetensors huggingface_hub
+
+      - name: Convert and upload
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python tools/reporting/publish_chat_champion.py \
+            --ckpt-dir "$HOME/ckpt" \
+            --out "$HOME/chat_champion_export" \
+            --delete-source \
+            --publish
