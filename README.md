@@ -29,7 +29,7 @@ The answer, after ~530 logged GPU-hours across 183 tracked runs:
 
 The interesting output of this project is not a leaderboard entry — it is the **infrastructure and the negative results**: a resumable, OOM-resilient, W&B-instrumented training stack, plus 14 documented failed recipes that map the actual ceiling of this hardware.
 
-**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [chat model (provisional)](https://huggingface.co/Marcolini/nanochat-d24-chat-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B report](https://wandb.ai/sunshines-gmail-com/nanochat/reports/910M-parameters-on-12GB:-what-530-GPU-hours-of-nanochat-on-an-RTX-4070-actually-buys--VmlldzoxNzg5NDA0Mg==) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
+**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [r24, the unpromoted best-val-bpb checkpoint](https://huggingface.co/Marcolini/nanochat-d24-base-r24-s615173) · [chat model (provisional)](https://huggingface.co/Marcolini/nanochat-d24-chat-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B report](https://wandb.ai/sunshines-gmail-com/nanochat/reports/910M-parameters-on-12GB:-what-530-GPU-hours-of-nanochat-on-an-RTX-4070-actually-buys--VmlldzoxNzg5NDA0Mg==) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
 
 ---
 
