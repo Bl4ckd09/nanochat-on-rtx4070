@@ -1,3 +1,9 @@
+> This is the README this fork carried before the 2026-09 rewrite. It is mostly
+> upstream [karpathy/nanochat](https://github.com/karpathy/nanochat) documentation —
+> the speedrun, the leaderboard, the research scripts, the file map — with an older
+> fork-status section at the top. Kept for reference; the current README is at the
+> repository root.
+
 # nanochat
 
 ![nanochat logo](dev/nanochat.png)
@@ -16,7 +22,7 @@ For questions about the repo, I recommend either using [DeepWiki](https://deepwi
 
 This repository is a working fork of upstream nanochat:
 - Upstream source: `karpathy/nanochat` (`upstream` remote)
-- Fork remote: `Bl4ckd09/nanochat-experiments` (`origin` remote)
+- Fork remote: `Bl4ckd09/nanochat-on-rtx4070` (`origin` remote)
 - Canonical local checkpoint report: [`report_v3.md`](report_v3.md)
 - Fork-only automation and recovery scripts: [`tools/automation/README.md`](tools/automation/README.md)
 
@@ -100,8 +106,8 @@ Repo-side state notes:
 - [`notes/champion_release_prep_2026-03-31.md`](notes/champion_release_prep_2026-03-31.md)
 
 GitHub releases:
-- Base champion release: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/base-champion-d24_asp48_track-r32-s820230-2026-03-31`
-- Chat champion release: `https://github.com/Bl4ckd09/nanochat-experiments/releases/tag/champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
+- Base champion release: `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/base-champion-d24_asp48_track-r32-s820230-2026-03-31`
+- Chat champion release: `https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases/tag/champion-d24_r32_adamw_partial_fr20_mixv2_s768_s300_champion_2026-03-30_190948`
 
 Reconstruct the split archives after download:
 
