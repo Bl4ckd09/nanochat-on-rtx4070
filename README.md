@@ -28,7 +28,7 @@ The answer, after ~530 logged GPU-hours across 183 tracked runs:
 
 The interesting output of this project is not a leaderboard entry — it is the **infrastructure and the negative results**: a resumable, OOM-resilient, W&B-instrumented training stack, plus 14 documented failed recipes that map the actual ceiling of this hardware.
 
-**Artifacts:** [base model on 🤗 Hugging Face](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
+**Artifacts:** [base model](https://huggingface.co/Marcolini/nanochat-d24-base-champion) · [the eight SFT data mixes](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) · [W&B projects](https://wandb.ai/sunshines-gmail-com/projects) · [checkpoint releases](https://github.com/Bl4ckd09/nanochat-on-rtx4070/releases)
 
 ---
 
@@ -189,6 +189,8 @@ Fourteen recipe branches were run to completion and closed as failures. They are
 | `teacher_distilled_v1/v2` | distilled short-answer mixes, source-balance quotas | both failed the internal loss gate before external eval |
 
 **Conclusion drawn from the whole set:** the bottleneck stopped being VRAM around `mixv2`. It became recipe robustness and data quality. Further `mixvN`-style sweeps on this backbone have no expected value. The next real improvement requires a materially different lever — qualitatively better teacher data, a stronger base, different hardware, or narrow specialist branches instead of one generalist chat model.
+
+**The mixes themselves are published**, so the comparison can be checked rather than taken on trust: [`Marcolini/nanochat-rtx4070-sft-mixes`](https://huggingface.co/datasets/Marcolini/nanochat-rtx4070-sft-mixes) carries all eight as loadable configs, each with the result it produced.
 
 Full decision records: [`notes/project_state_2026-04-04.md`](notes/project_state_2026-04-04.md) · [`report_v3.md`](report_v3.md)
 
