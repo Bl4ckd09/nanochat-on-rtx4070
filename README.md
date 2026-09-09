@@ -147,7 +147,19 @@ Running week-long jobs on a desktop that you also use means failure handling has
 | 2026-03-19 | `d24_asp48_track` @ r32 | 910.7 M | same recipe continued to ratio 32 | 132.7 h | 0.8014 | 0.9199 | **0.1514** | ✅ **promoted base** |
 | 2026-03-27 | `d24_asp48_track` @ r40 | 910.7 M | same recipe continued to ratio 40 | 132.8 h | **0.7846** | 0.9244 | 0.1440 | archived ablation |
 
-*Compute time for r24/r32/r40 is the continuation segment measured from the trainer's cumulative clock between saved checkpoints, not a single uninterrupted run from step 0. All base-eval numbers use the fixed `skip5120` eval path — inline trainer validation is a different measurement and is not used for selection.*
+*Compute time for r24/r32/r40 is the continuation segment measured from the trainer's cumulative clock between saved checkpoints, not a single uninterrupted run from step 0.*
+
+**Every number in this table reproduces from a committed log.** CORE comes from `scripts/base_eval.py` on the fixed `skip5120` path. Bits-per-byte comes from the same script at 20,971,520 tokens per split (`--split-tokens`). The trainer's inline `val/bpb` samples 524,288 tokens, reads about 0.007 lower, and is not used for selection.
+
+All three d24 evals scored **91,032 examples across 22 CORE tasks and skipped 5**, the same 5 each time, in `bigbench_language_identification`. That is 0.0055%, so the overflow policy did not move any score and the three checkpoints compare like for like.
+
+| Checkpoint | Eval log | val bpb | CORE |
+|---|---|---:|---:|
+| r24 @ 615,173 | [`notes/…s615173_base_eval_skip5120_2026-03-12_2201.log`](notes/d24_asp48_track_s615173_base_eval_skip5120_2026-03-12_2201.log) | 0.908073 | 0.1494 |
+| r32 @ 820,230 | [`notes/…s820230_base_eval_skip5120_2026-03-19_0456.log`](notes/d24_asp48_track_s820230_base_eval_skip5120_2026-03-19_0456.log) | 0.919863 | 0.1514 |
+| r40 @ 1,025,288 | [`notes/…s1025288_base_eval_skip5120_2026-03-27_0459.log`](notes/d24_asp48_track_s1025288_base_eval_skip5120_2026-03-27_0459.log) | 0.924377 | 0.1440 |
+
+Each log carries per-task accuracy, centered score, evaluated and skipped counts, and wall time for all 22 tasks.
 
 ### SFT / chat
 
