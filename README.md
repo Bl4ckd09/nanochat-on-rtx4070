@@ -234,13 +234,18 @@ bash tools/automation/run_sft_adamw_control_nextbest.sh   # partial FT, freeze_l
 bash tools/automation/run_chat_eval_confirm_1k.sh <run_tag>  # 1000-problem confirm pack
 ```
 
-Regenerate every chart in this README from W&B:
+Regenerate every chart in this README:
 
 ```bash
-python tools/reporting/export_wandb_charts.py --entity sunshines-gmail-com
-# or, without W&B access, chart the committed milestone tables:
 python tools/reporting/export_wandb_charts.py --offline
 ```
+
+`--offline` is the correct mode and the one that produced the committed PNGs. The
+script also has a live mode (`--entity sunshines-gmail-com`), but do not use it for
+these figures. `scripts/base_eval.py` has no W&B wiring, so the published CORE and
+bits-per-byte numbers are not in W&B at all. Live mode plots the trainer's inline
+`val/bpb` instead, which is a different measurement, and it cannot draw r24 because
+that continuation was never logged.
 
 It writes light- and dark-mode PNG pairs into `docs/images/`, which is why the charts above adapt to your GitHub theme.
 
